@@ -28,3 +28,6 @@
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundle/snipmate_django"]
+	path = bundle/snipmate_django
+	url = https://github.com/tuxcanfly/snipmate_for_django.git
