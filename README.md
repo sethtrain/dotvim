@@ -15,3 +15,9 @@ Setup
     $ cd .vim
     $ git submodule init
     $ git submodule update
+
+Command-T
+---------
+
+    $ cd ~/.vim/bundle/command-t
+    $ rake make
