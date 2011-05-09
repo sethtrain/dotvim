@@ -31,3 +31,6 @@
 [submodule "bundle/snipmate_django"]
 	path = bundle/snipmate_django
 	url = https://github.com/tuxcanfly/snipmate_for_django.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/Command-T.git
