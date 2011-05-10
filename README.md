@@ -21,3 +21,8 @@ Command-T
 
     $ cd ~/.vim/bundle/command-t
     $ rake make
+
+Inconsolata font
+----------------
+
+This is my programming font.  Inconsolata is licensed under the [SIL Open Font License, version 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).

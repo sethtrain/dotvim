@@ -15,7 +15,11 @@ colorscheme brookstream
 syntax on
 set ruler
 set hidden
-set guifont=Monaco:h15
+if has("gui_gtk2")
+    set guifont=Inconsolata\ 15
+elseif has("gui_macvim")
+    set guifont=Inconsolata:h15
+end
 set number
 set wildmode=list:longest
 set smartindent
