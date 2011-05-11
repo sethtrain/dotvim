@@ -37,6 +37,15 @@ set mousehide
 set showcmd
 set foldenable
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{fugitive#statusline()}%y%=%-16(\ %l,%c-%v\ %)%P
+set noerrorbells
+set visualbell
+set t_vb=
+
+" ------------------------------------------------------------------------------
+" MY leader key
+" ------------------------------------------------------------------------------
+let mapleader = ","
+let g:mapleader = ","
 
 " ------------------------------------------------------------------------------
 " wildignore settings
@@ -67,7 +76,7 @@ endif
 " ------------------------------------------------------------------------------
 " Opens a vertical split and switches over
 " ------------------------------------------------------------------------------
-nnoremap ,v <C-w>v<C-w>l
+nnoremap <leader>v <C-w>v<C-w>l
 
 " ------------------------------------------------------------------------------
 " Saves time
@@ -77,8 +86,8 @@ nmap <space> :
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nmap ,nt :NERDTreeToggle<cr>
-nmap ,ev :tabedit $MYVIMRC<cr>
+nmap <leader>nt :NERDTreeToggle<cr>
+nmap <leader>ev :tabedit $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
 " Insert mode mappings
@@ -86,15 +95,46 @@ nmap ,ev :tabedit $MYVIMRC<cr>
 imap jj <esc>
 
 " ------------------------------------------------------------------------------
+" Window movement
+" ------------------------------------------------------------------------------
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" ------------------------------------------------------------------------------
+" Python autocomplete
+" ------------------------------------------------------------------------------
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+" ------------------------------------------------------------------------------
+" Command-T settings
+" ------------------------------------------------------------------------------
+nmap <leader>t :CommandT<cr>
+let g:CommandTMaxFiles=5000
+
+" ------------------------------------------------------------------------------
 " NERDTree settings
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore=['\.pyc']
 
 " ------------------------------------------------------------------------------
-" Command-T settings
+" Pyflakes settings
 " ------------------------------------------------------------------------------
-nmap ,t :CommandT<cr>
-let g:CommandTMaxFiles=5000
+let g:pyflakes_use_quickfix = 0
+
+"
+"
+"
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+
+" ------------------------------------------------------------------------------
+" TaskList plugin
+" ------------------------------------------------------------------------------
+map <leader>td <Plug>TaskList
 
 " ------------------------------------------------------------------------------
 " Trailing Space Helpers
