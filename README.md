@@ -25,4 +25,4 @@ Command-T
 Inconsolata font
 ----------------
 
-This is my programming font.  Inconsolata is licensed under the [SIL Open Font License, version 1.1](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+Incosonata is freely available under the [Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL&_sc=1). [The OpenType version](OpenType version of Inconsolata) of Inconsolata will work on all major platforms. There is also a [PFA version](http://www.levien.com/type/myfonts/Inconsolata.pfa) available.
