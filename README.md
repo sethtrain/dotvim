@@ -25,4 +25,4 @@ Command-T
 Inconsolata font
 ----------------
 
-Incosonata is freely available under the [Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL&_sc=1). [The OpenType version](http://www.levien.com/type/myfonts/Inconsolata.otf) of Inconsolata will work on all major platforms. There is also a [PFA version](http://www.levien.com/type/myfonts/Inconsolata.pfa) available.
+Incosonata (the font used in my vimrc file) is freely available under the [Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL&_sc=1). [The OpenType version](http://www.levien.com/type/myfonts/Inconsolata.otf) of Inconsolata will work on all major platforms. There is also a [PFA version](http://www.levien.com/type/myfonts/Inconsolata.pfa) available.
