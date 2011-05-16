@@ -69,9 +69,30 @@ if has("autocmd")
 endif
 
 " ------------------------------------------------------------------------------
-" Automatically change current directory to that of the file in the buffer
+" Map ,e and ,v to open files in the same directory as current file
 " ------------------------------------------------------------------------------
-" autocmd BufEnter * cd %:p:h
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+" ------------------------------------------------------------------------------
+" Rename file
+" ------------------------------------------------------------------------------
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'))
+    if new_name != '' && new_name != old_name
+        exec ':savass' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+" ------------------------------------------------------------------------------
+" Switch between the last two files
+" ------------------------------------------------------------------------------
+nnoremap <leader><leader> <c-^>
 
 " ------------------------------------------------------------------------------
 " Opens a vertical split and switches over
@@ -108,17 +129,15 @@ map <c-h> <c-w>h
 nmap <leader>a <Esc>:Ack!
 
 " ------------------------------------------------------------------------------
-" Python autocomplete
-" ------------------------------------------------------------------------------
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-
-" ------------------------------------------------------------------------------
 " Command-T settings
 " ------------------------------------------------------------------------------
 nmap <leader>t :CommandT<cr>
 let g:CommandTMaxFiles=5000
+" Open files with <leader>f
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+" Open files, limited to the directory of the current file, with <leader>gf
+" This requires the %% mapping found below.
+map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " ------------------------------------------------------------------------------
 " NERDTree settings
@@ -136,6 +155,12 @@ let g:pep8_map='<leader>8'
 let g:pyflakes_use_quickfix = 0
 
 " ------------------------------------------------------------------------------
+" Python autocomplete
+" ------------------------------------------------------------------------------
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 " Rope stuff
 " ------------------------------------------------------------------------------
 map <leader>j :RopeGotoDefinition<CR>
