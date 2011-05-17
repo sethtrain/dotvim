@@ -1,4 +1,4 @@
-filetype off
+WWfiletype off
 " -----------------------------------------------------------------------------
 " Pathogen
 " -----------------------------------------------------------------------------
@@ -12,7 +12,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme grb256
 syntax on
 set ruler
 set hidden
@@ -91,6 +91,11 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 " ------------------------------------------------------------------------------
+" Various
+" ------------------------------------------------------------------------------
+map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen()<cr>
+
+" ------------------------------------------------------------------------------
 " Switch between the last two files
 " ------------------------------------------------------------------------------
 nnoremap <leader><leader> <c-^>
@@ -132,8 +137,8 @@ nmap <leader>a <Esc>:Ack!
 " ------------------------------------------------------------------------------
 " Command-T settings
 " ------------------------------------------------------------------------------
-nmap <leader>ct :CommandT<cr>
 let g:CommandTMaxFiles=5000
+nmap <leader>t :CommandT<cr>
 " Open files with <leader>f
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " Open files, limited to the directory of the current file, with <leader>gf
