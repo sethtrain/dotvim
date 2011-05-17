@@ -132,7 +132,7 @@ nmap <leader>a <Esc>:Ack!
 " ------------------------------------------------------------------------------
 " Command-T settings
 " ------------------------------------------------------------------------------
-nmap <leader>t :CommandT<cr>
+nmap <leader>ct :CommandT<cr>
 let g:CommandTMaxFiles=5000
 " Open files with <leader>f
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
