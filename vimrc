@@ -36,7 +36,8 @@ set nocompatible
 set mousehide
 set showcmd
 set foldenable
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%{fugitive#statusline()}%y%=%-16(\ %l,%c-%v\ %)%P
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+set statusline+=%{fugitive#statusline()}
 set noerrorbells
 set visualbell
 set t_vb=
