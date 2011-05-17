@@ -12,7 +12,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme brookstream
+colorscheme jellybeans
 syntax on
 set ruler
 set hidden
