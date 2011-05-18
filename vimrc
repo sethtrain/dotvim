@@ -10,18 +10,25 @@ if has("autocmd")
 endif
 
 " ------------------------------------------------------------------------------
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+" ------------------------------------------------------------------------------
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+  " set guifont=Monaco:h14
+  set guifont=Inconsolata-dz:h14
+endif
+
+" ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
+set t_Co=256
 colorscheme grb256
-syntax on
 set ruler
 set hidden
-if has("gui_gtk2")
-    set guifont=Inconsolata\ 15
-elseif has("gui_macvim")
-    set guifont=Inconsolata:h15
-end
 set number
+set numberwidth=5
 set wildmode=list:longest
 set smartindent
 set autoindent
@@ -41,6 +48,18 @@ set statusline+=%{fugitive#statusline()}
 set noerrorbells
 set visualbell
 set t_vb=
+set cursorline
+set cmdheight=2
+
+" ------------------------------------------------------------------------------
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+" ------------------------------------------------------------------------------
+set winwidth=84
+set winheight=5
+set winminheight=5
+set winheight=999
 
 " ------------------------------------------------------------------------------
 " MY leader key
@@ -128,6 +147,11 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+
+" ------------------------------------------------------------------------------
+" Allow backspacing over everything in insert mode
+" ------------------------------------------------------------------------------
+set backspace=indent,eol,start
 
 " ------------------------------------------------------------------------------
 " Ack settings
