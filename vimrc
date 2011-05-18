@@ -205,10 +205,16 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
+" ------------------------------------------------------------------------------
 " Rope stuff
 " ------------------------------------------------------------------------------
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
+map <leader>rj :RopeGotoDefinition<CR>
+map <leader>rr :RopeRename<CR>
+map <leader>rev :RopeExtractVariable<CR>
+map <leader>rd :RopeShowDoc<CR>
+map <leader>rfo :RopeFindOccurances<CR>
+map <leader>rai :RopeAutoImport<CR>
+map <leader>rgac :RopeGenerateAutoimportCache<CR>
 
 " ------------------------------------------------------------------------------
 " TaskList plugin
