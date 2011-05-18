@@ -17,7 +17,11 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
   " set guifont=Monaco:h14
-  set guifont=Inconsolata-dz:h14
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 15
+  else
+    set guifont=Inconsolata:h15
+  end
 endif
 
 " ------------------------------------------------------------------------------
