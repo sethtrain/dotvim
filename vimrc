@@ -61,10 +61,10 @@ noremap <silent> ,bd :bd<CR>
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
 " ------------------------------------------------------------------------------
-set winwidth=84
-set winheight=5
-set winminheight=5
-set winheight=999
+"set winwidth=84
+"set winheight=5
+"set winminheight=5
+"set winheight=999
 
 " ------------------------------------------------------------------------------
 " MY leader key
@@ -173,6 +173,11 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " Open files, limited to the directory of the current file, with <leader>gf
 " This requires the %% mapping found below.
 map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+
+" ------------------------------------------------------------------------------
+" Mini buffer explorer
+" ------------------------------------------------------------------------------
+let g:miniBufExplMaxSize = 2
 
 " ------------------------------------------------------------------------------
 " NERDTree settings
