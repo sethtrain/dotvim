@@ -1,5 +1,4 @@
-filetype off
-" -----------------------------------------------------------------------------
+
 " Pathogen
 " -----------------------------------------------------------------------------
 call pathogen#runtime_append_all_bundles()
@@ -124,6 +123,11 @@ map <leader>n :call RenameFile()<cr>
 map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen()<cr>
 
 " ------------------------------------------------------------------------------
+" Fixes strange issue when using vim (terminal) within tmux
+" ------------------------------------------------------------------------------
+map <Esc>[B <Down>
+
+" ------------------------------------------------------------------------------
 " Switch between the last two files
 " ------------------------------------------------------------------------------
 nnoremap <leader><leader> <c-^>
@@ -166,6 +170,12 @@ set backspace=indent,eol,start
 " Ack settings
 " ------------------------------------------------------------------------------
 nmap <leader>a <Esc>:Ack!
+
+" ------------------------------------------------------------------------------
+" Django settings
+" ------------------------------------------------------------------------------
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate
 
 " ------------------------------------------------------------------------------
 " Command-T settings
