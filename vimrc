@@ -1,4 +1,4 @@
-
+" -----------------------------------------------------------------------------
 " Pathogen
 " -----------------------------------------------------------------------------
 call pathogen#runtime_append_all_bundles()
@@ -6,21 +6,6 @@ call pathogen#helptags()
 
 if has("autocmd")
     filetype plugin indent on
-endif
-
-" ------------------------------------------------------------------------------
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-" ------------------------------------------------------------------------------
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-  " set guifont=Monaco:h14
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 15
-  else
-    set guifont=Inconsolata:h15
-  end
 endif
 
 " ------------------------------------------------------------------------------
@@ -55,6 +40,26 @@ set cursorline
 set cmdheight=2
 
 " ------------------------------------------------------------------------------
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+" ------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" Gui options
+" ------------------------------------------------------------------------------
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set go-=T
+  set go+=LlRrb
+  set go-=LlRrb
+  " set guifont=Monaco:h14
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 15
+  else
+    set guifont=Inconsolata:h15
+  end
+endif
+
+" ------------------------------------------------------------------------------
 " Buffer commands
 " ------------------------------------------------------------------------------
 noremap <silent> ,bd :bd<CR>
@@ -69,15 +74,6 @@ let g:mapleader = ","
 " wildignore settings
 " ------------------------------------------------------------------------------
 :set wildignore+=*.pyc
-
-" ------------------------------------------------------------------------------
-" Gui options
-" ------------------------------------------------------------------------------
-if has('gui_running')
-    set go-=T
-    set go+=LlRrb
-    set go-=LlRrb
-endif
 
 " ------------------------------------------------------------------------------
 " Source .vimrc when saved
@@ -108,11 +104,6 @@ endfunction
 map <leader>n :call RenameFile()<cr>
 
 " ------------------------------------------------------------------------------
-" Various
-" ------------------------------------------------------------------------------
-map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen()<cr>
-
-" ------------------------------------------------------------------------------
 " Fixes strange issue when using vim (terminal) within tmux
 " ------------------------------------------------------------------------------
 map <Esc>[B <Down>
@@ -135,7 +126,6 @@ nmap <space> :
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nmap <leader>nt :NERDTreeToggle<cr>
 nmap <leader>ev :tabedit $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
@@ -162,12 +152,6 @@ set backspace=indent,eol,start
 nmap <leader>a <Esc>:Ack!
 
 " ------------------------------------------------------------------------------
-" Django settings
-" ------------------------------------------------------------------------------
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
-
-" ------------------------------------------------------------------------------
 " Command-T settings
 " ------------------------------------------------------------------------------
 let g:CommandTMaxFiles=5000
@@ -177,16 +161,6 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 " Open files, limited to the directory of the current file, with <leader>gf
 " This requires the %% mapping found below.
 map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
-
-" ------------------------------------------------------------------------------
-" Mini buffer explorer
-" ------------------------------------------------------------------------------
-let g:miniBufExplMaxSize = 2
-
-" ------------------------------------------------------------------------------
-" NERDTree settings
-" ------------------------------------------------------------------------------
-let NERDTreeIgnore=['\.pyc']
 
 " ------------------------------------------------------------------------------
 " pep8 settings
@@ -206,11 +180,6 @@ let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
 " ------------------------------------------------------------------------------
-" TaskList plugin
-" ------------------------------------------------------------------------------
-map <leader>td <Plug>TaskList
-
-" ------------------------------------------------------------------------------
 " Trailing Space Helpers
 " ------------------------------------------------------------------------------
 " Highlight Trailing Space
@@ -226,23 +195,3 @@ function! StripTrailingSpaces()
     call cursor(l, c)
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
-
-" ------------------------------------------------------------------------------
-" Virtualenv stuff
-" ------------------------------------------------------------------------------
-" activate virtualenv in vim python
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-"load any vim customizations for the virtualenv
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-end
