@@ -12,7 +12,7 @@ endif
 " Visual Settings
 " ------------------------------------------------------------------------------
 set t_Co=256
-colorscheme grb256
+colorscheme lucius
 set ruler
 set hidden
 set number
@@ -60,7 +60,7 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " ------------------------------------------------------------------------------
-" Backup 
+" Backup
 " ------------------------------------------------------------------------------
 set backupdir=~/.vim/backup
 
@@ -199,3 +199,11 @@ function! StripTrailingSpaces()
     call cursor(l, c)
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
+
+" -------------------------------------------------------------------------------
+" Gist
+" -------------------------------------------------------------------------------
+let g:gist_show_privates = 1
+
+map <leader>gb :Gist -p<cr>
+map <leader>gbs :Gist -p -m<cr>
