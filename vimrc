@@ -24,6 +24,7 @@ set laststatus=2
 set linespace=3
 set splitbelow
 set hlsearch
+set incsearch
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -37,7 +38,7 @@ set noerrorbells
 set visualbell
 set t_vb=
 set cursorline
-set cmdheight=2
+set cmdheight=1
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
@@ -130,7 +131,7 @@ nmap <space> :
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nmap <leader>ev :tabedit $MYVIMRC<cr>
+nmap <leader>ev :edit $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
 " Insert mode mappings
