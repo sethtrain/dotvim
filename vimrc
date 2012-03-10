@@ -12,7 +12,7 @@ endif
 " Visual Settings
 " ------------------------------------------------------------------------------
 set t_Co=256
-colorscheme lucius
+colorscheme ir_black
 set ruler
 set hidden
 set number
