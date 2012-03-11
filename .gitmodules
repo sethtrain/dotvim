@@ -7,27 +7,12 @@
 [submodule "bundle/javascript"]
 	path = bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "bundle/project"]
-	path = bundle/project
-	url = https://github.com/vim-scripts/project.tar.gz.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
-[submodule "bundle/pyflakes"]
-	path = bundle/pyflakes
-	url = https://github.com/mitechie/pyflakes-pathogen.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
-[submodule "bundle/pydoc"]
-	path = bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
-[submodule "bundle/pep8"]
-	path = bundle/pep8
-	url = https://github.com/vim-scripts/pep8.git
-[submodule "bundle/python"]
-	path = bundle/python
-	url = https://github.com/vim-scripts/python.vim.git
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
