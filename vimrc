@@ -170,6 +170,7 @@ nmap <leader>a <Esc>:Ack!
 " Command-T settings
 " ------------------------------------------------------------------------------
 let g:CommandTMaxFiles=5000
+set wildignore+=vendor/bundle/**
 nmap <leader>t :CommandT<cr>
 " Open files with <leader>f
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
