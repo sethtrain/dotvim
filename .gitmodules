@@ -28,9 +28,9 @@
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
-[submodule "bundle/slime"]
-	path = bundle/slime
-	url = https://github.com/jpalardy/vim-slime.git
 [submodule "bundle/clojure"]
 	path = bundle/clojure
 	url = https://github.com/vim-scripts/VimClojure.git
+[submodule "bundle/slimv"]
+	path = bundle/slimv
+	url = https://github.com/vim-scripts/slimv.vim.git
