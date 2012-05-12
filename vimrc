@@ -167,16 +167,9 @@ set backspace=indent,eol,start
 nmap <leader>a <Esc>:Ack!
 
 " ------------------------------------------------------------------------------
-" Command-T settings
+" CtrlP settings
 " ------------------------------------------------------------------------------
-let g:CommandTMaxFiles=5000
-set wildignore+=vendor/bundle/**
-nmap <leader>t :CommandT<cr>
-" Open files with <leader>f
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" Open files, limited to the directory of the current file, with <leader>gf
-" This requires the %% mapping found below.
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+let g:ctrlp_working_path_mode = 0
 
 " ------------------------------------------------------------------------------
 " pep8 settings
