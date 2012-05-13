@@ -41,6 +41,12 @@ set cursorline
 set cmdheight=1
 
 " ------------------------------------------------------------------------------
+" Powerline settings
+" ------------------------------------------------------------------------------
+"let g:Powerline_symbols = 'fancy'
+"let g:Powerline_cache_enabled = 1
+
+" ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 " ------------------------------------------------------------------------------
@@ -49,15 +55,16 @@ set cmdheight=1
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
   syntax on
+  set guifont=Menlo\ Regular\ for\ Powerline:h15
   set go-=T
-  set go+=LlRrb
-  set go-=LlRrb
-  " set guifont=Monaco:h14
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 15
-  else
-    set guifont=Inconsolata:h15
-  end
+  set go-=l
+  set go-=L
+  set go-=r
+  set go-=R
+
+  set guicursor=n-c:block-Cursor-blinkon0
+  set guicursor+=v:block-vCursor-blinkon0
+  set guicursor+=i-ci:ver20-iCursor
 endif
 
 " ------------------------------------------------------------------------------
@@ -170,6 +177,9 @@ nmap <leader>a <Esc>:Ack!
 " CtrlP settings
 " ------------------------------------------------------------------------------
 let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = ''
+map <leader>t :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
 
 " ------------------------------------------------------------------------------
 " pep8 settings
@@ -212,9 +222,3 @@ let g:gist_show_privates = 1
 
 map <leader>gb :Gist -p<cr>
 map <leader>gbs :Gist -p -m<cr>
-
-
-" -------------------------------------------------------------------------------
-" Slime
-" -------------------------------------------------------------------------------
-let g:slime_target = "tmux"
