@@ -11,7 +11,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme xoria256
+colorscheme molokai
 set t_Co=256
 set ruler
 set hidden
@@ -37,20 +37,21 @@ set statusline+=%{fugitive#statusline()}
 set noerrorbells
 set visualbell
 set t_vb=
-set cursorline
+"set cursorline
 set cmdheight=1
+set nonumber
 
 " ------------------------------------------------------------------------------
 " Powerline settings
 " ------------------------------------------------------------------------------
 let g:Powerline_cache_enabled = 1
-let g:Powerline_symbols = "compatible"
-let g:Powerline_symbols_override = {
-        \ 'FUGITIVE': '∓ ',
-        \ 'LAWRENCIUM': '☿ ',
-    \ }
+let g:Powerline_symbols = "fancy"
+" let g:Powerline_symbols_override = {
+"         \ 'FUGITIVE': '∓ ',
+"         \ 'LAWRENCIUM': '☿ ',
+"     \ }
 
-let g:Powerline_dividers_override = ['', '|', '', '|']
+" let g:Powerline_dividers_override = ['', '|', '', '|']
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
@@ -61,13 +62,13 @@ let g:Powerline_dividers_override = ['', '|', '', '|']
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set guifont=Inconsolata-dz\ for\ Powerline\ 18
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
   set go-=T
   set go-=l
   set go-=L
   set go-=r
   set go-=R
-
+  highlight iCursor guifg=white guibg=#0087af
   set guicursor=n-c:block-Cursor-blinkon0
   set guicursor+=v:block-vCursor-blinkon0
   set guicursor+=i-ci:ver20-iCursor
@@ -91,6 +92,11 @@ map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
 map <Down> :echo "no!"<cr>
+
+" ------------------------------------------------------------------------------
+" General mappings
+" ------------------------------------------------------------------------------
+map <leader>cd :cd %%
 
 " ------------------------------------------------------------------------------
 " Buffer commands
