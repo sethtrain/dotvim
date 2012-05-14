@@ -40,3 +40,9 @@
 [submodule "bundle/vitality"]
 	path = bundle/vitality
 	url = https://github.com/sjl/vitality.vim.git
+[submodule "bundle/rope"]
+	path = bundle/rope
+	url = https://github.com/sontek/rope-vim.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = https://github.com/klen/python-mode.git
