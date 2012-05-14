@@ -11,8 +11,8 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
+colorscheme xoria256
 set t_Co=256
-colorscheme ir_black
 set ruler
 set hidden
 set number
@@ -43,8 +43,14 @@ set cmdheight=1
 " ------------------------------------------------------------------------------
 " Powerline settings
 " ------------------------------------------------------------------------------
-"let g:Powerline_symbols = 'fancy'
-"let g:Powerline_cache_enabled = 1
+let g:Powerline_cache_enabled = 1
+let g:Powerline_symbols = "compatible"
+let g:Powerline_symbols_override = {
+        \ 'FUGITIVE': '∓ ',
+        \ 'LAWRENCIUM': '☿ ',
+    \ }
+
+let g:Powerline_dividers_override = ['', '|', '', '|']
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
@@ -55,7 +61,7 @@ set cmdheight=1
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set guifont=Menlo\ Regular\ for\ Powerline:h15
+  set guifont=Inconsolata-dz\ for\ Powerline\ 18
   set go-=T
   set go-=l
   set go-=L
