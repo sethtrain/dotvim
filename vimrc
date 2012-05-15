@@ -82,10 +82,10 @@ let g:mapleader = ","
 " ------------------------------------------------------------------------------
 " May the force be with you -- things that force me to use vim properly
 " ------------------------------------------------------------------------------
-map <Left> :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>
+" map <Left> :echo "no!"<cr>
+" map <Right> :echo "no!"<cr>
+" map <Up> :echo "no!"<cr>
+" map <Down> :echo "no!"<cr>
 
 " ------------------------------------------------------------------------------
 " General mappings
@@ -164,10 +164,10 @@ imap jj <esc>
 " ------------------------------------------------------------------------------
 " Window movement
 " ------------------------------------------------------------------------------
-" map <c-j> <c-w>j
-" map <c-k> <c-w>k
-" map <c-l> <c-w>l
-" map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 " ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
