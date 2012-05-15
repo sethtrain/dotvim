@@ -46,12 +46,6 @@ set nonumber
 " ------------------------------------------------------------------------------
 let g:Powerline_cache_enabled = 1
 let g:Powerline_symbols = "fancy"
-" let g:Powerline_symbols_override = {
-"         \ 'FUGITIVE': '∓ ',
-"         \ 'LAWRENCIUM': '☿ ',
-"     \ }
-
-" let g:Powerline_dividers_override = ['', '|', '', '|']
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
