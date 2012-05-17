@@ -93,13 +93,13 @@ let g:mapleader = ","
 " ------------------------------------------------------------------------------
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
+" convert horizontally split windows to vertically split
+map <leader>htv <C-W>t<C-W>H
 
 " ------------------------------------------------------------------------------
 " Buffer commands
 " ------------------------------------------------------------------------------
 noremap <silent> <leader>bd :bd<CR>
-" Clear the search buffer when hitting return
-nnoremap <CR> :nohlsearch<cr>
 
 " ------------------------------------------------------------------------------
 " wildignore settings
