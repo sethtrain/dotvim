@@ -43,12 +43,6 @@ set nonumber
 set listchars=tab:▸\ ,eol:¬
 
 " ------------------------------------------------------------------------------
-" Powerline settings
-" ------------------------------------------------------------------------------
-let g:Powerline_cache_enabled = 1
-let g:Powerline_symbols = "fancy"
-
-" ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 " ------------------------------------------------------------------------------
@@ -81,27 +75,6 @@ let mapleader = ","
 let g:mapleader = ","
 
 " ------------------------------------------------------------------------------
-" May the force be with you -- things that force me to use vim properly
-" ------------------------------------------------------------------------------
-" map <Left> :echo "no!"<cr>
-" map <Right> :echo "no!"<cr>
-" map <Up> :echo "no!"<cr>
-" map <Down> :echo "no!"<cr>
-
-" ------------------------------------------------------------------------------
-" General mappings
-" ------------------------------------------------------------------------------
-map <leader>cd :cd %%
-map <leader>l :set list!<cr>
-" convert horizontally split windows to vertically split
-map <leader>htv <C-W>t<C-W>H
-
-" ------------------------------------------------------------------------------
-" Buffer commands
-" ------------------------------------------------------------------------------
-noremap <silent> <leader>bd :bd<CR>
-
-" ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
 set wildignore+=*.pyc
@@ -112,26 +85,6 @@ set wildignore+=*.pyc
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
-
-" ------------------------------------------------------------------------------
-" Map ,e and ,v to open files in the same directory as current file
-" ------------------------------------------------------------------------------
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e :edit %%
-
-" ------------------------------------------------------------------------------
-" Rename file
-" ------------------------------------------------------------------------------
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'))
-    if new_name != '' && new_name != old_name
-        exec ':savass' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-map <leader>n :call RenameFile()<cr>
 
 " ------------------------------------------------------------------------------
 " Fixes strange issue when using vim (terminal) within tmux
@@ -159,79 +112,6 @@ nmap <space> :
 nmap <leader>ev :edit $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
-" Insert mode mappings
-" ------------------------------------------------------------------------------
-imap jj <esc>
-
-" ------------------------------------------------------------------------------
-" Window movement
-" ------------------------------------------------------------------------------
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
-" ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
 " ------------------------------------------------------------------------------
 set backspace=indent,eol,start
-
-" ------------------------------------------------------------------------------
-" Ack settings
-" ------------------------------------------------------------------------------
-nmap <leader>a <Esc>:Ack!
-
-" ------------------------------------------------------------------------------
-" CtrlP settings
-" ------------------------------------------------------------------------------
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = ''
-map <leader>t :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-
-" ------------------------------------------------------------------------------
-" python-mode settings
-" ------------------------------------------------------------------------------
-let g:pymode_breakpoint_key = '<leader>pb'
-
-" ------------------------------------------------------------------------------
-" Python autocomplete
-" ------------------------------------------------------------------------------
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
-
-" ------------------------------------------------------------------------------
-" Trailing Space Helpers
-" ------------------------------------------------------------------------------
-" Highlight Trailing Space
-highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
-match TrailingWhitespace /\s\+$/
-au TabEnter * :match TrailingWhitespace /\s\+$/
-
-" Trailing space removal on save
-function! StripTrailingSpaces()
-    let l = line(".")
-    let c = col(".")
-    silent! execute '%s/\s\+$//e'
-    call cursor(l, c)
-endfunction
-au BufWritePre * :call StripTrailingSpaces()
-
-" -------------------------------------------------------------------------------
-" Gist
-" -------------------------------------------------------------------------------
-let g:gist_show_privates = 1
-
-map <leader>gb :Gist -p<cr>
-map <leader>gbs :Gist -p -m<cr>
-
-" -------------------------------------------------------------------------------
-" Gundo
-" -------------------------------------------------------------------------------
-map <leader>gt :GundoToggle<cr>
-
-" -------------------------------------------------------------------------------
-" NERDTree
-" -------------------------------------------------------------------------------
-map <leader>nt :NERDTreeToggle<cr>
