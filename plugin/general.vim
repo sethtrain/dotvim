@@ -12,3 +12,6 @@ function! StripTrailingSpaces()
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
+" Set filetypes for snipmate
+autocmd FileType python set ft=python.django " For SnipMate
+autocmd FileType html set ft=htmldjango.html " For SnipMate

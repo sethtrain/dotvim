@@ -41,6 +41,8 @@ set t_vb=
 set cmdheight=1
 set nonumber
 set listchars=tab:▸\ ,eol:¬
+set nowritebackup
+set noswapfile
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
@@ -64,11 +66,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " ------------------------------------------------------------------------------
-" Backup
-" ------------------------------------------------------------------------------
-set backupdir=~/.vim/backup
-
-" ------------------------------------------------------------------------------
 " MY leader key
 " ------------------------------------------------------------------------------
 let mapleader = ","
@@ -85,6 +82,13 @@ set wildignore+=*.pyc
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+" ------------------------------------------------------------------------------
+" These will make it so that going to the next one in a
+" search will center on the line it's found in.
+" ------------------------------------------------------------------------------
+map N Nzz
+map n nzz
 
 " ------------------------------------------------------------------------------
 " Fixes strange issue when using vim (terminal) within tmux
