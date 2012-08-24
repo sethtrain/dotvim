@@ -16,9 +16,6 @@
 [submodule "bundle/gist"]
 	path = bundle/gist
 	url = https://github.com/mattn/gist-vim.git
-[submodule "bundle/coffee-script"]
-	path = bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
@@ -28,12 +25,6 @@
 [submodule "bundle/vitality"]
 	path = bundle/vitality
 	url = https://github.com/sjl/vitality.vim.git
-[submodule "bundle/rope"]
-	path = bundle/rope
-	url = https://github.com/sontek/rope-vim.git
-[submodule "bundle/python-mode"]
-	path = bundle/python-mode
-	url = https://github.com/klen/python-mode.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
@@ -58,18 +49,6 @@
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
-[submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = https://github.com/honza/snipmate-snippets.git
-[submodule "bundle/ruby"]
-	path = bundle/ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "bundle/golang"]
-	path = bundle/golang
-	url = https://github.com/jnwhiteh/vim-golang.git
-[submodule "bundle/flake8"]
-	path = bundle/flake8
-	url = https://github.com/nvie/vim-flake8.git
