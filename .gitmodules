@@ -52,3 +52,6 @@
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = https://github.com/honza/snipmate-snippets.git
+[submodule "bundle/slimv"]
+	path = bundle/slimv
+	url = https://github.com/vim-scripts/slimv.vim.git
