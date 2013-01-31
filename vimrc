@@ -74,7 +74,7 @@ let g:mapleader = ","
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=*.pyc
+set wildignore+=out/*,.lein-cljsbuild-compiler*,resources/*,*.pyc,
 
 " ------------------------------------------------------------------------------
 " Source .vimrc when saved
@@ -119,3 +119,5 @@ nmap <leader>ev :edit $MYVIMRC<cr>
 " Allow backspacing over everything in insert mode
 " ------------------------------------------------------------------------------
 set backspace=indent,eol,start
+
+au VimEnter * RainbowParenthesesToggle
