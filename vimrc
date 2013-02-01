@@ -11,7 +11,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme molokai
+colorscheme tomorrow-night
 set t_Co=256
 set ruler
 set hidden
@@ -74,7 +74,7 @@ let g:mapleader = ","
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out/*,.lein-cljsbuild-compiler*,resources/*,*.pyc,
+set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules
 
 " ------------------------------------------------------------------------------
 " Source .vimrc when saved
@@ -121,3 +121,6 @@ nmap <leader>ev :edit $MYVIMRC<cr>
 set backspace=indent,eol,start
 
 au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
