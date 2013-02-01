@@ -1,3 +1,4 @@
+
 function! ClojureFolds(lnum)
     let l1 = getline(a:lnum)
 
@@ -12,5 +13,7 @@ function! ClojureFolds(lnum)
         return "="
     endif
 endfunction
+
 setlocal foldmethod=expr
 setlocal foldexpr=ClojureFolds(v:lnum)
+setlocal nofoldenable
