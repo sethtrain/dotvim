@@ -6,6 +6,8 @@ function! ClojureFolds(lnum)
         return '='
     elseif l1 =~ '^(defn\+s*'
         return '>1'
+    elseif l1 =~ '^(deftopic\+s*'
+        return '>1'
     else
         return "="
     endif

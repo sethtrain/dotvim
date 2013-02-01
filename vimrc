@@ -56,7 +56,7 @@ endif
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h18
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
   set go-=T
   set go-=l
   set go-=L
@@ -123,7 +123,86 @@ nmap <leader>ev :edit $MYVIMRC<cr>
 " ------------------------------------------------------------------------------
 set backspace=indent,eol,start
 
+" ------------------------------------------------------------------------------
+" Enable Rainbow parenthesis
+" ------------------------------------------------------------------------------
+
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" ------------------------------------------------------------------------------
+" Handle hlsearch better
+" ------------------------------------------------------------------------------
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
+" ------------------------------------------------------------------------------
+" Map ,e to open files in the same directory as current file
+" ------------------------------------------------------------------------------
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+
+" ------------------------------------------------------------------------------
+" Insert mode mappings
+" ------------------------------------------------------------------------------
+imap jj <esc>
+
+" ------------------------------------------------------------------------------
+" Window movement
+" ------------------------------------------------------------------------------
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" ------------------------------------------------------------------------------
+" General Bindings and plugin options
+" ------------------------------------------------------------------------------
+map <leader>cd :cd %%
+map <leader>l :set list!<cr>
+
+" convert horizontally split windows to vertically split
+map <leader>htv <C-W>t<C-W>H
+
+" buffer delete
+noremap <silent> <leader>bd :bd<CR>
+
+" Ack
+nmap <leader>a <Esc>:Ack!
+
+" CtrlP
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = ''
+map <leader>t :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
+
+" Highlight Trailing Space
+highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
+match TrailingWhitespace /\s\+$/
+au TabEnter * :match TrailingWhitespace /\s\+$/
+
+" Trailing space removal on save
+function! StripTrailingSpaces()
+    let l = line(".")
+    let c = col(".")
+    silent! execute '%s/\s\+$//e'
+    call cursor(l, c)
+endfunction
+au BufWritePre * :call StripTrailingSpaces()
+
+" Gist
+let g:gist_show_privates = 1
+
+map <leader>gb :Gist -p<cr>
+map <leader>gbs :Gist -p -m<cr>
+
+" Gundo
+map <leader>gt :GundoToggle<cr>
+
+" Powerline
+let g:Powerline_cache_enabled = 1
+let g:Powerline_symbols = "fancy"
