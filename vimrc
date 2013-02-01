@@ -37,12 +37,14 @@ set statusline+=%{fugitive#statusline()}
 set noerrorbells
 set visualbell
 set t_vb=
-"set cursorline
 set cmdheight=1
-set nonumber
 set listchars=tab:▸\ ,eol:¬
 set nowritebackup
 set noswapfile
+
+if has('mouse')
+    set mouse=nv
+endif
 
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
