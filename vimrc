@@ -170,6 +170,9 @@ map <c-h> <c-w>h
 " ------------------------------------------------------------------------------
 " General Bindings and plugin options
 " ------------------------------------------------------------------------------
+"  Powerline
+python from powerline.bindings.vim import source_plugin; source_plugin()
+
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
 
