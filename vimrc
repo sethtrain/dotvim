@@ -11,11 +11,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-if has("gui_running")
-    colorscheme tomorrow-night
-else
-    colorscheme grb256
-endif
+colorscheme tomorrow-night
 
 " ------------------------------------------------------------------------------
 " General Settings
@@ -207,13 +203,8 @@ au BufWritePre * :call StripTrailingSpaces()
 
 " Gist
 let g:gist_show_privates = 1
-
 map <leader>gb :Gist -p<cr>
 map <leader>gbs :Gist -p -m<cr>
 
 " Gundo
 map <leader>gt :GundoToggle<cr>
-
-" Powerline
-let g:Powerline_cache_enabled = 1
-let g:Powerline_symbols = "fancy"
