@@ -166,7 +166,11 @@ map <c-h> <c-w>h
 " ------------------------------------------------------------------------------
 " General Bindings and plugin options
 " ------------------------------------------------------------------------------
-"  Format Entire File
+
+" Set toggle for Paste Mode
+set pastetoggle=<F4>
+
+" Format Entire File
 map <leader>fef gg=G<cr>
 
 "  Powerline
