@@ -166,6 +166,9 @@ map <c-h> <c-w>h
 " ------------------------------------------------------------------------------
 " General Bindings and plugin options
 " ------------------------------------------------------------------------------
+"  Format Entire File
+map <leader>fef gg=G<cr>
+
 "  Powerline
 python from powerline.bindings.vim import source_plugin; source_plugin()
 
