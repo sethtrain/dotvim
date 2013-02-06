@@ -170,6 +170,8 @@ map <c-h> <c-w>h
 " Set toggle for Paste Mode
 set pastetoggle=<F4>
 
+map <leader>nt :NERDTreeToggle<cr>
+
 " Format Entire File
 map <leader>fef gg=G<cr>
 
