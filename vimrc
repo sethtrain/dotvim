@@ -11,8 +11,11 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme tomorrow-night
-
+if has("gui_running")
+    colorscheme tomorrow-night
+else
+    colorscheme distinguished
+endif
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
@@ -236,3 +239,7 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
+" Clojure
+map <leader>r :Require!<cr>
+map <leader>rt :!lein test<cr>
