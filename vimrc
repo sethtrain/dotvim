@@ -183,9 +183,6 @@ map <leader>nt :NERDTreeToggle<cr>
 " Format Entire File
 map <leader>fef gg=G<cr>
 
-"  Powerline
-python from powerline.bindings.vim import source_plugin; source_plugin()
-
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
 
