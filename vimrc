@@ -64,7 +64,11 @@ endif
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
   syntax on
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+  if has("gui_gtk2")
+     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 14
+  elseif has("gui_macvim")
+     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+  end
   set go-=T
   set go-=l
   set go-=L
