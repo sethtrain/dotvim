@@ -28,9 +28,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundle/foreplay"]
-	path = bundle/foreplay
-	url = https://github.com/tpope/vim-foreplay.git
 [submodule "bundle/clojure-static"]
 	path = bundle/clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
