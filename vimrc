@@ -44,7 +44,6 @@ set foldcolumn=3
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set statusline+=%{fugitive#statusline()}
 set noerrorbells
-set visualbell
 set t_vb=
 set cmdheight=1
 set listchars=tab:▸\ ,eol:¬
@@ -74,6 +73,7 @@ if &t_Co > 2 || has("gui_running")
   set go-=L
   set go-=r
   set go-=R
+  set go-=m
   highlight iCursor guifg=white guibg=#0087af
   set guicursor=n-c:block-Cursor-blinkon0
   set guicursor+=v:block-vCursor-blinkon0
