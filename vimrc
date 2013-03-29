@@ -11,12 +11,11 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-" if has("gui_running")
-"     colorscheme tomorrow-night
-" else
-"     colorscheme distinguished
-" endif
-colorscheme distinguished
+if has("gui_running")
+    colorscheme Tomorrow-Night
+else
+    colorscheme distinguished
+endif
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
