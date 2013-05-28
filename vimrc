@@ -11,11 +11,7 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-if has("gui_running")
-    colorscheme Tomorrow-Night
-else
-    colorscheme distinguished
-endif
+colorscheme Tomorrow-Night
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
@@ -33,6 +29,9 @@ set splitbelow
 set hlsearch
 set incsearch
 set tabstop=4
+" ------------------------------------------------------------------------------
+" Enable Rainbow parenthesis
+" ------------------------------------------------------------------------------
 set shiftwidth=4
 set expandtab
 set nocompatible
@@ -88,7 +87,7 @@ let g:mapleader = ","
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules
+set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules,repl,uploads
 
 " ------------------------------------------------------------------------------
 " Source .vimrc when saved
@@ -127,7 +126,7 @@ nmap <space> :
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nmap <leader>ev :edit $MYVIMRC<cr>
+nmap <leader>ev :tabe $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
@@ -200,6 +199,12 @@ let g:ctrlp_map = ''
 map <leader>t :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 
+" Tabs
+map <C-t> :tabnew<cr>
+map <leader>tp :tabp<cr>
+map <leader>tn :tabn<cr>
+map <leader>tc :tabclose<cr>
+
 " Highlight Trailing Space
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
@@ -244,3 +249,8 @@ let g:rbpt_colorpairs = [
 " Clojure
 map <leader>r :Require!<cr>
 map <leader>rt :!lein test<cr>
+
+" ------------------------------------------------------------------------------
+" Tagbar
+" ------------------------------------------------------------------------------
+nmap <F8> :TagbarToggle<CR>
