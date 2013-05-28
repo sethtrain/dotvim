@@ -66,7 +66,7 @@ if &t_Co > 2 || has("gui_running")
   elseif has("gui_macvim")
      set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
   end
-  set go-=T
+  "set go-=T
   set go-=l
   set go-=L
   set go-=r
@@ -77,6 +77,8 @@ if &t_Co > 2 || has("gui_running")
   set guicursor+=v:block-vCursor-blinkon0
   set guicursor+=i-ci:ver20-iCursor
 endif
+
+
 
 " ------------------------------------------------------------------------------
 " MY leader key
@@ -179,7 +181,7 @@ set pastetoggle=<F4>
 map <leader>nt :NERDTreeToggle<cr>
 
 " Format Entire File
-map <leader>fef gg=G<cr>
+map <leader>fef gg=G<cr><C-o><C-o>
 
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
@@ -254,3 +256,31 @@ map <leader>rt :!lein test<cr>
 " Tagbar
 " ------------------------------------------------------------------------------
 nmap <F8> :TagbarToggle<CR>
+
+" GUI Tab label full path
+function! GuiTabLabeler()
+  let tabno = tabpagenr()
+  let label = ''
+  let bufnrlist = tabpagebuflist(v:lnum)
+
+  " Add '+' if one of the buffers in the tab page is modified
+  for bufnr in bufnrlist
+    if getbufvar(bufnr, "&modified")
+      let label = '[+]'
+      break
+    endif
+  endfor
+
+  " Append the number of windows in the tab page if more than one
+  let wincount = tabpagewinnr(v:lnum, '$')
+  if wincount > 1
+    let label .= ' [' . wincount . ']'
+  endif
+
+  " Append the buffer name
+  return tabno . " " .
+         \ fnamemodify(bufname(bufnrlist[tabpagewinnr(v:lnum) - 1]), ":t")
+         \ . label
+endfunction
+
+set guitablabel=%!GuiTabLabeler()
