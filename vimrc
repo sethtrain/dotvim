@@ -181,7 +181,7 @@ set pastetoggle=<F4>
 map <leader>nt :NERDTreeToggle<cr>
 
 " Format Entire File
-map <leader>fef gg=G<cr>``
+map <leader>fef gg=G<cr>``zz
 
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
