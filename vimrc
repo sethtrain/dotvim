@@ -29,6 +29,7 @@ set splitbelow
 set hlsearch
 set incsearch
 set tabstop=4
+set showtabline=2
 " ------------------------------------------------------------------------------
 " Enable Rainbow parenthesis
 " ------------------------------------------------------------------------------
@@ -45,8 +46,11 @@ set noerrorbells
 set t_vb=
 set cmdheight=1
 set listchars=tab:▸\ ,eol:¬
-set nowritebackup
-set noswapfile
+
+" Store temporary files in a central spot
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 if has('mouse')
     set mouse=nv
@@ -157,6 +161,7 @@ call MapCR()
 " ------------------------------------------------------------------------------
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
+map <leader>te :tabe %%
 
 " ------------------------------------------------------------------------------
 " Insert mode mappings
