@@ -11,7 +11,8 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme Tomorrow-Night
+colorscheme distinguished
+
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
@@ -29,7 +30,6 @@ set splitbelow
 set hlsearch
 set incsearch
 set tabstop=4
-set showtabline=2
 " ------------------------------------------------------------------------------
 " Enable Rainbow parenthesis
 " ------------------------------------------------------------------------------
@@ -64,25 +64,23 @@ endif
 " Gui options
 " ------------------------------------------------------------------------------
 if &t_Co > 2 || has("gui_running")
-  syntax on
-  if has("gui_gtk2")
-     set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
-  elseif has("gui_macvim")
-     set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
-  end
-  "set go-=T
-  set go-=l
-  set go-=L
-  set go-=r
-  set go-=R
-  set go-=m
-  highlight iCursor guifg=white guibg=#0087af
-  set guicursor=n-c:block-Cursor-blinkon0
-  set guicursor+=v:block-vCursor-blinkon0
-  set guicursor+=i-ci:ver20-iCursor
+    syntax on
+    if has("gui_gtk2")
+        set guifont=Droid\ Sans\ Mono\ 12
+    elseif has("gui_macvim")
+        set guifont=Droid\ Sans\ Mono:h12
+    end
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+    set go-=m
+    highlight iCursor guifg=white guibg=#0087af
+    set guicursor=n-c:block-Cursor-blinkon0
+    set guicursor+=v:block-vCursor-blinkon0
+    set guicursor+=i-ci:ver20-iCursor
 endif
-
-
 
 " ------------------------------------------------------------------------------
 " MY leader key
@@ -99,7 +97,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modu
 " Source .vimrc when saved
 " ------------------------------------------------------------------------------
 if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
 " ------------------------------------------------------------------------------
@@ -152,7 +150,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " Handle hlsearch better
 " ------------------------------------------------------------------------------
 function! MapCR()
-  nnoremap <cr> :nohlsearch<cr>
+    nnoremap <cr> :nohlsearch<cr>
 endfunction
 call MapCR()
 
@@ -241,22 +239,22 @@ map <leader>gt :GundoToggle<cr>
 
 " Rainbow parentheses
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+            \ ['brown',       'RoyalBlue3'],
+            \ ['Darkblue',    'SeaGreen3'],
+            \ ['darkgray',    'DarkOrchid3'],
+            \ ['darkgreen',   'firebrick3'],
+            \ ['darkcyan',    'RoyalBlue3'],
+            \ ['darkred',     'SeaGreen3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['brown',       'firebrick3'],
+            \ ['gray',        'RoyalBlue3'],
+            \ ['darkmagenta', 'DarkOrchid3'],
+            \ ['Darkblue',    'firebrick3'],
+            \ ['darkgreen',   'RoyalBlue3'],
+            \ ['darkcyan',    'SeaGreen3'],
+            \ ['darkred',     'DarkOrchid3'],
+            \ ['red',         'firebrick3'],
+            \ ]
 
 " Clojure
 map <leader>r :Require!<cr>
@@ -269,28 +267,28 @@ nmap <F8> :TagbarToggle<CR>
 
 " GUI Tab label full path
 function! GuiTabLabeler()
-  let tabno = tabpagenr()
-  let label = ''
-  let bufnrlist = tabpagebuflist(v:lnum)
+    let tabno = tabpagenr()
+    let label = ''
+    let bufnrlist = tabpagebuflist(v:lnum)
 
-  " Add '+' if one of the buffers in the tab page is modified
-  for bufnr in bufnrlist
-    if getbufvar(bufnr, "&modified")
-      let label = '[+]'
-      break
+    " Add '+' if one of the buffers in the tab page is modified
+    for bufnr in bufnrlist
+        if getbufvar(bufnr, "&modified")
+            let label = '[+]'
+            break
+        endif
+    endfor
+
+    " Append the number of windows in the tab page if more than one
+    let wincount = tabpagewinnr(v:lnum, '$')
+    if wincount > 1
+        let label .= ' [' . wincount . ']'
     endif
-  endfor
 
-  " Append the number of windows in the tab page if more than one
-  let wincount = tabpagewinnr(v:lnum, '$')
-  if wincount > 1
-    let label .= ' [' . wincount . ']'
-  endif
-
-  " Append the buffer name
-  return tabno . " " .
-         \ fnamemodify(bufname(bufnrlist[tabpagewinnr(v:lnum) - 1]), ":t")
-         \ . label
+    " Append the buffer name
+    return tabno . " " .
+                \ fnamemodify(bufname(bufnrlist[tabpagewinnr(v:lnum) - 1]), ":t")
+                \ . label
 endfunction
 
 set guitablabel=%!GuiTabLabeler()
