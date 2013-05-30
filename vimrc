@@ -149,10 +149,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " ------------------------------------------------------------------------------
 " Handle hlsearch better
 " ------------------------------------------------------------------------------
-" function! MapCR()
-"     nnoremap <cr> :nohlsearch<cr>
-" endfunction
-" call MapCR()
+function! MapCR()
+    nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
 
 " ------------------------------------------------------------------------------
 " Map ,e to open files in the same directory as current file
