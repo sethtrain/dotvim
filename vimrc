@@ -208,8 +208,8 @@ map <leader>b :CtrlPBuffer<cr>
 
 " Tabs
 map <C-t> :tabnew<cr>
-map <leader>tp :tabp<cr>
-map <leader>tn :tabn<cr>
+map <C-p> :tabp<cr>
+map <C-n> :tabn<cr>
 map <leader>tc :tabclose<cr>
 
 " Highlight Trailing Space
