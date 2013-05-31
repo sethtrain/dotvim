@@ -198,7 +198,7 @@ map <leader>l :set list!<cr>
 map <leader>htv <C-W>t<C-W>H
 
 " buffer delete
-noremap <silent> <leader>bd :bd<CR>
+noremap <silent> <leader>bd :b#<bar>bd#<CR>
 
 " Ack
 nmap <leader>a <Esc>:Ack!
