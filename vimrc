@@ -125,12 +125,12 @@ nnoremap <leader>v <C-w>v<C-w>l
 " ------------------------------------------------------------------------------
 " Saves time
 " ------------------------------------------------------------------------------
-nmap <space> :
+nnoremap <space> :
 
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nmap <leader>ev :tabe $MYVIMRC<cr>
+nnoremap <leader>ev :tabe $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
@@ -164,7 +164,7 @@ map <leader>te :tabe %%
 " ------------------------------------------------------------------------------
 " Insert mode mappings
 " ------------------------------------------------------------------------------
-imap jj <esc>
+inoremap jj <esc>
 
 " ------------------------------------------------------------------------------
 " Window movement
@@ -198,10 +198,10 @@ map <leader>l :set list!<cr>
 map <leader>htv <C-W>t<C-W>H
 
 " buffer delete
-noremap <silent> <leader>bd :b#<bar>bd#<CR>
+noremap <silent> <leader>bd :bd<CR>
 
 " Ack
-nmap <leader>a <Esc>:Ack!
+nnoremap <leader>a <Esc>:Ack!
 
 " CtrlP
 let g:ctrlp_working_path_mode = 0
@@ -263,7 +263,7 @@ map <leader>rt :!lein test<cr>
 " ------------------------------------------------------------------------------
 " Tagbar
 " ------------------------------------------------------------------------------
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 " GUI Tab label full path
 function! GuiTabLabeler()
