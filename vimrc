@@ -210,7 +210,7 @@ map <leader>t :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 
 " Tabs
-map <C-t> :tabnew<cr>
+" map <C-t> :tabnew<cr>
 map <C-p> :tabp<cr>
 map <C-n> :tabn<cr>
 map <leader>tc :tabclose<cr>
