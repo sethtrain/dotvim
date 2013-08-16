@@ -30,9 +30,6 @@ set splitbelow
 set hlsearch
 set incsearch
 set tabstop=4
-" ------------------------------------------------------------------------------
-" Enable Rainbow parenthesis
-" ------------------------------------------------------------------------------
 set shiftwidth=4
 set expandtab
 set nocompatible
@@ -46,6 +43,7 @@ set noerrorbells
 set t_vb=
 set cmdheight=1
 set listchars=tab:▸\ ,eol:¬
+set undodir=~/.vim/undo
 
 " Store temporary files in a central spot
 set backup
@@ -259,36 +257,3 @@ let g:rbpt_colorpairs = [
 " Clojure
 map <leader>r :Require!<cr>
 map <leader>rt :!lein test<cr>
-
-" ------------------------------------------------------------------------------
-" Tagbar
-" ------------------------------------------------------------------------------
-nnoremap <F8> :TagbarToggle<CR>
-
-" GUI Tab label full path
-function! GuiTabLabeler()
-    let tabno = tabpagenr()
-    let label = ''
-    let bufnrlist = tabpagebuflist(v:lnum)
-
-    " Add '+' if one of the buffers in the tab page is modified
-    for bufnr in bufnrlist
-        if getbufvar(bufnr, "&modified")
-            let label = '[+]'
-            break
-        endif
-    endfor
-
-    " Append the number of windows in the tab page if more than one
-    let wincount = tabpagewinnr(v:lnum, '$')
-    if wincount > 1
-        let label .= ' [' . wincount . ']'
-    endif
-
-    " Append the buffer name
-    return tabno . " " .
-                \ fnamemodify(bufname(bufnrlist[tabpagewinnr(v:lnum) - 1]), ":t")
-                \ . label
-endfunction
-
-set guitablabel=%!GuiTabLabeler()

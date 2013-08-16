@@ -1,4 +1,3 @@
-
 function! ClojureFolds(lnum)
     let l1 = getline(a:lnum)
 
