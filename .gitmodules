@@ -64,3 +64,6 @@
 [submodule "bundle/threesome"]
 	path = bundle/threesome
 	url = https://github.com/sjl/threesome.vim.git
+[submodule "bundle/easymotion"]
+	path = bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
