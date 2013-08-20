@@ -11,12 +11,12 @@ endif
 " ------------------------------------------------------------------------------
 " Visual Settings
 " ------------------------------------------------------------------------------
-colorscheme distinguished
+set t_Co=256
+colorscheme grb256
 
 " ------------------------------------------------------------------------------
 " General Settings
 " ------------------------------------------------------------------------------
-set t_Co=256
 set ruler
 set hidden
 set number
@@ -35,8 +35,6 @@ set expandtab
 set nocompatible
 set mousehide
 set showcmd
-set foldenable
-set foldcolumn=3
 set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set statusline+=%{fugitive#statusline()}
 set noerrorbells
