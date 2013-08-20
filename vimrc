@@ -184,8 +184,6 @@ map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 " Set toggle for Paste Mode
 set pastetoggle=<F4>
 
-map <leader>nt :NERDTreeToggle<cr>
-
 " Format Entire File
 map <leader>fef gg=G<cr>``zz
 
@@ -227,14 +225,6 @@ function! StripTrailingSpaces()
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
-" Gist
-let g:gist_show_privates = 1
-map <leader>gb :Gist -p<cr>
-map <leader>gbs :Gist -p -m<cr>
-
-" Gundo
-map <leader>gt :GundoToggle<cr>
-
 " Rainbow parentheses
 let g:rbpt_colorpairs = [
             \ ['brown',       'RoyalBlue3'],
@@ -255,5 +245,5 @@ let g:rbpt_colorpairs = [
             \ ]
 
 " Clojure
-map <leader>r :Require!<cr>
+map <leader>r :Require<cr>
 map <leader>rt :!lein test<cr>
