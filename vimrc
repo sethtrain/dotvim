@@ -192,7 +192,8 @@ map <leader>l :set list!<cr>
 map <leader>htv <C-W>t<C-W>H
 
 " buffer delete
-noremap <silent> <leader>bd :bd<CR>
+" noremap <silent> <leader>bd :bd<CR>
+source ~/.vim/bclose.vim
 
 " Ack
 nnoremap <leader>a <Esc>:Ack!
