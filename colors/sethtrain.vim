@@ -1,7 +1,9 @@
-" Based on
+" Based on ir_black.vim
+" Customized version of Gary Bernhardt's grb256.vim
+
 runtime colors/ir_black.vim
 
-let g:colors_name = "grb256"
+let g:colors_name = "sethtrain"
 
 hi pythonSpaceError ctermbg=red guibg=red
 
@@ -18,6 +20,9 @@ hi Error            guifg=NONE        guibg=NONE        gui=undercurl ctermfg=16
 hi ErrorMsg         guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=16       ctermbg=red         cterm=NONE
 hi WarningMsg       guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=16       ctermbg=red         cterm=NONE
 hi SpellBad       guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=16       ctermbg=160         cterm=NONE
+
+" Search highlight
+hi Search         guifg=NONE        guibg=NONE        gui=NONE      ctermfg=black       ctermbg=3           cterm=NONE
 
 " ir_black doesn't highlight operators for some reason
 hi Operator        guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=lightblue   ctermbg=NONE        cterm=NONE
