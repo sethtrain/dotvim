@@ -121,7 +121,7 @@ nnoremap <leader>v <C-w>v<C-w>l
 " ------------------------------------------------------------------------------
 " Opens a horizontal split and switches over
 " ------------------------------------------------------------------------------
-nnoremap <leader>h <C-w>s<C-w>l
+nnoremap <leader>h <C-w>s<C-w>j
 
 " ------------------------------------------------------------------------------
 " Saves time
@@ -189,6 +189,9 @@ set pastetoggle=<F4>
 
 " Format Entire File
 map <leader>fef gg=G<cr>``zz
+
+" Format function
+map <leader>ff [[v%==
 
 map <leader>cd :cd %%
 map <leader>l :set list!<cr>
