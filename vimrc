@@ -183,6 +183,9 @@ map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 " General Bindings and plugin options
 " ------------------------------------------------------------------------------
 
+" Make
+map <leader>m :make %<cr>
+
 " Set toggle for Paste Mode
 set pastetoggle=<F4>
 
@@ -253,3 +256,7 @@ let g:rbpt_colorpairs = [
 " Clojure
 map <leader>r :Require<cr>
 map <leader>rt :!lein test<cr>
+
+" Go
+autocmd FileType go compiler go
+map <leader>g :Godoc<cr>
