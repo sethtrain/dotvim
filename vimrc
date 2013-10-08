@@ -52,6 +52,10 @@ if has('mouse')
     set mouse=nv
 endif
 
+if has('mouse_sgr')
+    set ttymouse=sgr
+endif
+
 " ------------------------------------------------------------------------------
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -186,8 +190,8 @@ map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 " Make
 map <leader>m :make %<cr>
 
-" Set toggle for Paste Mode
-set pastetoggle=<F4>
+" Set mapping for paste
+map <F4> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " Format Entire File
 map <leader>fef gg=G<cr>``zz
@@ -209,10 +213,25 @@ source ~/.vim/bclose.vim
 nnoremap <leader>a <Esc>:Ack!
 
 " CtrlP
+function! ClearCtrlPState()
+  :let g:ctrlp_default_input = ''
+endfunction
+
+function! SetCtrlPDefaultInputToCword()
+  :let g:ctrlp_default_input = expand('<cword>')
+endfunction
+
+" CtrlP
+let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = ''
-map <leader>t :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
+let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
+nn <leader>t :call ClearCtrlPState()<cr>:CtrlP<cr>
+nn <leader>T :call SetCtrlPDefaultInputToCword()<cr>:CtrlP<cr>
+nn <leader>b :call ClearCtrlPState()<cr>:CtrlPBuffer<cr>
+nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
+" Jump to declaration
+nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
 
 " Tabs
 map <C-t> :tabnew<cr>
@@ -252,10 +271,6 @@ let g:rbpt_colorpairs = [
             \ ['darkred',     'DarkOrchid3'],
             \ ['red',         'firebrick3'],
             \ ]
-
-" Clojure
-map <leader>r :Require<cr>
-map <leader>rt :!lein test<cr>
 
 " Go
 autocmd FileType go compiler go
