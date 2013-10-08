@@ -275,3 +275,11 @@ let g:rbpt_colorpairs = [
 " Go
 autocmd FileType go compiler go
 map <leader>g :Godoc<cr>
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
