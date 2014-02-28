@@ -234,10 +234,10 @@ nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
 nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
 
 " Tabs
-map <C-t> :tabnew<cr>
-map <C-p> :tabp<cr>
-map <C-n> :tabn<cr>
-map <leader>tc :tabclose<cr>
+" map <C-t> :tabnew<cr>
+" map <C-p> :tabp<cr>
+" map <C-n> :tabn<cr>
+" map <leader>tc :tabclose<cr>
 
 " Highlight Trailing Space
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
