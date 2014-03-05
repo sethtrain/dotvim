@@ -55,6 +55,3 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule "bundle/airline"]
-	path = bundle/airline
-	url = https://github.com/bling/vim-airline

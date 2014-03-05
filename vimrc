@@ -233,12 +233,6 @@ nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
 " Jump to declaration
 nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
 
-" Tabs
-" map <C-t> :tabnew<cr>
-" map <C-p> :tabp<cr>
-" map <C-n> :tabn<cr>
-" map <leader>tc :tabclose<cr>
-
 " Highlight Trailing Space
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
@@ -275,11 +269,3 @@ let g:rbpt_colorpairs = [
 " Go
 autocmd FileType go compiler go
 map <leader>g :Godoc<cr>
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
