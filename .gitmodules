@@ -55,3 +55,6 @@
 [submodule "bundle/dispatch"]
 	path = bundle/dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "bundle/ansible-yaml"]
+	path = bundle/ansible-yaml
+	url = https://github.com/chase/vim-ansible-yaml.git
