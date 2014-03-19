@@ -135,7 +135,7 @@ nnoremap <space> :
 " ------------------------------------------------------------------------------
 " Normal mode mappings
 " ------------------------------------------------------------------------------
-nnoremap <leader>ev :tabe $MYVIMRC<cr>
+" nnoremap <leader>ev :tabe $MYVIMRC<cr>
 
 " ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
