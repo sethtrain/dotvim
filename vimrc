@@ -163,12 +163,12 @@ call MapCR()
 " ------------------------------------------------------------------------------
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>te :tabe %%
+"map <leader>te :tabe %%
 
 " ------------------------------------------------------------------------------
 " Insert mode mappings
 " ------------------------------------------------------------------------------
-inoremap jj <esc>
+"inoremap jj <esc>
 
 " ------------------------------------------------------------------------------
 " Window movement
@@ -207,7 +207,7 @@ map <leader>htv <C-W>t<C-W>H
 
 " buffer delete
 " noremap <silent> <leader>bd :bd<CR>
-source ~/.vim/bclose.vim
+" source ~/.vim/bclose.vim
 
 " Ack
 nnoremap <leader>a <Esc>:Ack!
