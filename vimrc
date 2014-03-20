@@ -82,6 +82,8 @@ if &t_Co > 2 || has("gui_running")
     set guicursor+=i-ci:ver20-iCursor
 endif
 
+source ~/.vim/say.vim
+
 " ------------------------------------------------------------------------------
 " MY leader key
 " ------------------------------------------------------------------------------
@@ -153,10 +155,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " ------------------------------------------------------------------------------
 " Handle hlsearch better
 " ------------------------------------------------------------------------------
-function! MapCR()
-    nnoremap <cr> :nohlsearch<cr>
-endfunction
-call MapCR()
+" function! MapCR()
+"     nnoremap <cr> :nohlsearch<cr>
+" endfunction
+" call MapCR()
 
 " ------------------------------------------------------------------------------
 " Map ,e to open files in the same directory as current file
