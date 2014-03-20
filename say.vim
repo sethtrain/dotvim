@@ -9,6 +9,7 @@ function! s:CSay(saying)
 endfunction
 
 function! s:CowSay(saying)
+    silent !clear
     let s = shellescape(escape(a:saying, "%#!"))
     execute '!cowsay ' . s . ' && say -v "Trinoids" ' . s
 endfunction
