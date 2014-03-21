@@ -215,25 +215,9 @@ map <leader>htv <C-W>t<C-W>H
 nnoremap <leader>a <Esc>:Ack!
 
 " CtrlP
-function! ClearCtrlPState()
-  :let g:ctrlp_default_input = ''
-endfunction
-
-function! SetCtrlPDefaultInputToCword()
-  :let g:ctrlp_default_input = expand('<cword>')
-endfunction
-
-" CtrlP
 let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
-let g:ctrlp_map = ''
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
-nn <leader>t :call ClearCtrlPState()<cr>:CtrlP<cr>
-nn <leader>T :call SetCtrlPDefaultInputToCword()<cr>:CtrlP<cr>
-nn <leader>b :call ClearCtrlPState()<cr>:CtrlPBuffer<cr>
-nn <leader>B :call SetCtrlPDefaultInputToCword()<cr>:CtrlPBuffer<cr>
-" Jump to declaration
-nn <F5> :call ClearCtrlPState()<cr>:let g:ctrlp_default_input = substitute(expand('<cword>'), '.*/', '', '')<cr>:CtrlPTag<cr>
 
 " Highlight Trailing Space
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
