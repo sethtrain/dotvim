@@ -12,7 +12,9 @@ endif
 " Visual Settings
 " ------------------------------------------------------------------------------
 set t_Co=256
-colorscheme sethtrain
+
+" Jellybean
+colorscheme jellybeans
 
 " ------------------------------------------------------------------------------
 " General Settings
@@ -255,3 +257,4 @@ let g:rbpt_colorpairs = [
 " Go
 autocmd FileType go compiler go
 map <leader>g :Godoc<cr>
+
