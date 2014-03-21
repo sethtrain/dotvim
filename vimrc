@@ -1,12 +1,34 @@
-" -----------------------------------------------------------------------------
-" Pathogen
-" -----------------------------------------------------------------------------
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" ========================================================================
+" Vundle stuff
+" ========================================================================
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-if has("autocmd")
-    filetype plugin indent on
-endif
+" Let Vundle manage Vundle (required)!
+Bundle 'gmarik/vundle'
+
+" Bundles
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'chase/vim-ansible-yaml'
+Bundle 'ervandew/supertab'
+Bundle 'gregsexton/gitv'
+Bundle 'groenewege/vim-less'
+Bundle 'guns/vim-clojure-static'
+Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-abolish'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-sensible'
+Bundle 'vim-scripts/paredit.vim'
+
+filetype plugin indent on
 
 " ------------------------------------------------------------------------------
 " Visual Settings
@@ -159,11 +181,6 @@ endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
 " ------------------------------------------------------------------------------
-" Go
-" ------------------------------------------------------------------------------
-autocmd FileType go compiler go
-
-" ------------------------------------------------------------------------------
 " Rainbow parentheses
 " ------------------------------------------------------------------------------
 let g:rbpt_colorpairs = [
@@ -205,7 +222,6 @@ map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 map <leader>e :edit %%
 map <leader>fef gg=G<cr>``zz
 map <leader>ff [[v%==
-map <leader>g :Godoc<cr>
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
