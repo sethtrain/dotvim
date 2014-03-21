@@ -1,6 +1,6 @@
-" ========================================================================
-" Vundle stuff
-" ========================================================================
+" ------------------------------------------------------------------------------
+" VUNDLE
+" ------------------------------------------------------------------------------
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -31,15 +31,39 @@ Bundle 'vim-scripts/paredit.vim'
 filetype plugin indent on
 
 " ------------------------------------------------------------------------------
-" Visual Settings
+" VISUAL SETTINGS
 " ------------------------------------------------------------------------------
 set t_Co=256
-
-" Jellybean
 colorscheme jellybeans
 
 " ------------------------------------------------------------------------------
-" General Settings
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+" ------------------------------------------------------------------------------
+" ------------------------------------------------------------------------------
+" Gui options
+" ------------------------------------------------------------------------------
+if &t_Co > 2 || has("gui_running")
+    syntax on
+    if has("gui_gtk2")
+        set guifont=Droid\ Sans\ Mono\ 12
+    elseif has("gui_macvim")
+        set guifont=Droid\ Sans\ Mono:h12
+    end
+    set go-=T
+    set go-=l
+    set go-=L
+    set go-=r
+    set go-=R
+    set go-=m
+    highlight iCursor guifg=white guibg=#0087af
+    set guicursor=n-c:block-Cursor-blinkon0
+    set guicursor+=v:block-vCursor-blinkon0
+    set guicursor+=i-ci:ver20-iCursor
+endif
+
+" ------------------------------------------------------------------------------
+" GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 set autoindent
 set backup
@@ -82,40 +106,23 @@ if has('mouse_sgr')
 endif
 
 " ------------------------------------------------------------------------------
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
+" Allow backspacing over everything in insert mode
 " ------------------------------------------------------------------------------
-" ------------------------------------------------------------------------------
-" Gui options
-" ------------------------------------------------------------------------------
-if &t_Co > 2 || has("gui_running")
-    syntax on
-    if has("gui_gtk2")
-        set guifont=Droid\ Sans\ Mono\ 12
-    elseif has("gui_macvim")
-        set guifont=Droid\ Sans\ Mono:h12
-    end
-    set go-=T
-    set go-=l
-    set go-=L
-    set go-=r
-    set go-=R
-    set go-=m
-    highlight iCursor guifg=white guibg=#0087af
-    set guicursor=n-c:block-Cursor-blinkon0
-    set guicursor+=v:block-vCursor-blinkon0
-    set guicursor+=i-ci:ver20-iCursor
-endif
-
-" ------------------------------------------------------------------------------
-" Fun stuff
-" ------------------------------------------------------------------------------
-source ~/.vim/say.vim
+set backspace=indent,eol,start
 
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
 set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules,repl,uploads
+
+" ------------------------------------------------------------------------------
+" FUN STUFF
+" ------------------------------------------------------------------------------
+source ~/.vim/say.vim
+
+" ------------------------------------------------------------------------------
+" MAPPINGS
+" ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
@@ -129,10 +136,29 @@ map n nzz
 " ------------------------------------------------------------------------------
 map <Esc>[B <Down>
 
+
 " ------------------------------------------------------------------------------
-" Allow backspacing over everything in insert mode
+" Window movement
 " ------------------------------------------------------------------------------
-set backspace=indent,eol,start
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" ------------------------------------------------------------------------------
+" Better file expansion
+" ------------------------------------------------------------------------------
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+" ------------------------------------------------------------------------------
+" Emacs-like beginning and end of line.
+" ------------------------------------------------------------------------------
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+
+" ------------------------------------------------------------------------------
+" GENERAL AND BUNDLE CONFIGURATION
+" ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
 " Enable Rainbow parenthesis
@@ -148,19 +174,6 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
-
-" ------------------------------------------------------------------------------
-" Window movement
-" ------------------------------------------------------------------------------
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
-
-" ------------------------------------------------------------------------------
-" Better file expansion
-" ------------------------------------------------------------------------------
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " ------------------------------------------------------------------------------
 " Highlight Trailing Space
@@ -202,20 +215,11 @@ let g:rbpt_colorpairs = [
             \ ]
 
 " ------------------------------------------------------------------------------
-" Emacs-like beginning and end of line.
-" ------------------------------------------------------------------------------
-imap <c-e> <c-o>$
-imap <c-a> <c-o>^
-
-" ------------------------------------------------------------------------------
-" MY leader key
+" GENERAL LEADER AND 'OTHER' BINDINGS
 " ------------------------------------------------------------------------------
 let mapleader = ","
 let g:mapleader = ","
 
-" ------------------------------------------------------------------------------
-" General leader and 'other' bindings
-" ------------------------------------------------------------------------------
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <leader>cd :cd %%
 map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
