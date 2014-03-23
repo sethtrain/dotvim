@@ -16,6 +16,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'mattn/gist-vim'
+Bundle 'mattn/webapi-vim'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
@@ -176,6 +178,13 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
 
 " ------------------------------------------------------------------------------
+" Gist
+" ------------------------------------------------------------------------------
+let g:gist_clip_command = 'pbcopy'
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" ------------------------------------------------------------------------------
 " Highlight Trailing Space
 " ------------------------------------------------------------------------------
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -221,6 +230,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <leader>G :Gist<cr>
 map <leader>R :Require<cr>
 map <leader>cd :cd %%
 map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
