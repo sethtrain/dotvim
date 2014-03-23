@@ -16,8 +16,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'mileszs/ack.vim'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
@@ -113,7 +113,7 @@ set backspace=indent,eol,start
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules,repl,uploads
+set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules,repl,uploads,*.log,workspace.xml
 
 " ------------------------------------------------------------------------------
 " FUN STUFF
@@ -221,6 +221,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <leader>R :Require<cr>
 map <leader>cd :cd %%
 map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 map <leader>e :edit %%
@@ -232,9 +233,10 @@ map <leader>gs :Gstatus<cr>
 map <leader>htv <C-W>t<C-W>H
 map <leader>l :set list!<cr>
 map <leader>m :make %<cr>
+map <leader>nt :NERDTreeToggle<cr>
 map <leader>t :tabnew<cr>
 map <leader>te :tabe %%
 nnoremap <leader><leader> <c-^>
-nnoremap <leader>a <Esc>:Ack!
+nnoremap <leader>a <Esc>:Ag!
 nnoremap <leader>h <C-w>s<C-w>j
 nnoremap <leader>v <C-w>v<C-w>l
