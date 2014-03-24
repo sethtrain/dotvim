@@ -138,7 +138,6 @@ map n nzz
 " ------------------------------------------------------------------------------
 map <Esc>[B <Down>
 
-
 " ------------------------------------------------------------------------------
 " Window movement
 " ------------------------------------------------------------------------------
@@ -242,5 +241,7 @@ map <leader>t :tabnew<cr>
 map <leader>te :tabe %%
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>a <Esc>:Ag!
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>h <C-w>s<C-w>j
+nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>v <C-w>v<C-w>l
