@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'alfredodeza/pytest.vim'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/gitv'
@@ -222,26 +223,30 @@ let g:rbpt_colorpairs = [
 let mapleader = ","
 let g:mapleader = ","
 
-map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <leader>G :Gist<cr>
-map <leader>R :Require<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>cd :cd %%
-map <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 map <leader>e :edit %%
-map <leader>fef gg=G<cr>``zz
-map <leader>ff [[v%==
-map <leader>gc :Gcommit -m ""<left>
-map <leader>gca :Gcommit -m -a ""<left>
-map <leader>gs :Gstatus<cr>
-map <leader>htv <C-W>t<C-W>H
-map <leader>l :set list!<cr>
-map <leader>m :make %<cr>
-map <leader>nt :NERDTreeToggle<cr>
-map <leader>t :tabnew<cr>
 map <leader>te :tabe %%
+nnoremap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nnoremap <leader><leader> <c-^>
+nnoremap <leader>G :Gist<cr>
+nnoremap <leader>R :Require<cr>
 nnoremap <leader>a <Esc>:Ag!
+nnoremap <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>fef gg=G<cr>``zz
+nnoremap <leader>ff [[v%==
+nnoremap <leader>gc :Gcommit -m ""<left>
+nnoremap <leader>gca :Gcommit -m -a ""<left>
+nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>h <C-w>s<C-w>j
+nnoremap <leader>htv <C-W>t<C-W>H
+nnoremap <leader>l :set list!<cr>
+nnoremap <leader>m :make %<cr>
+nnoremap <leader>nt :NERDTreeToggle<cr>
+nnoremap <leader>pc <Esc>:Pytest class<CR>
+nnoremap <leader>pf <Esc>:Pytest file<CR>
+nnoremap <leader>pm <Esc>:Pytest method<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v <C-w>v<C-w>l
