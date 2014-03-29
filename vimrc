@@ -229,6 +229,7 @@ map <leader>e :edit %%
 map <leader>te :tabe %%
 nnoremap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nnoremap <leader><leader> <c-^>
+nnoremap <leader>B :CtrlPBuffer<cr>
 nnoremap <leader>G :Gist<cr>
 nnoremap <leader>R :Require<cr>
 nnoremap <leader>a <Esc>:Ag!
