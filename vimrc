@@ -79,7 +79,6 @@ set hlsearch
 set incsearch
 set laststatus=2
 set linespace=3
-set listchars=tab:▸\ ,eol:¬
 set mousehide
 set nocompatible
 set noerrorbells
@@ -170,6 +169,15 @@ au Syntax * RainbowParenthesesLoadBraces
 let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git))$'
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " ------------------------------------------------------------------------------
 " Gist
