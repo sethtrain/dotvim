@@ -47,6 +47,7 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+set t_ut=
 
 if has("gui_running")
    let s:uname = system("uname")
@@ -154,6 +155,8 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
       \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
       \   'filename': 'MyFilename',
