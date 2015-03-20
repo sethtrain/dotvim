@@ -14,7 +14,6 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/gitv'
 Bundle 'groenewege/vim-less'
-Bundle 'guns/vim-clojure-static'
 Bundle 'itchyny/lightline.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -22,10 +21,12 @@ Bundle 'majutsushi/tagbar'
 Bundle 'mattn/emmet-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
+Bundle 'mxw/vim-jsx'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'pangloss/vim-javascript'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/gundo'
+Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
@@ -33,6 +34,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
+Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/paredit.vim'
 
 filetype plugin indent on
@@ -44,7 +46,6 @@ colorscheme jellybeans
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
 set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
 set t_ut=
@@ -79,12 +80,11 @@ set shiftwidth=4
 set showcmd
 set smartindent
 set splitbelow
-set statusline+=%{fugitive#statusline()}
-set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 set t_vb=
 set tabstop=4
 set undodir=~/.vim/undo
 set wildmode=list:longest
+set noshowmode
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
@@ -168,12 +168,26 @@ let g:lightline = {
       \ }
       \ }
 
+" ------------------------------------------------------------------------------
+" Remove (or add):
+"  \ 'separator': { 'left': '⮀', 'right': '⮂' },
+"  \ 'subseparator': { 'left': '⮁', 'right': '⮃' },
+"
+" to remove/insert arrows next to mode names
+" ------------------------------------------------------------------------------
+
 function! MyModified()
-  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    let map = { 'V': 'n', "\<C-v>": 'n', 's': 'n', 'v': 'n', "\<C-s>": 'n', 'c': 'n', 'R': 'n'}
+    let mode = get(map, mode()[0], mode()[0])
+    let bgcolor = {'n': [240, '#585858'], 'i': [31, '#0087af']}
+    let color = get(bgcolor, mode, bgcolor.n)
+    exe printf('hi ModifiedColor ctermfg=196 ctermbg=%d guifg=#ff0000 guibg=%s term=bold cterm=bold',
+                \ color[0], color[1])
+    return &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help' && &readonly ? 'RO' : ''
+  return &ft !~? 'help' && &readonly ? '⭤' : ''
 endfunction
 
 function! MyFilename()
@@ -253,6 +267,11 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+
+" ------------------------------------------------------------------------------
+" vim-jsx
+" ------------------------------------------------------------------------------
+let g:jsx_ext_required = 0
 
 " ------------------------------------------------------------------------------
 " Enable Rainbow parenthesis
