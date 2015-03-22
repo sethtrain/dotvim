@@ -10,6 +10,7 @@ Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bkad/CamelCaseMotion'
+Bundle 'bling/vim-bufferline'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/gitv'
@@ -152,7 +153,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark', 'bufferline' ] ],
       \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
@@ -161,6 +162,7 @@ let g:lightline = {
       \   'fugitive': 'MyFugitive',
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
+      \   'bufferline': 'MyBufferline',
       \   'filetype': 'MyFiletype',
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
@@ -175,6 +177,19 @@ let g:lightline = {
 "
 " to remove/insert arrows next to mode names
 " ------------------------------------------------------------------------------
+
+let g:lightline.mode_map = {
+            \ 'n'      : ' N ',
+            \ 'i'      : ' I ',
+            \ 'R'      : ' R ',
+            \ 'v'      : ' V ',
+            \ 'V'      : 'V-L',
+            \ 'c'      : ' C ',
+            \ "\<C-v>" : 'V-B',
+            \ 's'      : ' S ',
+            \ 'S'      : 'S-L',
+            \ "\<C-s>" : 'S-B',
+            \ '?'      : '      ' }
 
 function! MyModified()
     let map = { 'V': 'n', "\<C-v>": 'n', 's': 'n', 'v': 'n', "\<C-s>": 'n', 'c': 'n', 'R': 'n'}
@@ -242,6 +257,25 @@ function! CtrlPMark()
   else
     return ''
   endif
+endfunction
+
+function! MyBufferline()
+    call bufferline#refresh_status()
+    let b = g:bufferline_status_info.before
+    let c = g:bufferline_status_info.current
+    let a = g:bufferline_status_info.after
+    let alen = strlen(a)
+    let blen = strlen(b)
+    let clen = strlen(c)
+    let w = winwidth(0) * 4 / 11
+    if w < alen+blen+clen
+        let whalf = (w - strlen(c)) / 2
+        let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
+        let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
+        return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
+    else
+        return b . c . a
+    endif
 endfunction
 
 let g:ctrlp_status_func = {
@@ -368,3 +402,8 @@ nnoremap <leader>pm <Esc>:Pytest method<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v <C-w>v<C-w>l
+nnoremap gN :bprevious<CR>
+nnoremap gd :bdelete<CR>
+nnoremap gf <C-^>
+nnoremap gn :bnext<CR>
+
