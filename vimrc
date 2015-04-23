@@ -101,6 +101,12 @@ if has('mouse_sgr')
 endif
 
 " ------------------------------------------------------------------------------
+" Clear search and reenable search with entering and leaving Insert Mode
+" ------------------------------------------------------------------------------
+autocmd InsertEnter * :setlocal nohlsearch
+autocmd InsertLeave * :setlocal hlsearch
+
+" ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
 " ------------------------------------------------------------------------------
 set backspace=indent,eol,start
@@ -370,6 +376,7 @@ nnoremap <leader>G :Gist<cr>
 nnoremap <leader>R :Require<cr>
 nnoremap <leader>a <Esc>:Ag!
 nnoremap <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
+nnoremap <leader>cs :nohlsearch<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>fef gg=G<cr>``zz
 nnoremap <leader>ff [[v%==
