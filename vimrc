@@ -387,6 +387,8 @@ nnoremap <leader>pm <Esc>:Pytest method<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v <C-w>v<C-w>l
+nnoremap [h :GitGutterPrevHunk<CR>
+nnoremap ]h :GitGutterNextHunk<CR>
 nnoremap gN :bprevious<CR>
 nnoremap gd :bdelete<CR>
 nnoremap gf <C-^>
