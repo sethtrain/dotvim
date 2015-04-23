@@ -9,6 +9,7 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
