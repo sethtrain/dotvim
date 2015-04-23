@@ -10,7 +10,6 @@ Bundle 'gmarik/vundle'
 " Bundles
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'bling/vim-bufferline'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/gitv'
@@ -37,13 +36,14 @@ Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/paredit.vim'
+Bundle 'whatyouhide/vim-gotham'
 
 filetype plugin indent on
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme gotham256
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
 set t_Co=256
@@ -52,6 +52,7 @@ set termencoding=utf-8
 set t_ut=
 
 if has("gui_running")
+   colorscheme gotham
    let s:uname = system("uname")
    if s:uname == "Darwin\n"
       set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
@@ -156,18 +157,15 @@ let g:bufferline_echo = 0
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'gotham256',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark', 'bufferline' ] ],
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ] ],
       \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' },
       \ 'component_function': {
       \   'fugitive': 'MyFugitive',
       \   'filename': 'MyFilename',
       \   'fileformat': 'MyFileformat',
-      \   'bufferline': 'MyBufferline',
       \   'filetype': 'MyFiletype',
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
@@ -262,25 +260,6 @@ function! CtrlPMark()
   else
     return ''
   endif
-endfunction
-
-function! MyBufferline()
-    call bufferline#refresh_status()
-    let b = g:bufferline_status_info.before
-    let c = g:bufferline_status_info.current
-    let a = g:bufferline_status_info.after
-    let alen = strlen(a)
-    let blen = strlen(b)
-    let clen = strlen(c)
-    let w = winwidth(0) * 4 / 11
-    if w < alen+blen+clen
-        let whalf = (w - strlen(c)) / 2
-        let aa = alen > whalf && blen > whalf ? a[:whalf] : alen + blen < w - clen || alen < whalf ? a : a[:(w - clen - blen)]
-        let bb = alen > whalf && blen > whalf ? b[-(whalf):] : alen + blen < w - clen || blen < whalf ? b : b[-(w - clen - alen):]
-        return (strlen(bb) < strlen(b) ? '...' : '') . bb . c . aa . (strlen(aa) < strlen(a) ? '...' : '')
-    else
-        return b . c . a
-    endif
 endfunction
 
 let g:ctrlp_status_func = {
