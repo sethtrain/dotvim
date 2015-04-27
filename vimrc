@@ -47,8 +47,6 @@ filetype plugin indent on
 colorscheme gotham256
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
-set t_Co=256
-set term=xterm-256color
 set termencoding=utf-8
 set t_ut=
 
@@ -58,6 +56,7 @@ if has("gui_running")
    if s:uname == "Darwin\n"
       set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
    endif
+   set guioptions=m
 endif
 
 " ------------------------------------------------------------------------------
