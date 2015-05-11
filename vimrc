@@ -11,17 +11,13 @@ Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'chase/vim-ansible-yaml'
 Bundle 'ervandew/supertab'
 Bundle 'gregsexton/gitv'
 Bundle 'groenewege/vim-less'
 Bundle 'itchyny/lightline.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'majutsushi/tagbar'
-Bundle 'mattn/emmet-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'mattn/webapi-vim'
 Bundle 'mxw/vim-jsx'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'pangloss/vim-javascript'
@@ -31,27 +27,23 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'whatyouhide/vim-gotham'
 
 filetype plugin indent on
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme gotham256
+colorscheme jellybeans
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
 set termencoding=utf-8
 set t_ut=
 
 if has("gui_running")
-   colorscheme gotham
    let s:uname = system("uname")
    if s:uname == "Darwin\n"
       set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
@@ -132,6 +124,12 @@ map N Nzz
 map n nzz
 
 " ------------------------------------------------------------------------------
+" Handle j and k better for long lines
+" ------------------------------------------------------------------------------
+nmap j gj
+nmap k gk
+
+" ------------------------------------------------------------------------------
 " Fixes strange issue when using vim (terminal) within tmux
 " ------------------------------------------------------------------------------
 map <Esc>[B <Down>
@@ -163,7 +161,7 @@ let g:bufferline_echo = 0
 " ------------------------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'gotham256',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], [ 'ctrlpmark' ] ],
       \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -298,14 +296,6 @@ endfunction
 let g:jsx_ext_required = 0
 
 " ------------------------------------------------------------------------------
-" Enable Rainbow parenthesis
-" ------------------------------------------------------------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
 let g:ctrlp_regexp = 1
@@ -387,9 +377,6 @@ nnoremap <leader>htv <C-W>t<C-W>H
 nnoremap <leader>l :set list!<cr>
 nnoremap <leader>m :make %<cr>
 nnoremap <leader>nt :NERDTreeToggle<cr>
-nnoremap <leader>pc <Esc>:Pytest class<CR>
-nnoremap <leader>pf <Esc>:Pytest file<CR>
-nnoremap <leader>pm <Esc>:Pytest method<CR>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v <C-w>v<C-w>l
