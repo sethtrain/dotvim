@@ -1,37 +1,38 @@
 " ------------------------------------------------------------------------------
 " VUNDLE
 " ------------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle (required)!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-" Bundles
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'ervandew/supertab'
-Bundle 'gregsexton/gitv'
-Bundle 'groenewege/vim-less'
-Bundle 'itchyny/lightline.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mattn/gist-vim'
-Bundle 'mxw/vim-jsx'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'pangloss/vim-javascript'
-Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/gundo.vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-surround'
+" Plugins
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'ervandew/supertab'
+Plugin 'gregsexton/gitv'
+Plugin 'groenewege/vim-less'
+Plugin 'itchyny/lightline.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'mattn/gist-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
 
+call vundle#end()
 filetype plugin indent on
 
 " ------------------------------------------------------------------------------
