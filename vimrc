@@ -9,18 +9,12 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bkad/CamelCaseMotion'
 Plugin 'bling/vim-airline'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'ervandew/supertab'
-Plugin 'gregsexton/gitv'
 Plugin 'groenewege/vim-less'
 Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
 Plugin 'mattn/gist-vim'
 Plugin 'mxw/vim-jsx'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
@@ -31,29 +25,13 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
-
-" ------------------------------------------------------------------------------
-" VISUAL SETTINGS
-" ------------------------------------------------------------------------------
-colorscheme Tomorrow-Night-Eighties
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-set encoding=utf-8
-set termencoding=utf-8
-set t_ut=
-
-if has("gui_running")
-   let s:uname = system("uname")
-   if s:uname == "Darwin\n"
-      set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
-   endif
-   set guioptions=m
-endif
 
 " ------------------------------------------------------------------------------
 " GENERAL SETTINGS
@@ -77,15 +55,28 @@ set ruler
 set showcmd
 set smartindent
 set splitbelow
+set t_ut=
 set t_vb=
 set tabstop=2
 set shiftwidth=2
 set undodir=~/.vim/undo
 set wildmode=list:longest
 set noshowmode
+set encoding=utf-8
+set termencoding=utf-8
 
-" Use Silver Searcher instead of grep
-set grepprg=ag
+" ------------------------------------------------------------------------------
+" VISUAL SETTINGS
+" ------------------------------------------------------------------------------
+colorscheme jellybeans
+
+if has("gui_running")
+   let s:uname = system("uname")
+   if s:uname == "Darwin\n"
+      set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+   endif
+   set guioptions=m
+endif
 
 if has('mouse')
     set mouse=nv
@@ -115,6 +106,48 @@ set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modu
 " FUN STUFF
 " ------------------------------------------------------------------------------
 source ~/.vim/say.vim
+
+" ------------------------------------------------------------------------------
+" GENERAL AND BUNDLE CONFIGURATION
+" ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" AIRLINE
+" ------------------------------------------------------------------------------
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" ------------------------------------------------------------------------------
+" CtrlP
+" ------------------------------------------------------------------------------
+let g:ctrlp_regexp = 1
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_custom_ignore = '\v[\/](target|\.(git)|node_modules)$'
+
+" ------------------------------------------------------------------------------
+" Gist
+" ------------------------------------------------------------------------------
+let g:gist_clip_command = 'pbcopy'
+let g:gist_show_privates = 1
+let g:gist_post_private = 1
+
+" ------------------------------------------------------------------------------
+" Highlight Trailing Space
+" ------------------------------------------------------------------------------
+highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
+match TrailingWhitespace /\s\+$/
+au TabEnter * :match TrailingWhitespace /\s\+$/
+
+" ------------------------------------------------------------------------------
+" Trailing space removal on save
+" ------------------------------------------------------------------------------
+function! StripTrailingSpaces()
+    let l = line(".")
+    let c = col(".")
+    silent! execute '%s/\s\+$//e'
+    call cursor(l, c)
+endfunction
+au BufWritePre * :call StripTrailingSpaces()
 
 " ------------------------------------------------------------------------------
 " MAPPINGS
@@ -151,78 +184,6 @@ map <c-h> <c-w>h
 " ------------------------------------------------------------------------------
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" ------------------------------------------------------------------------------
-" GENERAL AND BUNDLE CONFIGURATION
-" ------------------------------------------------------------------------------
-
-" ------------------------------------------------------------------------------
-" BUFFERLINE
-" ------------------------------------------------------------------------------
-let g:bufferline_echo = 0
-
-" ------------------------------------------------------------------------------
-" AIRLINE
-" ------------------------------------------------------------------------------
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
-" ------------------------------------------------------------------------------
-" vim-jsx
-" ------------------------------------------------------------------------------
-let g:jsx_ext_required = 0
-
-" ------------------------------------------------------------------------------
-" CtrlP
-" ------------------------------------------------------------------------------
-let g:ctrlp_regexp = 1
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\v[\/](target|\.(git)|node_modules)$'
-
-" ------------------------------------------------------------------------------
-" Gist
-" ------------------------------------------------------------------------------
-let g:gist_clip_command = 'pbcopy'
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
-
-" ------------------------------------------------------------------------------
-" Highlight Trailing Space
-" ------------------------------------------------------------------------------
-highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
-match TrailingWhitespace /\s\+$/
-au TabEnter * :match TrailingWhitespace /\s\+$/
-
-" ------------------------------------------------------------------------------
-" Trailing space removal on save
-" ------------------------------------------------------------------------------
-function! StripTrailingSpaces()
-    let l = line(".")
-    let c = col(".")
-    silent! execute '%s/\s\+$//e'
-    call cursor(l, c)
-endfunction
-au BufWritePre * :call StripTrailingSpaces()
-
-" ------------------------------------------------------------------------------
-" Rainbow parentheses
-" ------------------------------------------------------------------------------
-let g:rbpt_colorpairs = [
-            \ ['brown',       'RoyalBlue3'],
-            \ ['Darkblue',    'SeaGreen3'],
-            \ ['darkgray',    'DarkOrchid3'],
-            \ ['darkgreen',   'firebrick3'],
-            \ ['darkcyan',    'RoyalBlue3'],
-            \ ['darkred',     'SeaGreen3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['brown',       'firebrick3'],
-            \ ['gray',        'RoyalBlue3'],
-            \ ['darkmagenta', 'DarkOrchid3'],
-            \ ['Darkblue',    'firebrick3'],
-            \ ['darkgreen',   'RoyalBlue3'],
-            \ ['darkcyan',    'SeaGreen3'],
-            \ ['darkred',     'DarkOrchid3'],
-            \ ['red',         'firebrick3'],
-            \ ]
 
 " ------------------------------------------------------------------------------
 " GENERAL LEADER AND 'OTHER' BINDINGS
@@ -235,31 +196,14 @@ map <leader>cd :cd %%
 map <leader>e :edit %%
 map <leader>te :tabe %%
 nnoremap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>B :CtrlPBuffer<cr>
 nnoremap <leader>G :Gist<cr>
-nnoremap <leader>R :Require<cr>
-nnoremap <leader>a <Esc>:Ag!
+nnoremap <leader>a :Ag!<space>
 nnoremap <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
 nnoremap <leader>cs :nohlsearch<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>fef gg=G<cr>``zz
-nnoremap <leader>ff [[v%==
-nnoremap <leader>gc :Gcommit -m ""<left>
-nnoremap <leader>gca :Gcommit -m -a ""<left>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>h <C-w>s<C-w>j
-nnoremap <leader>htv <C-W>t<C-W>H
 nnoremap <leader>l :set list!<cr>
-nnoremap <leader>m :make %<cr>
 nnoremap <leader>nt :NERDTreeToggle<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>v <C-w>v<C-w>l
-nnoremap [h :GitGutterPrevHunk<CR>
-nnoremap ]h :GitGutterNextHunk<CR>
-nnoremap gN :bprevious<CR>
-nnoremap gd :bdelete<CR>
-nnoremap gf <C-^>
-nnoremap gn :bnext<CR>
-
