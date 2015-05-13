@@ -12,6 +12,7 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'bling/vim-airline'
+Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'ervandew/supertab'
 Plugin 'gregsexton/gitv'
 Plugin 'groenewege/vim-less'
@@ -40,7 +41,7 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme Tomorrow-Night-Eighties
 set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 set encoding=utf-8
 set termencoding=utf-8
@@ -73,12 +74,12 @@ set noerrorbells
 set number
 set numberwidth=5
 set ruler
-set shiftwidth=4
 set showcmd
 set smartindent
 set splitbelow
 set t_vb=
-set tabstop=4
+set tabstop=2
+set shiftwidth=2
 set undodir=~/.vim/undo
 set wildmode=list:longest
 set noshowmode
