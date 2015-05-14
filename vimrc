@@ -12,16 +12,15 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
 Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
-Plugin 'groenewege/vim-less'
+Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
+Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
@@ -31,6 +30,8 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
+
+" Snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -46,6 +47,7 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set cmdheight=1
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set encoding=utf-8
 set expandtab
 set hidden
 set hlsearch
@@ -54,21 +56,29 @@ set laststatus=2
 set mousehide
 set nocompatible
 set noerrorbells
+set nofoldenable
+set noshowmode
 set number
 set numberwidth=5
 set ruler
+set shiftwidth=2
 set showcmd
 set smartindent
 set splitbelow
 set t_ut=
 set t_vb=
 set tabstop=2
-set shiftwidth=2
-set undodir=~/.vim/undo
-set wildmode=list:longest
-set noshowmode
-set encoding=utf-8
 set termencoding=utf-8
+set undodir=~/.vim/undo
+set wildmenu
+set wildmode=list:full
+
+" Don't wait so long for the next keypress (particularly in ambigious Leader
+" situations.
+set timeoutlen=500
+
+" Enable built-in matchit plugin
+runtime macros/matchit.vim
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
@@ -189,7 +199,6 @@ map <c-h> <c-w>h
 " ------------------------------------------------------------------------------
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-
 " ------------------------------------------------------------------------------
 " GENERAL LEADER AND 'OTHER' BINDINGS
 " ------------------------------------------------------------------------------
@@ -197,18 +206,35 @@ let mapleader = ","
 let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
+map <leader>B :CtrlPBuffer<cr>
+map <leader>G :Gist<cr>
+map <leader>a :Ag!<space>
 map <leader>cd :cd %%
+map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
+map <leader>ev :e $MYVIMRC<cr>
+map <leader>fef gg=G<cr>``zz
+map <leader>l :set list!<cr>
+map <leader>nt :NERDTreeToggle<cr>
+map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
-nnoremap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-nnoremap <leader>B :CtrlPBuffer<cr>
-nnoremap <leader>G :Gist<cr>
-nnoremap <leader>a :Ag!<space>
-nnoremap <leader>cn :tabe ~/Dropbox/Notes/coding-notes.md<cr>
-nnoremap <leader>cs :nohlsearch<cr>
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <leader>fef gg=G<cr>``zz
-nnoremap <leader>l :set list!<cr>
-nnoremap <leader>nt :NERDTreeToggle<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>v <C-w>v<C-w>l
+map <leader>v <C-w>v<C-w>l
+
+" Disable Ex mode
+map Q <Nop>
+
+" ------------------------------------------------------------------------------
+" RENAME CURRENT FILE (thanks Gary Bernhardt)
+" ------------------------------------------------------------------------------
+function! RenameFile()
+let old_name = expand('%')
+let new_name = input('New file name: ', expand('%'), 'file')
+if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>n :call RenameFile()<cr>
