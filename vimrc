@@ -102,12 +102,6 @@ if has('mouse_sgr')
 endif
 
 " ------------------------------------------------------------------------------
-" Clear search and reenable search with entering and leaving Insert Mode
-" ------------------------------------------------------------------------------
-autocmd InsertEnter * :setlocal nohlsearch
-autocmd InsertLeave * :setlocal hlsearch
-
-" ------------------------------------------------------------------------------
 " Allow backspacing over everything in insert mode
 " ------------------------------------------------------------------------------
 set backspace=indent,eol,start
@@ -131,11 +125,12 @@ source ~/.vim/say.vim
 " ------------------------------------------------------------------------------
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline#extensions#tabline#enabled = 1
 
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-let g:ctrlp_regexp = 1
+et g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git)|node_modules)$'
 
