@@ -71,7 +71,7 @@ set tabstop=2
 set termencoding=utf-8
 set undodir=~/.vim/undo
 set wildmenu
-set wildmode=list:full
+set wildmode=longest:list,full
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
@@ -79,6 +79,8 @@ set timeoutlen=500
 
 " Enable built-in matchit plugin
 runtime macros/matchit.vim
+
+
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
@@ -130,7 +132,7 @@ let g:airline#extensions#tabline#enabled = 1
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-et g:ctrlp_regexp = 1
+let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_custom_ignore = '\v[\/](target|\.(git)|node_modules)$'
 
@@ -202,16 +204,18 @@ let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>B :CtrlPBuffer<cr>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>
 map <leader>cd :cd %%
+map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>l :set list!<cr>
+map <leader>gc :Gcommit -m ""<left>
+map <leader>gca :Gcommit -m -a ""<left>
 map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
@@ -233,3 +237,13 @@ if new_name != '' && new_name != old_name
   endif
 endfunction
 map <Leader>n :call RenameFile()<cr>
+
+function! RelNumberToggle()
+  if(&relativenumber == 1)
+    set relativenumber!
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>trn :call RelNumberToggle()<cr>
