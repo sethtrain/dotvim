@@ -15,21 +15,33 @@ Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
+
+" Colors
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'whatyouhide/vim-gotham'
+
+" Rails
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'thoughtbot/vim-rspec'
+
+" Clojure
+Plugin 'guns/vim-clojure-static'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'venantius/vim-cljfmt'
 
 " Snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -79,8 +91,6 @@ set timeoutlen=500
 
 " Enable built-in matchit plugin
 runtime macros/matchit.vim
-
-
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
@@ -213,9 +223,10 @@ map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
-map <leader>l :set list!<cr>
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
+map <leader>gs :Gstatus<cr>
+map <leader>l :set list!<cr>
 map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
