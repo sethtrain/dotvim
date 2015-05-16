@@ -140,6 +140,11 @@ let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
 
 " ------------------------------------------------------------------------------
+" Cljfmt
+" ------------------------------------------------------------------------------
+let g:clj_fmt_autosave = 0
+
+" ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
 let g:ctrlp_regexp = 1
@@ -232,8 +237,12 @@ map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 
-" Disable Ex mode
-map Q <Nop>
+" Source file in vim (helpful when working with plugin)
+map <leader>so :so %<cr>
+
+" Disable Ex mode and make Q the macro key
+nnoremap Q q
+nnoremap q <Nop>
 
 " ------------------------------------------------------------------------------
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
