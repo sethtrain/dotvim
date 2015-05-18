@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
