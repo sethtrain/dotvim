@@ -31,8 +31,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 
 " Colors
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'whatyouhide/vim-gotham'
+Plugin 'flazz/vim-colorschemes'
 
 " Rails
 Plugin 'tpope/vim-rails'
