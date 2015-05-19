@@ -12,10 +12,12 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ervandew/supertab'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
+Plugin 'mhinz/vim-startify'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
@@ -167,6 +169,33 @@ match TrailingWhitespace /\s\+$/
 au TabEnter * :match TrailingWhitespace /\s\+$/
 
 " ------------------------------------------------------------------------------
+" Startify
+" ------------------------------------------------------------------------------
+autocmd User Startified setlocal cursorline
+
+let g:startify_enable_special = 0
+let g:startify_files_number = 8
+let g:startify_relative_path = 1
+let g:startify_change_to_dir = 0
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
+let g:startify_session_delete_buffers = 1
+
+let g:startify_list_order = [
+      \ ['   MRU:'],
+      \ 'files',
+      \ ['   MRU within this dir:'],
+      \ 'dir',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Bookmarks:'],
+      \ 'bookmarks',
+      \ ]
+
+let g:startify_custom_header =
+      \ map(split(system('fortune | cowsay'), '\n'), '"   ". v:val') + ['']
+
+" ------------------------------------------------------------------------------
 " Trailing space removal on save
 " ------------------------------------------------------------------------------
 function! StripTrailingSpaces()
@@ -198,14 +227,6 @@ nmap k gk
 " Fixes strange issue when using vim (terminal) within tmux
 " ------------------------------------------------------------------------------
 map <Esc>[B <Down>
-
-" ------------------------------------------------------------------------------
-" Window movement
-" ------------------------------------------------------------------------------
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
 
 " ------------------------------------------------------------------------------
 " Better file expansion
