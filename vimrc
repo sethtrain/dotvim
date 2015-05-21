@@ -29,6 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
+Plugin 'godlygeek/tabular'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
