@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -167,6 +168,14 @@ let g:gist_post_private = 1
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
 match TrailingWhitespace /\s\+$/
 au TabEnter * :match TrailingWhitespace /\s\+$/
+
+" ------------------------------------------------------------------------------
+" Ultisnips
+" ------------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 " ------------------------------------------------------------------------------
 " Trailing space removal on save
