@@ -14,6 +14,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
@@ -25,10 +26,10 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-scriptease'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vinegar'
-Plugin 'godlygeek/tabular'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -232,7 +233,7 @@ map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 
 " Source file in vim (helpful when working with plugin)
-map <leader>so :so %<cr>
+map <leader>so :w<cr>:so %<cr>
 
 " Disable Ex mode and make Q the macro key
 nnoremap Q q
