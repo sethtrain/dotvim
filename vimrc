@@ -18,6 +18,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
+Plugin 'sethtrain/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
@@ -240,7 +241,7 @@ map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 
 " Source file in vim (helpful when working with plugin)
-map <leader>so :w<cr>:so %<cr>
+map <leader>so :w \| :so %<cr>
 
 " Disable Ex mode and make Q the macro key
 nnoremap Q q
