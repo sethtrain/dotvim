@@ -20,7 +20,6 @@ Plugin 'mattn/gist-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -28,6 +27,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-vinegar'
 Plugin 'godlygeek/tabular'
 
 " Colors
@@ -216,6 +216,7 @@ map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <leader>B :CtrlPBuffer<cr>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>
+map <leader>bd :bd<cr>
 map <leader>cd :cd %%
 map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :nohlsearch<cr>
@@ -226,7 +227,6 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
-map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
