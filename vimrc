@@ -10,7 +10,6 @@ Plugin 'gmarik/Vundle.vim'
 " Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
-Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -46,6 +45,10 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
 Plugin 'venantius/vim-cljfmt'
+
+" Ultisnips
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
