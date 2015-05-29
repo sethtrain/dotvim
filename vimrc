@@ -18,7 +18,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
-Plugin 'sethtrain/webapi-vim'
+Plugin 'mattn/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
@@ -45,8 +45,10 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
-Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-projectionist'
 Plugin 'venantius/vim-cljfmt'
+Plugin 'vim-scripts/paredit.vim'
 
 " Ultisnips
 Plugin 'SirVer/ultisnips'
@@ -81,6 +83,7 @@ set shiftwidth=2
 set showcmd
 set smartindent
 set splitbelow
+set splitright
 set t_ut=
 set t_vb=
 set tabstop=2
