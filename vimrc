@@ -235,10 +235,10 @@ map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
-map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
+map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
-map <leader>es :tabe ~/projects/cicayda/es.rest<cr>
+map <leader>es :e ~/projects/cicayda/es.rest<cr>
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>gc :Gcommit -m ""<left>
