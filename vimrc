@@ -7,7 +7,7 @@ call vundle#begin()
 " Let Vundle manage Vundle (required)!
 Plugin 'gmarik/Vundle.vim'
 
-" Plugins
+" General Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/unite.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -23,6 +23,8 @@ Plugin 'mattn/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+
+" tpope plugins
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
