@@ -235,6 +235,7 @@ map <leader>cd :cd %%
 map <leader>cn :tabe ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
+map <leader>es :tabe ~/projects/cicayda/es.rest<cr>
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>gc :Gcommit -m ""<left>
