@@ -23,6 +23,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'szw/vim-g'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
