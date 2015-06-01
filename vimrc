@@ -13,6 +13,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'diepm/vim-rest-console'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
@@ -274,3 +275,6 @@ function! RelNumberToggle()
 endfunc
 
 nnoremap <leader>trn :call RelNumberToggle()<cr>
+
+autocmd BufWritePre,BufRead es.rest :let $http_proxy = "socks5://localhost:1337"
+autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'application/x-www-form-urlencoded'
