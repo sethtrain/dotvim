@@ -170,19 +170,24 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " ------------------------------------------------------------------------------
-" Highlight Trailing Space
-" ------------------------------------------------------------------------------
-highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
-match TrailingWhitespace /\s\+$/
-au TabEnter * :match TrailingWhitespace /\s\+$/
-
-" ------------------------------------------------------------------------------
 " Ultisnips
 " ------------------------------------------------------------------------------
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
+" ------------------------------------------------------------------------------
+" Vim REST Console
+" ------------------------------------------------------------------------------
+let g:vrc_set_default_mapping = 0
+
+" ------------------------------------------------------------------------------
+" Highlight Trailing Space
+" ------------------------------------------------------------------------------
+highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
+match TrailingWhitespace /\s\+$/
+au TabEnter * :match TrailingWhitespace /\s\+$/
 
 " ------------------------------------------------------------------------------
 " Trailing space removal on save
@@ -241,6 +246,7 @@ map <leader>e :edit %%
 map <leader>es :e ~/projects/cicayda/es.rest<cr>
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
+map <leader>g :call VrcQuery()<cr>
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
@@ -252,9 +258,8 @@ map <leader>v <C-w>v<C-w>l
 " Source file in vim (helpful when working with plugin)
 map <leader>so :w \| :so %<cr>
 
-" Disable Ex mode and make Q the macro key
-nnoremap Q q
-nnoremap q <Nop>
+" Disable Ex mode
+nnoremap Q <Nop>
 
 " ------------------------------------------------------------------------------
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
