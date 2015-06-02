@@ -93,8 +93,11 @@ set t_vb=
 set tabstop=2
 set termencoding=utf-8
 set undodir=~/.vim/undo
+set undofile
+set undolevels=500
+set undoreload=5000
 set wildmenu
-set wildmode=list:full
+set wildmode=list:longest,full
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
