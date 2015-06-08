@@ -243,7 +243,7 @@ let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <leader>B :CtrlPBuffer<cr>
+map <leader>B :buffers<CR>:buffer<Space>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>
 map <leader>bd :bd<cr>
