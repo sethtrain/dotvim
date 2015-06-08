@@ -186,6 +186,9 @@ let g:UltiSnipsEditSplit="vertical"
 " Vim REST Console
 " ------------------------------------------------------------------------------
 let g:vrc_set_default_mapping = 0
+let g:vrc_include_response_header = 0
+autocmd BufWritePre,BufRead es.rest :let $http_proxy = "socks5://localhost:1337"
+autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'application/x-www-form-urlencoded'
 
 " ------------------------------------------------------------------------------
 " Highlight Trailing Space
@@ -290,5 +293,3 @@ endfunc
 
 nnoremap <leader>trn :call RelNumberToggle()<cr>
 
-autocmd BufWritePre,BufRead es.rest :let $http_proxy = "socks5://localhost:1337"
-autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'application/x-www-form-urlencoded'
