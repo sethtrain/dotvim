@@ -27,11 +27,13 @@ Plugin 'szw/vim-g'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-scriptease'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
