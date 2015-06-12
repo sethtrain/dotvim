@@ -9,7 +9,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Shougo/unite.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
