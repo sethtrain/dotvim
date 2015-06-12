@@ -82,6 +82,7 @@ set noerrorbells
 set nofoldenable
 set noshowmode
 set number
+set relativenumber
 set numberwidth=5
 set ruler
 set shiftwidth=2
