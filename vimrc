@@ -46,6 +46,9 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'thoughtbot/vim-rspec'
 
+" Ruby
+Plugin 'vim-ruby/vim-ruby'
+
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -243,7 +246,7 @@ let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <leader>B :buffers<CR>:buffer<Space>
+map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>
 map <leader>bd :bd<cr>
@@ -260,6 +263,7 @@ map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
 map <leader>sv :source $MYVIMRC<cr>
+map <leader>t :CtrlPTag<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 
