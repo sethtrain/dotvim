@@ -59,8 +59,8 @@ Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 
 " Ultisnips
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
