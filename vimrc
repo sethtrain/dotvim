@@ -264,6 +264,7 @@ map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
 map <leader>nt :NERDTreeToggle<cr>
+map <silent> <leader>r :!tmux send-keys -t 2 C-l "bin/rspec %" C-m<cr><cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlPTag<cr>
 map <leader>te :tabe %%
