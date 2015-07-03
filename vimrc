@@ -22,6 +22,7 @@ Plugin 'mattn/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'szw/vim-g'
 
 " tpope plugins
@@ -262,6 +263,7 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
+map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlPTag<cr>
 map <leader>te :tabe %%
