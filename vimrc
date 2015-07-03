@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
@@ -185,6 +186,12 @@ autocmd BufWritePre,BufRead es.rest :let $http_proxy = "socks5://localhost:1337"
 autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'application/x-www-form-urlencoded'
 
 " ------------------------------------------------------------------------------
+" Vimux
+" ------------------------------------------------------------------------------
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "50"
+
+" ------------------------------------------------------------------------------
 " Highlight Trailing Space
 " ------------------------------------------------------------------------------
 highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -254,7 +261,6 @@ map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
 map <leader>nt :NERDTreeToggle<cr>
-map <silent> <leader>r :!tmux send-keys -t 2 C-l "bin/rspec %" C-m<cr><cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlPTag<cr>
 map <leader>te :tabe %%
@@ -290,3 +296,16 @@ endfunc
 
 nnoremap <leader>trn :call RelNumberToggle()<cr>
 
+" ------------------------------------------------------------------------------
+" Vimux functions and mappings
+" ------------------------------------------------------------------------------
+function! RunCurrentSpec()
+  let buffer = bufname("%")
+  call VimuxSendKeys("C-l")
+  call VimuxRunCommand("bin/rspec ". buffer)
+endfunction
+
+map <silent> <leader>r :call RunCurrentSpec()<cr>
+map <silent> <leader>vl :VimuxRunLastCommand<cr>
+map <silent> <leader>vq :VimuxCloseRunner<cr>
+map <silent> <leader>vx :VimuxInterruptRunner<cr>
