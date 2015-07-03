@@ -249,7 +249,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
-map <leader>a :Ag!<space>
+map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
