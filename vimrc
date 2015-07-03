@@ -44,8 +44,6 @@ Plugin 'flazz/vim-colorschemes'
 
 " Rails
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'thoughtbot/vim-rspec'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
