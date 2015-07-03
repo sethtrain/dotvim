@@ -179,14 +179,6 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " ------------------------------------------------------------------------------
-" Ultisnips
-" ------------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-
-" ------------------------------------------------------------------------------
 " Vim REST Console
 " ------------------------------------------------------------------------------
 let g:vrc_set_default_mapping = 0
