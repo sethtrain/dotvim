@@ -265,6 +265,8 @@ map <leader>sv :source $MYVIMRC<cr>
 map <leader>t :CtrlPTag<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
+map <leader>> :vertical resize +5<cr>
+map <leader>< :vertical resize -5<cr>
 
 " Source file in vim (helpful when working with plugin)
 map <leader>so :w \| :so %<cr>
