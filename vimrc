@@ -48,6 +48,7 @@ Plugin 'tpope/vim-rails'
 
 " Ruby
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'ngmy/vim-rubocop'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
