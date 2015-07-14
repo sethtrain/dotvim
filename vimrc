@@ -302,10 +302,11 @@ nnoremap <leader>trn :call RelNumberToggle()<cr>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
+let g:spec_runner = "bin/rspec"
 function! RunCurrentSpec()
   let buffer = bufname("%")
   call VimuxSendKeys("C-l")
-  call VimuxRunCommand("bin/rspec ". buffer)
+  call VimuxRunCommand(g:spec_runner . " ". buffer)
 endfunction
 
 map <silent> <leader>r :call RunCurrentSpec()<cr>
