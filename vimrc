@@ -245,6 +245,7 @@ let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
 map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
