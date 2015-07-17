@@ -245,13 +245,14 @@ let g:mapleader = ","
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
 map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <leader>cs :nohlsearch<cr>
+map <leader>cs :let @/ = "" \| nohlsearch<cr>
 map <leader>e :edit %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
@@ -304,10 +305,11 @@ nnoremap <leader>trn :call RelNumberToggle()<cr>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
+let g:spec_runner = "bin/rspec"
 function! RunCurrentSpec()
   let buffer = bufname("%")
   call VimuxSendKeys("C-l")
-  call VimuxRunCommand("bin/rspec ". buffer)
+  call VimuxRunCommand(g:spec_runner . " ". buffer)
 endfunction
 
 map <silent> <leader>r :call RunCurrentSpec()<cr>
