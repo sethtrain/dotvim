@@ -252,7 +252,7 @@ map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <leader>cs :nohlsearch<cr>
+map <leader>cs :let @/ = "" \| nohlsearch<cr>
 map <leader>e :edit %%
 map <leader>es :e ~/projects/cicayda/es.rest<cr>
 map <leader>ev :e $MYVIMRC<cr>
