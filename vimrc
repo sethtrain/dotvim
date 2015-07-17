@@ -253,7 +253,9 @@ map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :nohlsearch<cr>
 map <leader>e :edit %%
-map <leader>es :e ~/projects/cicayda/es.rest<cr>
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>g :call VrcQuery()<cr>
