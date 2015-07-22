@@ -121,7 +121,7 @@ colorscheme jellybeans
 if has("gui_running")
    let s:uname = system("uname")
    if s:uname == "Darwin\n"
-      set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+      set guifont=Droid\ Sans\ Mono:h12
    endif
    set guioptions=m
 endif
