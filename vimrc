@@ -168,9 +168,8 @@ let g:clj_fmt_autosave = 0
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-let g:ctrlp_regexp = 1
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_custom_ignore = '\v[\/](target|\.(git)|node_modules)$'
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 " ------------------------------------------------------------------------------
 " Gist
