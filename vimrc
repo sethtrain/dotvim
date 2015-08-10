@@ -168,7 +168,7 @@ let g:clj_fmt_autosave = 0
 " ------------------------------------------------------------------------------
 " CtrlP
 " ------------------------------------------------------------------------------
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_user_command = 'ag %s -l --hidden --ignore .git --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 
 " ------------------------------------------------------------------------------
@@ -218,7 +218,7 @@ let g:rails_projections = {
   \   "test": ["spec/resources/api/v1/{}_resource_spec.rb"]
   \ },
   \ "app/serializers/api/v1/*_serializer.rb": {
-  \   "command": "serializers",
+  \   "command": "serializer",
   \   "template": ["class {camelcase|capitalize|colons}Serializer < ", "Api::Serializer", "end"],
   \   "test": ["spec/serializers/api/v1/{}_serializer_spec.rb"]
   \ },
@@ -262,7 +262,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 let mapleader = ","
 let g:mapleader = ","
 
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
 map <leader>B :CtrlPBuffer<CR>
@@ -285,7 +285,8 @@ map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
 map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
-map <leader>t :CtrlPTag<cr>
+map <leader>t :A<cr>
+map <leader>rv :R<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
