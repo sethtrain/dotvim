@@ -282,7 +282,6 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
-map <leader>nt :NERDTreeToggle<cr>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>t :A<cr>
 map <leader>rv :R<cr>
