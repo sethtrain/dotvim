@@ -5,7 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle (required)!
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
@@ -36,6 +36,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-scriptease'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
@@ -141,7 +142,7 @@ set backspace=indent,eol,start
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,resources/*,*.pyc,target,node_modules,repl,uploads,*.log,workspace.xml
+set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,target,node_modules,repl,uploads,*.log,workspace.xml
 
 " ------------------------------------------------------------------------------
 " FUN STUFF
