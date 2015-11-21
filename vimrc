@@ -25,7 +25,9 @@ Plugin 'mattn/webapi-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'szw/vim-g'
+Plugin 'Valloric/YouCompleteMe'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -54,6 +56,11 @@ Plugin 'tpope/vim-salve'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
 
+" Python
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -63,6 +70,7 @@ filetype plugin indent on
 set autoindent
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set clipboard=unnamed
 set cmdheight=1
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set encoding=utf-8
@@ -169,6 +177,23 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " ------------------------------------------------------------------------------
+" Python
+" ------------------------------------------------------------------------------
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" ------------------------------------------------------------------------------
+" SimpylFold
+" ------------------------------------------------------------------------------
+let g:SimpylFold_docstring_preview=1
+
+" ------------------------------------------------------------------------------
 " Vim REST Console
 " ------------------------------------------------------------------------------
 let g:vrc_set_default_mapping = 0
@@ -181,6 +206,12 @@ autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'applicatio
 " ------------------------------------------------------------------------------
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "50"
+
+" ------------------------------------------------------------------------------
+" YouCompleteMe
+" ------------------------------------------------------------------------------
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ------------------------------------------------------------------------------
 " Highlight Trailing Space
@@ -249,14 +280,11 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 map <leader>ev :e $MYVIMRC<cr>
 map <leader>fef gg=G<cr>``zz
-map <leader>g :call VrcQuery()<cr>
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
 map <leader>sv :source $MYVIMRC<cr>
-map <leader>t :A<cr>
-map <leader>rv :R<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
