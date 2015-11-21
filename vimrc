@@ -46,13 +46,6 @@ Plugin 'tpope/vim-vinegar'
 " Colors
 Plugin 'flazz/vim-colorschemes'
 
-" Rails
-Plugin 'tpope/vim-rails'
-
-" Ruby
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ngmy/vim-rubocop'
-
 " Clojure
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -60,10 +53,6 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
 Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
-
-" Ultisnips
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
