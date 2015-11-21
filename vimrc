@@ -200,25 +200,6 @@ function! StripTrailingSpaces()
 endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
-
-let g:rails_projections = {
-  \ "app/resources/api/v1/*_resource.rb": {
-  \   "command": "resource",
-  \   "template": ["class {camelcase|capitalize|colons}Resource < ", "Resource", "end"],
-  \   "test": ["spec/resources/api/v1/{}_resource_spec.rb"]
-  \ },
-  \ "app/serializers/api/v1/*_serializer.rb": {
-  \   "command": "serializer",
-  \   "template": ["class {camelcase|capitalize|colons}Serializer < ", "Api::Serializer", "end"],
-  \   "test": ["spec/serializers/api/v1/{}_serializer_spec.rb"]
-  \ },
-  \ "app/deserializers/api/v1/*_deserializer.rb": {
-  \   "command": "deserializer",
-  \   "template": ["class {camelcase|capitalize|colons}Deserializer < ", "Api::Deserializer", "end"],
-  \   "test": ["spec/deserializers/api/v1/{}_deserializer_spec.rb"]
-  \ }
-\ }
-
 " ------------------------------------------------------------------------------
 " MAPPINGS
 " ------------------------------------------------------------------------------
