@@ -27,7 +27,6 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'szw/vim-g'
-Plugin 'Valloric/YouCompleteMe'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -222,6 +221,11 @@ au BufWritePre * :call StripTrailingSpaces()
 " ------------------------------------------------------------------------------
 " MAPPINGS
 " ------------------------------------------------------------------------------
+
+nnoremap <C-h> <C-w-h>
+nnoremap <C-j> <C-w-j>
+nnoremap <C-k> <C-w-k>
+nnoremap <C-l> <C-w-l>
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
