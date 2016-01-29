@@ -51,14 +51,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'guns/vim-clojure-static'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-salve'
-Plugin 'venantius/vim-cljfmt'
 Plugin 'vim-scripts/paredit.vim'
-
-" Python
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
 
 call vundle#end()
 filetype plugin indent on
@@ -156,11 +149,6 @@ source ~/.vim/say.vim
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
-
-" ------------------------------------------------------------------------------
-" Cljfmt
-" ------------------------------------------------------------------------------
-let g:clj_fmt_autosave = 0
 
 " ------------------------------------------------------------------------------
 " CtrlP
