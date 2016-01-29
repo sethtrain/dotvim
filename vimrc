@@ -17,6 +17,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
+Plugin 'glidenote/memolist.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'lambdatoast/elm.vim'
@@ -164,6 +165,13 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " ------------------------------------------------------------------------------
+" Memolist
+" ------------------------------------------------------------------------------
+let g:memolist_path = "~/Dropbox/memos"
+let g:memolist_prompt_tags = 1
+let g:memolist_ex_cmd = 'CtrlP'
+
+" ------------------------------------------------------------------------------
 " SimpylFold
 " ------------------------------------------------------------------------------
 let g:SimpylFold_docstring_preview=1
@@ -264,6 +272,9 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
+map <Leader>mn :MemoNew<CR>
+map <Leader>ml :MemoList<CR>
+map <Leader>mg :MemoGrep<CR>
 map <leader>sv :source $MYVIMRC<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
