@@ -16,7 +16,6 @@ Plugin 'diepm/vim-rest-console'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'sheerun/vim-polyglot'
@@ -44,7 +43,6 @@ Plugin 'flazz/vim-colorschemes'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
 
@@ -54,7 +52,6 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
-set autoindent
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
@@ -64,8 +61,6 @@ set encoding=utf-8
 set expandtab
 set hidden
 set hlsearch
-set incsearch
-set laststatus=2
 set mousehide
 set nocompatible
 set noerrorbells
@@ -74,7 +69,6 @@ set noshowmode
 set number
 set relativenumber
 set numberwidth=5
-set ruler
 set shiftwidth=2
 set showcmd
 set smartindent
@@ -88,15 +82,11 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
-set wildmenu
 set wildmode=list:longest,full
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
 set timeoutlen=500
-
-" Enable built-in matchit plugin
-runtime macros/matchit.vim
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
@@ -120,11 +110,6 @@ if has('mouse_sgr')
 endif
 
 " ------------------------------------------------------------------------------
-" Allow backspacing over everything in insert mode
-" ------------------------------------------------------------------------------
-set backspace=indent,eol,start
-
-" ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
 set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,target,node_modules,repl,uploads,*.log,workspace.xml
@@ -139,11 +124,12 @@ source ~/.vim/say.vim
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
-" AIRLINE
+" Airline
 " ------------------------------------------------------------------------------
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='tomorrow'
 
 " ------------------------------------------------------------------------------
 " CtrlP
@@ -166,11 +152,6 @@ let g:memolist_prompt_tags = 1
 let g:memolist_ex_cmd = 'CtrlP'
 
 " ------------------------------------------------------------------------------
-" SimpylFold
-" ------------------------------------------------------------------------------
-let g:SimpylFold_docstring_preview=1
-
-" ------------------------------------------------------------------------------
 " Vim REST Console
 " ------------------------------------------------------------------------------
 let g:vrc_set_default_mapping = 0
@@ -183,12 +164,6 @@ autocmd BufWritePre,BufRead es.rest :let g:vrc_header_content_type = 'applicatio
 " ------------------------------------------------------------------------------
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "50"
-
-" ------------------------------------------------------------------------------
-" YouCompleteMe
-" ------------------------------------------------------------------------------
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " ------------------------------------------------------------------------------
 " Highlight Trailing Space
