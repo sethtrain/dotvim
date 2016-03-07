@@ -13,11 +13,13 @@ Plugin 'benmills/vimux'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -150,6 +152,20 @@ let g:gist_post_private = 1
 let g:memolist_path = "~/Dropbox/memos"
 let g:memolist_prompt_tags = 1
 let g:memolist_ex_cmd = 'CtrlP'
+
+" ------------------------------------------------------------------------------
+" Syntastic
+" ------------------------------------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " ------------------------------------------------------------------------------
 " Vim REST Console
