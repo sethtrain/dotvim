@@ -9,10 +9,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
+Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/gist-vim'
@@ -21,8 +23,10 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'wellle/targets.vim'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -48,6 +52,9 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
 
+" Scala
+Plugin 'derekwyatt/vim-scala'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -64,7 +71,6 @@ set expandtab
 set hidden
 set hlsearch
 set mousehide
-set nocompatible
 set noerrorbells
 set nofoldenable
 set noshowmode
@@ -76,8 +82,6 @@ set showcmd
 set smartindent
 set splitbelow
 set splitright
-set t_ut=
-set t_vb=
 set tabstop=2
 set termencoding=utf-8
 set undodir=~/.vim/undo
@@ -85,6 +89,12 @@ set undofile
 set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
+
+if !has('nvim')
+  set nocompatible
+  set t_ut=
+  set t_vb=
+endif
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
@@ -94,6 +104,11 @@ set timeoutlen=500
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
 colorscheme jellybeans
+
+if has("nvim")
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+endif
 
 if has("gui_running")
    let s:uname = system("uname")
@@ -114,7 +129,7 @@ endif
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,target,node_modules,repl,uploads,*.log,workspace.xml
+set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml
 
 " ------------------------------------------------------------------------------
 " FUN STUFF
@@ -207,6 +222,11 @@ nnoremap <C-h> <C-w-h>
 nnoremap <C-j> <C-w-j>
 nnoremap <C-k> <C-w-k>
 nnoremap <C-l> <C-w-l>
+
+if has('nvim')
+    " Hack to get C-h working in NeoVim
+    nmap <BS> <C-W>h
+endif
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
@@ -312,8 +332,14 @@ function! RunAllSpecs()
   call VimuxRunCommand(g:spec_runner . " spec")
 endfunction
 
+function! RunTut()
+  call VimuxSendKeys("C-l")
+  call VimuxRunCommand("sbt tut")
+endfunction
+
 map <silent> <leader>r :call RunCurrentSpec()<cr>
 map <silent> <leader>ra :call RunAllSpecs()<cr>
+map <silent> <leader>rt :call RunTut()<cr>
 map <silent> <leader>vl :VimuxRunLastCommand<cr>
 map <silent> <leader>vq :VimuxCloseRunner<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
