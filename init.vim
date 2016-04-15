@@ -2,6 +2,7 @@
 " VUNDLE
 " ------------------------------------------------------------------------------
 set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#rc('~/.config/nvim/bundle')
 call vundle#begin()
 
 " Let Vundle manage Vundle (required)!
@@ -10,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'benekastah/neomake'
 Plugin 'benmills/vimux'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
