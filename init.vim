@@ -22,6 +22,7 @@ Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'Valloric/YouCompleteMe'
@@ -81,6 +82,7 @@ set shiftwidth=2
 set showcmd
 set showmatch
 set smartindent
+set splitbelow
 set splitright
 set tabstop=2
 set termencoding=utf-8
@@ -235,6 +237,7 @@ let g:mapleader = ","
 
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc --exclude=node_modules .<CR>
+map <c-n> :NERDTreeToggle<CR>
 map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
