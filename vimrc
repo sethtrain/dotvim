@@ -91,12 +91,6 @@ set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
 
-if !has('nvim')
-  set nocompatible
-  set t_ut=
-  set t_vb=
-endif
-
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
 set timeoutlen=500
