@@ -1,7 +1,7 @@
 " ------------------------------------------------------------------------------
 " VUNDLE
 " ------------------------------------------------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle (required)!
@@ -67,10 +67,8 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
 set cmdheight=1
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set encoding=utf-8
 set expandtab
 set hidden
-set hlsearch
 set mousehide
 set noerrorbells
 set nofoldenable
@@ -117,14 +115,6 @@ if has("gui_running")
    set guioptions=m
 endif
 
-if has('mouse')
-    set mouse=nv
-endif
-
-if has('mouse_sgr')
-    set ttymouse=sgr
-endif
-
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
@@ -133,7 +123,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 " FUN STUFF
 " ------------------------------------------------------------------------------
-source ~/.vim/say.vim
+source ~/.config/nvim/say.vim
 
 " ------------------------------------------------------------------------------
 " GENERAL AND BUNDLE CONFIGURATION
@@ -267,10 +257,9 @@ map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :let @/ = "" \| nohlsearch<cr>
 map <leader>e :edit %%
-map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
-map <leader>ev :e $MYVIMRC<cr>
+map <leader>ev :e ~/.config/nvim/init.vim<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
@@ -279,7 +268,7 @@ map <leader>l :set list!<cr>
 map <Leader>mn :MemoNew<CR>
 map <Leader>ml :MemoList<CR>
 map <Leader>mg :MemoGrep<CR>
-map <leader>sv :source $MYVIMRC<cr>
+map <leader>sv :source ~/.config/nvim/init.vim<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
