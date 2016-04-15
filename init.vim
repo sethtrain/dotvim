@@ -2,8 +2,7 @@
 " VUNDLE
 " ------------------------------------------------------------------------------
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#rc('~/.config/nvim/bundle')
-call vundle#begin()
+call vundle#begin('~/.config/nvim/bundle')
 
 " Let Vundle manage Vundle (required)!
 Plugin 'VundleVim/Vundle.vim'
@@ -17,7 +16,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
 Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/gist-vim'
@@ -49,6 +47,7 @@ Plugin 'tpope/vim-vinegar'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
+Plugin 'gosukiwi/vim-atom-dark'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
@@ -81,7 +80,6 @@ set numberwidth=5
 set shiftwidth=2
 set showcmd
 set smartindent
-set splitbelow
 set splitright
 set tabstop=2
 set termencoding=utf-8
