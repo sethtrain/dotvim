@@ -63,10 +63,10 @@ filetype plugin indent on
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.nvim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
 set cmdheight=1
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.nvim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set expandtab
 set hidden
 set mousehide
@@ -83,7 +83,7 @@ set splitbelow
 set splitright
 set tabstop=2
 set termencoding=utf-8
-set undodir=~/.vim/undo
+set undodir=~/.config/nvim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
@@ -96,16 +96,10 @@ set timeoutlen=500
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-if has("nvim")
-  colorscheme atom-dark
-else
-  colorscheme atom-dark-256
-endif
+colorscheme atom-dark
 
-if has("nvim")
-  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 
 if has("gui_running")
    let s:uname = system("uname")
@@ -149,13 +143,6 @@ let g:ctrlp_use_caching = 0
 let g:gist_clip_command = 'pbcopy'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
-
-" ------------------------------------------------------------------------------
-" Memolist
-" ------------------------------------------------------------------------------
-let g:memolist_path = "~/Dropbox/memos"
-let g:memolist_prompt_tags = 1
-let g:memolist_ex_cmd = 'CtrlP'
 
 " ------------------------------------------------------------------------------
 " Syntastic
@@ -212,10 +199,10 @@ nnoremap <C-j> <C-w-j>
 nnoremap <C-k> <C-w-k>
 nnoremap <C-l> <C-w-l>
 
-if has('nvim')
-    " Hack to get C-h working in NeoVim
-    nmap <BS> <C-W>h
-endif
+" ------------------------------------------------------------------------------
+" Hack to get C-h working in NeoVim
+" ------------------------------------------------------------------------------
+nmap <BS> <C-W>h
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
@@ -238,7 +225,7 @@ map <Esc>[B <Down>
 " ------------------------------------------------------------------------------
 " Better file expansion
 " ------------------------------------------------------------------------------
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 
 " ------------------------------------------------------------------------------
 " GENERAL LEADER AND 'OTHER' BINDINGS
@@ -246,9 +233,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 let mapleader = ","
 let g:mapleader = ","
 
-cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc .<CR>
+map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc --exclude=node_modules .<CR>
 map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
@@ -265,10 +251,6 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
-map <Leader>mn :MemoNew<CR>
-map <Leader>ml :MemoList<CR>
-map <Leader>mg :MemoGrep<CR>
-map <leader>sv :source ~/.config/nvim/init.vim<cr>
 map <leader>te :tabe %%
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
