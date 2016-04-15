@@ -318,8 +318,8 @@ nnoremap <leader>trn :call RelNumberToggle()<cr>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "bin/rspec"
-let g:test_location = "spec"
+let g:test_runner = "nosetests"
+let g:test_location = "tests"
 
 function! RunCurrentTest()
   let buffer = bufname("%")
