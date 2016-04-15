@@ -79,6 +79,7 @@ set relativenumber
 set numberwidth=5
 set shiftwidth=2
 set showcmd
+set showmatch
 set smartindent
 set splitright
 set tabstop=2
@@ -128,8 +129,7 @@ source ~/.config/nvim/say.vim
 " ------------------------------------------------------------------------------
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='tomorrow'
+let g:airline_theme='bubblegum'
 
 " ------------------------------------------------------------------------------
 " CtrlP
