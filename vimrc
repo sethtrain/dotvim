@@ -15,6 +15,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
 Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'gosukiwi/vim-atom-dark'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/gist-vim'
@@ -103,7 +104,11 @@ set timeoutlen=500
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+if has("nvim")
+  colorscheme atom-dark
+else
+  colorscheme atom-dark-256
+endif
 
 if has("nvim")
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
