@@ -29,6 +29,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'wellle/targets.vim'
+Plugin 'editorconfig/editorconfig-vim'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -48,7 +49,6 @@ Plugin 'tpope/vim-vinegar'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
-Plugin 'gosukiwi/vim-atom-dark'
 
 " Clojure
 Plugin 'guns/vim-clojure-static'
@@ -251,7 +251,7 @@ map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :let @/ = "" \| nohlsearch<cr>
 map <leader>e :edit %%
-map <leader>ev :e ~/.config/nvim/init.vim<cr>
+map <leader>ev :e ~/.vim/vimrc<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
