@@ -1,8 +1,8 @@
 " ------------------------------------------------------------------------------
 " VUNDLE
 " ------------------------------------------------------------------------------
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
 
 " Let Vundle manage Vundle (required)!
 Plugin 'VundleVim/Vundle.vim'
@@ -55,8 +55,8 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
 
-" Scala
-Plugin 'derekwyatt/vim-scala'
+" Ruby/Rails
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on
@@ -99,7 +99,7 @@ set timeoutlen=500
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme atom-dark
+colorscheme jellybeans
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
@@ -120,7 +120,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 " FUN STUFF
 " ------------------------------------------------------------------------------
-source ~/.config/nvim/say.vim
+source ~/.vim/say.vim
 
 " ------------------------------------------------------------------------------
 " GENERAL AND BUNDLE CONFIGURATION
@@ -145,6 +145,11 @@ let g:ctrlp_use_caching = 0
 let g:gist_clip_command = 'pbcopy'
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
+
+" ------------------------------------------------------------------------------
+"  NERDTree
+" ------------------------------------------------------------------------------
+let NERDTreeIgnore = ['\.pyc$']
 
 " ------------------------------------------------------------------------------
 " Syntastic
@@ -246,8 +251,6 @@ map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
 map <leader>cs :let @/ = "" \| nohlsearch<cr>
 map <leader>e :edit %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
 map <leader>ev :e ~/.config/nvim/init.vim<cr>
 map <leader>fef gg=G<cr>``zz
 map <leader>gc :Gcommit -m ""<left>
@@ -289,11 +292,17 @@ endfunc
 
 nnoremap <leader>trn :call RelNumberToggle()<cr>
 
+function! FormatJson()
+  exec '%!python -m json.tool'
+endfunction
+
+nnoremap <leader>fj :call FormatJson()<cr>
+
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "nosetests"
-let g:test_location = "tests"
+let g:test_runner = "bin/rspec"
+let g:test_location = "spec"
 
 function! RunCurrentTest()
   let buffer = bufname("%")
