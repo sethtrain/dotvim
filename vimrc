@@ -10,14 +10,15 @@ Plugin 'VundleVim/Vundle.vim'
 " General Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'benekastah/neomake'
 Plugin 'benmills/vimux'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'luochen1990/rainbow'
+Plugin 'mattn/emmet-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'rizzatti/dash.vim'
@@ -25,11 +26,9 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'wellle/targets.vim'
-Plugin 'editorconfig/editorconfig-vim'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -57,6 +56,10 @@ Plugin 'vim-scripts/paredit.vim'
 
 " Ruby/Rails
 Plugin 'tpope/vim-rails'
+
+" Snippets
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
