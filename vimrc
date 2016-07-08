@@ -150,10 +150,22 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 
 " ------------------------------------------------------------------------------
-"  NERDTree
+" NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$']
 
+" ------------------------------------------------------------------------------
+" Projectionist
+" ------------------------------------------------------------------------------
+let g:rails_projections = {
+      \ "spec/factories/*.rb": {
+      \   "command":   "factory",
+      \   "affinity":  "collection",
+      \   "alternate": "app/models/{singular}.rb",
+      \   "related":   "db/schema.rb#{}",
+      \   "test":      "spec/models/{singular}_test.rb",
+      \   "template":  "FactoryGirl.define do\n  factory :{singular} do\n  end\nend",
+      \   "keywords":  "factory sequence" } }
 " ------------------------------------------------------------------------------
 " Syntastic
 " ------------------------------------------------------------------------------
