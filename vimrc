@@ -74,7 +74,7 @@ set cmdheight=1
 set directory=~/.nvim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set expandtab
 set hidden
-set mousehide
+set mouse=a
 set noerrorbells
 set nofoldenable
 set noshowmode
