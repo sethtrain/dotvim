@@ -11,12 +11,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'mattn/emmet-vim'
 Plugin 'mattn/gist-vim'
@@ -26,6 +26,7 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'wellle/targets.vim'
@@ -56,10 +57,6 @@ Plugin 'vim-scripts/paredit.vim'
 
 " Ruby/Rails
 Plugin 'tpope/vim-rails'
-
-" Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
@@ -137,10 +134,9 @@ let g:airline_right_sep=''
 let g:airline_theme='bubblegum'
 
 " ------------------------------------------------------------------------------
-" CtrlP
+" Fzf
 " ------------------------------------------------------------------------------
-let g:ctrlp_user_command = 'ag %s -l --hidden --ignore .git --nocolor -g ""'
-let g:ctrlp_use_caching = 0
+set rtp+=/usr/local/opt/fzf
 
 " ------------------------------------------------------------------------------
 " Gist
@@ -165,7 +161,13 @@ let g:rails_projections = {
       \   "related":   "db/schema.rb#{}",
       \   "test":      "spec/models/{singular}_test.rb",
       \   "template":  "FactoryGirl.define do\n  factory :{singular} do\n  end\nend",
-      \   "keywords":  "factory sequence" } }
+      \   "keywords":  "factory sequence" },
+      \ "app/uploaders/*.rb": {
+      \   "command":   "uploader",
+      \   "affinity":  "collection",
+      \   "alternate": "app/models/{singular}.rb",
+      \   "related":   "db/schema.rb#{}",
+      \   "test":      "spec/uploaders/{singular}_test.rb" } }
 " ------------------------------------------------------------------------------
 " Syntastic
 " ------------------------------------------------------------------------------
@@ -255,10 +257,13 @@ cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 let mapleader = ","
 let g:mapleader = ","
 
+" Thanks Apple touch bar
+imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <F5> :!ctags -R --exclude=.git --exclude=logs --exclude=doc --exclude=node_modules .<CR>
-map <c-n> :NERDTreeToggle<CR>
-map <leader>B :CtrlPBuffer<CR>
+map <C-n> :NERDTreeToggle<CR>
+map <C-P> :Files<CR>
+map <leader>B :Buffers<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
