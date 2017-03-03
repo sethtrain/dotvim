@@ -24,11 +24,11 @@ Plugin 'mattn/webapi-vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'w0rp/ale'
 Plugin 'wellle/targets.vim'
 
 " tpope plugins
@@ -54,6 +54,10 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'vim-scripts/paredit.vim'
+
+" Javascript
+Plugin 'pangloss/vim-javascript'
+Plugin 'posva/vim-vue'
 
 " Ruby/Rails
 Plugin 'tpope/vim-rails'
@@ -173,19 +177,6 @@ let g:rails_projections = {
       \   "alternate": "app/models/{singular}.rb",
       \   "related":   "db/schema.rb#{}",
       \   "test":      "spec/uploaders/{singular}_test.rb" } }
-" ------------------------------------------------------------------------------
-" Syntastic
-" ------------------------------------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['eslint']
 
 " ------------------------------------------------------------------------------
 " Ultisnips
