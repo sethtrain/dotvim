@@ -13,7 +13,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
@@ -61,10 +60,6 @@ Plugin 'posva/vim-vue'
 
 " Ruby/Rails
 Plugin 'tpope/vim-rails'
-
-" Snippets and stuff
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 
 call vundle#end()
@@ -177,18 +172,6 @@ let g:rails_projections = {
       \   "alternate": "app/models/{singular}.rb",
       \   "related":   "db/schema.rb#{}",
       \   "test":      "spec/uploaders/{singular}_test.rb" } }
-
-" ------------------------------------------------------------------------------
-" Ultisnips
-" ------------------------------------------------------------------------------
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
 
 " ------------------------------------------------------------------------------
 " Vim REST Console
