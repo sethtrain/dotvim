@@ -13,23 +13,16 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'diepm/vim-rest-console'
-Plugin 'editorconfig/editorconfig-vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'mattn/emmet-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
-Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'sheerun/vim-polyglot'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-Plugin 'wellle/targets.vim'
 
 " tpope plugins
 Plugin 'tpope/vim-abolish'
@@ -42,29 +35,15 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-scriptease'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-vinegar'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
 
-" Clojure
-Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-fireplace'
-Plugin 'vim-scripts/paredit.vim'
-
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'posva/vim-vue'
-
-" Ruby/Rails
-Plugin 'tpope/vim-rails'
-
-" Snippets and stuff
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 
 
 call vundle#end()
@@ -74,10 +53,10 @@ filetype plugin indent on
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
 set backup
-set backupdir=~/.nvim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
 set cmdheight=1
-set directory=~/.nvim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set expandtab
 set hidden
 set mouse=a
@@ -177,17 +156,6 @@ let g:rails_projections = {
       \   "alternate": "app/models/{singular}.rb",
       \   "related":   "db/schema.rb#{}",
       \   "test":      "spec/uploaders/{singular}_test.rb" } }
-
-" ------------------------------------------------------------------------------
-" Ultisnips
-" ------------------------------------------------------------------------------
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 
 " ------------------------------------------------------------------------------
@@ -329,8 +297,8 @@ nnoremap <leader>fj :call FormatJson()<cr>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "bin/rspec"
-let g:test_location = "spec"
+let g:test_runner = "./manage.py test"
+let g:test_location = ""
 
 function! RunCurrentTest()
   let buffer = bufname("%")
@@ -354,3 +322,4 @@ map <silent> <leader>rt :call RunTut()<cr>
 map <silent> <leader>vl :VimuxRunLastCommand<cr>
 map <silent> <leader>vq :VimuxCloseRunner<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
+
