@@ -15,15 +15,17 @@ Plugin 'tpope/vim-sensible'
 " Everyday plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/fzf.vim'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'junegunn/fzf.vim'
 Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-surround'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -72,6 +74,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " Fzf
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
 " ------------------------------------------------------------------------------
 " Vimux
