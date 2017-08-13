@@ -1,1 +1,0 @@
-/Users/sbuntin/.vimrc
