@@ -19,6 +19,7 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
+Plugin 'python-mode/python-mode'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
@@ -26,6 +27,9 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
+
+" ale
+Plugin 'w0rp/ale'
 
 " Colors
 Plugin 'flazz/vim-colorschemes'
@@ -37,7 +41,7 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme grb256
+colorscheme jellybeans
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -75,6 +79,17 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+
+" ------------------------------------------------------------------------------
+" Ale - PyLint
+" ------------------------------------------------------------------------------
+let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
+
+" ------------------------------------------------------------------------------
+" PyMode
+" ------------------------------------------------------------------------------
+let g:pymode_lint_config = '$HOME/.pylint.rc'
+let g:pymode_options_max_line_length = 120
 
 " ------------------------------------------------------------------------------
 " Vimux
