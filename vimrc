@@ -21,6 +21,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -162,6 +163,7 @@ let g:mapleader = ","
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-P> :Files<CR>
+map <C-N> :NERDTreeToggle<CR>
 map <leader>B :Buffers<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
