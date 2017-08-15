@@ -18,7 +18,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'junegunn/fzf.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'python-mode/python-mode'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
@@ -76,12 +76,6 @@ set timeoutlen=500
 set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml
 
 " ------------------------------------------------------------------------------
-" Fzf
-" ------------------------------------------------------------------------------
-set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
-
-" ------------------------------------------------------------------------------
 " Ale - PyLint
 " ------------------------------------------------------------------------------
 let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
@@ -91,6 +85,7 @@ let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
 " ------------------------------------------------------------------------------
 let g:pymode_lint_config = '$HOME/.pylint.rc'
 let g:pymode_options_max_line_length = 120
+let g:pymode_lint_ignore = "W391"
 
 " ------------------------------------------------------------------------------
 " Vimux
@@ -162,9 +157,8 @@ let g:mapleader = ","
 " Thanks Apple touch bar
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <C-P> :Files<CR>
 map <C-N> :NERDTreeToggle<CR>
-map <leader>B :Buffers<CR>
+map <leader>B :CtrlPBuffer<CR>
 map <leader>G :Gist<cr>
 map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
