@@ -18,9 +18,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf.vim'
 Plugin 'python-mode/python-mode'
-Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
@@ -79,6 +78,12 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " Ale - PyLint
 " ------------------------------------------------------------------------------
 let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
+
+" ------------------------------------------------------------------------------
+" Fzf
+" ------------------------------------------------------------------------------
+set rtp+=/usr/local/opt/fzf
+let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" -l -U -g ""'
 
 " ------------------------------------------------------------------------------
 " PyMode
@@ -159,8 +164,8 @@ let g:mapleader = ","
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<CR>
-map <leader>B :CtrlPBuffer<CR>
-map <leader>G :Gist<cr>
+map <C-P> :Files<CR>
+map <leader>B :Buffers<CR>
 map <leader>a :Ag!<space>--vimgrep<space>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
