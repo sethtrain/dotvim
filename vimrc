@@ -83,9 +83,10 @@ let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
 " ------------------------------------------------------------------------------
 " PyMode
 " ------------------------------------------------------------------------------
+let g:pymode_doc = 1
 let g:pymode_lint_config = '$HOME/.pylint.rc'
-let g:pymode_options_max_line_length = 120
 let g:pymode_lint_ignore = "W391"
+let g:pymode_options_max_line_length = 120
 
 " ------------------------------------------------------------------------------
 " Vimux
