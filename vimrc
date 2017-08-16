@@ -187,8 +187,8 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "./manage.py test"
-let g:test_location = ""
+let g:test_runner = "nosetests"
+let g:test_location = "tests"
 
 function! RunCurrentTest()
   let buffer = bufname("%")
@@ -206,7 +206,6 @@ function! RunTut()
   call VimuxRunCommand("sbt tut")
 endfunction
 
-map <silent> <leader>r :call RunCurrentTest()<cr>
 map <silent> <leader>ra :call RunAllTests()<cr>
 map <silent> <leader>rt :call RunTut()<cr>
 map <silent> <leader>vl :VimuxRunLastCommand<cr>
