@@ -12,11 +12,12 @@ Plugin 'gmarik/Vundle.vim'
 " Sensible defaults
 Plugin 'tpope/vim-sensible'
 
-" Everyday plugins
+" Plugins
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'python-mode/python-mode'
@@ -27,13 +28,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-surround'
-
-" ale
 Plugin 'w0rp/ale'
-
-" Colors
-Plugin 'flazz/vim-colorschemes'
-
 
 call vundle#end()
 filetype plugin indent on
@@ -89,7 +84,7 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" -l -U -g ""'
 " PyMode
 " ------------------------------------------------------------------------------
 let g:pymode_doc = 1
-let g:pymode_lint_config = '$HOME/.pylint.rc'
+let g:pymode_lint_config = '$HOME/.pylintrc'
 let g:pymode_lint_ignore = "W391"
 let g:pymode_options_max_line_length = 120
 
@@ -125,11 +120,6 @@ nnoremap <C-h> <C-w-h>
 nnoremap <C-j> <C-w-j>
 nnoremap <C-k> <C-w-k>
 nnoremap <C-l> <C-w-l>
-
-" ------------------------------------------------------------------------------
-" Hack to get C-h working in NeoVim
-" ------------------------------------------------------------------------------
-nmap <BS> <C-W>h
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
@@ -206,13 +196,7 @@ function! RunAllTests()
   call VimuxRunCommand(g:test_runner . " " . g:test_location)
 endfunction
 
-function! RunTut()
-  call VimuxSendKeys("C-l")
-  call VimuxRunCommand("sbt tut")
-endfunction
-
 map <silent> <leader>ra :call RunAllTests()<cr>
-map <silent> <leader>rt :call RunTut()<cr>
 map <silent> <leader>vl :VimuxRunLastCommand<cr>
 map <silent> <leader>vq :VimuxCloseRunner<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
