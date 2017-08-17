@@ -17,10 +17,10 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
-Plugin 'python-mode/python-mode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
@@ -72,7 +72,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 " Ale - PyLint
 " ------------------------------------------------------------------------------
-let g:ale_python_pylint_options = '-rcfile $HOME/.pylint.rc'
+" let g:ale_python_pylint_options = '-rcfile $HOME/.pylintrc'
 
 " ------------------------------------------------------------------------------
 " Fzf
@@ -81,12 +81,9 @@ set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" -l -U -g ""'
 
 " ------------------------------------------------------------------------------
-" PyMode
+" Jedi
 " ------------------------------------------------------------------------------
-let g:pymode_doc = 1
-let g:pymode_lint_config = '$HOME/.pylintrc'
-let g:pymode_lint_ignore = "W391"
-let g:pymode_options_max_line_length = 120
+" let g:jedi#use_splits_not_buffers = "right"
 
 " ------------------------------------------------------------------------------
 " Vimux
