@@ -72,7 +72,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 " Ale - PyLint
 " ------------------------------------------------------------------------------
-" let g:ale_python_pylint_options = '-rcfile $HOME/.pylintrc'
+let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
 
 " ------------------------------------------------------------------------------
 " Fzf
@@ -84,6 +84,11 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" -l -U -g ""'
 " Jedi
 " ------------------------------------------------------------------------------
 " let g:jedi#use_splits_not_buffers = "right"
+
+" ------------------------------------------------------------------------------
+" NERDTree
+" ------------------------------------------------------------------------------
+let NERDTreeIgnore = ['\.pyc$']
 
 " ------------------------------------------------------------------------------
 " Vimux
@@ -153,7 +158,8 @@ map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<CR>
 map <C-P> :Files<CR>
 map <leader>B :Buffers<CR>
-map <leader>a :Ag!<space>--vimgrep<space>
+map <leader>aa :A<cr>
+map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
 map <leader>cd :cd %%
 map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
@@ -194,7 +200,8 @@ function! RunAllTests()
 endfunction
 
 map <silent> <leader>ra :call RunAllTests()<cr>
-map <silent> <leader>vl :VimuxRunLastCommand<cr>
+map <silent> <leader>rf :call RunCurrentTest()<cr>
+map <silent> <leader>rl :VimuxRunLastCommand<cr>
 map <silent> <leader>vq :VimuxCloseRunner<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
 
