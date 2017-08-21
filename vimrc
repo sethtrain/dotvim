@@ -40,7 +40,7 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme Tomorrow-Night
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
