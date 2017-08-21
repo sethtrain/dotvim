@@ -19,9 +19,11 @@ Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-capslock'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dispatch'
@@ -89,6 +91,13 @@ let g:jedi#show_call_signatures = 2
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$']
+
+" ------------------------------------------------------------------------------
+" Ultisnips
+" ------------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ------------------------------------------------------------------------------
 " Vimux
