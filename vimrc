@@ -22,6 +22,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
+Plugin 'lifepillar/pgsql.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-capslock'
@@ -128,6 +129,11 @@ let g:jedi#show_call_signatures = 2
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$']
+
+" ------------------------------------------------------------------------------
+" SQL
+" ------------------------------------------------------------------------------
+let g:sql_type_default = 'pgsql'
 
 " ------------------------------------------------------------------------------
 " Ultisnips
