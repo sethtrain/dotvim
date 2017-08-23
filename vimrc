@@ -16,9 +16,9 @@ Plugin 'tpope/vim-sensible'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'benmills/vimux'
+Plugin 'chriskempson/base16-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
@@ -41,7 +41,11 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme Tomorrow-Night
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-tomorrow-night
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
