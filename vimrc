@@ -35,6 +35,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+Plugin 'wellle/targets.vim'
 
 call vundle#end()
 filetype plugin indent on
