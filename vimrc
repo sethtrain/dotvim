@@ -23,6 +23,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
 Plugin 'lifepillar/pgsql.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-capslock'
@@ -226,7 +227,7 @@ map <leader>gc :Gcommit -m ""<left>
 map <leader>gca :Gcommit -m -a ""<left>
 map <leader>gs :Gstatus<cr>
 map <leader>l :set list!<cr>
-map <leader>te :tabe %%
+map <leader>t :TagbarToggle<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
 map <leader>< :vertical resize -5<cr>
