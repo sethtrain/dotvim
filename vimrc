@@ -88,7 +88,7 @@ let g:ale_python_pylint_options = '--rcfile $HOME/.pylintrc'
 " Fzf
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" -l -U -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" --ignore "node_modules" -l -U -g ""'
 
 " Allow for FZF to respect colorscheme
 function! s:update_fzf_colors()
