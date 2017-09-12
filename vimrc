@@ -37,6 +37,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
 Plugin 'wellle/targets.vim'
 
+" ------------------------------------------------------------------------------
+" Language Specific Plugins
+" ------------------------------------------------------------------------------
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'elixir-lang/vim-elixir'
+
+
 call vundle#end()
 filetype plugin indent on
 
