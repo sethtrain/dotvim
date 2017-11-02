@@ -22,7 +22,6 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf.vim'
-Plugin 'lifepillar/pgsql.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
@@ -40,10 +39,8 @@ Plugin 'wellle/targets.vim'
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
 " ------------------------------------------------------------------------------
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'slashmili/alchemist.vim'
-Plugin 'elixir-lang/vim-elixir'
-
+Plugin 'lifepillar/pgsql.vim'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -141,7 +138,7 @@ let g:jedi#show_call_signatures = 2
 " ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules']
 
 " ------------------------------------------------------------------------------
 " SQL
@@ -222,6 +219,7 @@ imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<CR>
 map <C-P> :Files<CR>
+vmap <C-/> :Commentary<CR>
 map <leader>B :Buffers<CR>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
