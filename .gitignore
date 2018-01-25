@@ -1,4 +1,5 @@
+autoload
 backup
-bundle
+plugged
 undo
 .vim
