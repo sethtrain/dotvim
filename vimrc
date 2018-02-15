@@ -18,7 +18,7 @@ Plug 'benmills/vimux'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-capslock'
@@ -137,6 +137,7 @@ augroup END
 " Go
 " ------------------------------------------------------------------------------
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 sts=4
 
 " ------------------------------------------------------------------------------
 " JSON
@@ -219,9 +220,9 @@ let g:mapleader = ","
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<CR>
-map <C-P> :CtrlP<CR>
+map <C-P> :Files<CR>
 vmap <C-/> :Commentary<CR>
-map <leader>B :CtrlPBuffer<CR>
+map <leader>B :Buffers<CR>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
