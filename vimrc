@@ -20,6 +20,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
@@ -34,15 +35,8 @@ Plug 'wellle/targets.vim'
 " ------------------------------------------------------------------------------
 " Completion
 " ------------------------------------------------------------------------------
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-go'
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'zchee/deoplete-go'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go'
 let g:deoplete#enable_at_startup = 1
 
 " ------------------------------------------------------------------------------
@@ -56,10 +50,7 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+colorscheme jellybeans
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -137,12 +128,17 @@ augroup END
 " Go
 " ------------------------------------------------------------------------------
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 sts=4
+let g:go_fmt_command = "goimports"
 
 " ------------------------------------------------------------------------------
 " JSON
 " ------------------------------------------------------------------------------
 au BufNewFile,BufRead *.json setlocal noet ts=4 sw=4 sts=4
+
+" ------------------------------------------------------------------------------
+" Markdown
+" ------------------------------------------------------------------------------
+au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 sts=4
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -219,10 +215,10 @@ let g:mapleader = ","
 " Thanks Apple touch bar
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
-map <C-N> :NERDTreeToggle<CR>
-map <C-P> :Files<CR>
-vmap <C-/> :Commentary<CR>
-map <leader>B :Buffers<CR>
+map <C-N> :NERDTreeToggle<cr>
+map <C-P> :Files<cr>
+vmap <C-/> :Commentary<cr>
+map <leader>B :Buffers<cr>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
@@ -250,8 +246,8 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "nosetests"
-let g:test_location = "tests"
+let g:test_runner = "go test"
+let g:test_location = ""
 
 function! RunCurrentTest()
   let buffer = bufname("%")
