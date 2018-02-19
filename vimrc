@@ -20,8 +20,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'tpope/vim-capslock'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -63,10 +63,13 @@ set mouse=a
 set noerrorbells
 set nofoldenable
 set noshowmode
+set nowrap
 set number
+set shiftwidth=4
+set softtabstop=4
 set splitbelow
 set splitright
-set tabstop=2
+set tabstop=4
 set termencoding=utf-8
 set undodir=~/.vim/undo
 set undofile
@@ -74,8 +77,7 @@ set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
 
-" Don't wait so long for the next keypress (particularly in ambigious Leader
-" situations.
+" Don't wait so long for the next keypress (particularly in ambigious Leader situations.
 set timeoutlen=500
 
 " ------------------------------------------------------------------------------
@@ -91,54 +93,43 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" --ignore "nod
 
 " Allow for FZF to respect colorscheme
 function! s:update_fzf_colors()
-  let rules =
-  \ { 'fg':      [['Normal',       'fg']],
-    \ 'bg':      [['Normal',       'bg']],
-    \ 'hl':      [['Comment',      'fg']],
-    \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
-    \ 'bg+':     [['CursorColumn', 'bg']],
-    \ 'hl+':     [['Statement',    'fg']],
-    \ 'info':    [['PreProc',      'fg']],
-    \ 'prompt':  [['Conditional',  'fg']],
-    \ 'pointer': [['Exception',    'fg']],
-    \ 'marker':  [['Keyword',      'fg']],
-    \ 'spinner': [['Label',        'fg']],
-    \ 'header':  [['Comment',      'fg']] }
-  let cols = []
-  for [name, pairs] in items(rules)
-    for pair in pairs
-      let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
-      if !empty(name) && code > 0
-        call add(cols, name.':'.code)
-        break
-      endif
+    let rules =
+                \ { 'fg':    [['Normal',       'fg']],
+                \ 'bg':      [['Normal',       'bg']],
+                \ 'hl':      [['Comment',      'fg']],
+                \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
+                \ 'bg+':     [['CursorColumn', 'bg']],
+                \ 'hl+':     [['Statement',    'fg']],
+                \ 'info':    [['PreProc',      'fg']],
+                \ 'prompt':  [['Conditional',  'fg']],
+                \ 'pointer': [['Exception',    'fg']],
+                \ 'marker':  [['Keyword',      'fg']],
+                \ 'spinner': [['Label',        'fg']],
+                \ 'header':  [['Comment',      'fg']] }
+    let cols = []
+    for [name, pairs] in items(rules)
+        for pair in pairs
+            let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
+            if !empty(name) && code > 0
+                call add(cols, name.':'.code)
+                break
+            endif
+        endfor
     endfor
-  endfor
-  let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
-  let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
-        \ empty(cols) ? '' : (' --color='.join(cols, ','))
+    let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
+    let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
+                \ empty(cols) ? '' : (' --color='.join(cols, ','))
 endfunction
 
 augroup _fzf
-  autocmd!
-  autocmd ColorScheme * call <sid>update_fzf_colors()
+    autocmd!
+    autocmd ColorScheme * call <sid>update_fzf_colors()
 augroup END
 
 " ------------------------------------------------------------------------------
 " Go
 " ------------------------------------------------------------------------------
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 let g:go_fmt_command = "goimports"
-
-" ------------------------------------------------------------------------------
-" JSON
-" ------------------------------------------------------------------------------
-au BufNewFile,BufRead *.json setlocal noet ts=4 sw=4 sts=4
-
-" ------------------------------------------------------------------------------
-" Markdown
-" ------------------------------------------------------------------------------
-au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4 sts=4
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -243,6 +234,51 @@ map <leader>so :w \| :so %<cr>
 " Disable Ex mode
 nnoremap Q <Nop>
 
+" Go specific Leader commands
+au FileType go nmap <leader>d <Plug>(go-doc)
+
+function! GoRunInVmux()
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand("go run " . bufname("%"))
+endfunction
+
+augroup go
+    autocmd!
+
+    " :GoBuild and :GoTestCompile
+    autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+    " :GoTest
+    autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+    " :GoRun
+    "autocmd FileType go nmap <leader>r  <Plug>(go-run)
+    autocmd FileType go nmap <silent> <leader>r :call GoRunInVmux()<cr>
+
+    " :GoDoc
+    autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+
+    " :GoCoverageToggle
+    autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+    " :GoInfo
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+    " :GoMetaLinter
+    autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+
+    " :GoDef but opens in a vertical split
+    autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+    " :GoDef but opens in a horizontal split
+    autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+
+    " :GoAlternate  commands :A, :AV, :AS and :AT
+    autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+    autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+    autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+    autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
+
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
@@ -250,14 +286,14 @@ let g:test_runner = "go test"
 let g:test_location = ""
 
 function! RunCurrentTest()
-  let buffer = bufname("%")
-  call VimuxSendKeys("C-l")
-  call VimuxRunCommand(g:test_runner . " ". buffer)
+    let buffer = bufname("%")
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand(g:test_runner . " ". buffer)
 endfunction
 
 function! RunAllTests()
-  call VimuxSendKeys("C-l")
-  call VimuxRunCommand(g:test_runner . " " . g:test_location)
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand(g:test_runner . " " . g:test_location)
 endfunction
 
 map <silent> <leader>ra :call RunAllTests()<cr>
