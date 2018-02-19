@@ -245,9 +245,6 @@ endfunction
 augroup go
     autocmd!
 
-    " :GoBuild and :GoTestCompile
-    autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
     " :GoTest
     autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
@@ -269,6 +266,7 @@ augroup go
 
     " :GoDef but opens in a vertical split
     autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+
     " :GoDef but opens in a horizontal split
     autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
 
