@@ -15,16 +15,12 @@ Plug 'tpope/vim-sensible'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
-Plug 'chriskempson/base16-vim'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'tpope/vim-capslock'
+Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
@@ -50,7 +46,8 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme jellybeans
+colorscheme one
+set background=dark
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -294,6 +291,12 @@ function! RunAllTests()
     call VimuxRunCommand(g:test_runner . " " . g:test_location)
 endfunction
 
+function! VimuxCancel()
+    call VimuxSendKeys("C-l")
+    call VimuxSendKeys("C-c")
+endfunction
+
+map <silent> <leader>q :call VimuxCancel()<cr>
 map <silent> <leader>ra :call RunAllTests()<cr>
 map <silent> <leader>rf :call RunCurrentTest()<cr>
 map <silent> <leader>rl :VimuxRunLastCommand<cr>
