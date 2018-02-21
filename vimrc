@@ -1,12 +1,10 @@
 " ------------------------------------------------------------------------------
-" Vundle
+" vim-plug
 " ------------------------------------------------------------------------------
 set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'gmarik/Vundle.vim'
 
 " Sensible defaults
 Plug 'tpope/vim-sensible'
@@ -88,41 +86,6 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "*.pyc" --ignore "datadir" --ignore "node_modules" -l -U -g ""'
 
-" Allow for FZF to respect colorscheme
-function! s:update_fzf_colors()
-    let rules =
-                \ { 'fg':    [['Normal',       'fg']],
-                \ 'bg':      [['Normal',       'bg']],
-                \ 'hl':      [['Comment',      'fg']],
-                \ 'fg+':     [['CursorColumn', 'fg'], ['Normal', 'fg']],
-                \ 'bg+':     [['CursorColumn', 'bg']],
-                \ 'hl+':     [['Statement',    'fg']],
-                \ 'info':    [['PreProc',      'fg']],
-                \ 'prompt':  [['Conditional',  'fg']],
-                \ 'pointer': [['Exception',    'fg']],
-                \ 'marker':  [['Keyword',      'fg']],
-                \ 'spinner': [['Label',        'fg']],
-                \ 'header':  [['Comment',      'fg']] }
-    let cols = []
-    for [name, pairs] in items(rules)
-        for pair in pairs
-            let code = synIDattr(synIDtrans(hlID(pair[0])), pair[1])
-            if !empty(name) && code > 0
-                call add(cols, name.':'.code)
-                break
-            endif
-        endfor
-    endfor
-    let s:orig_fzf_default_opts = get(s:, 'orig_fzf_default_opts', $FZF_DEFAULT_OPTS)
-    let $FZF_DEFAULT_OPTS = s:orig_fzf_default_opts .
-                \ empty(cols) ? '' : (' --color='.join(cols, ','))
-endfunction
-
-augroup _fzf
-    autocmd!
-    autocmd ColorScheme * call <sid>update_fzf_colors()
-augroup END
-
 " ------------------------------------------------------------------------------
 " Go
 " ------------------------------------------------------------------------------
@@ -163,15 +126,6 @@ endfunction
 au BufWritePre * :call StripTrailingSpaces()
 
 " ------------------------------------------------------------------------------
-" MAPPINGS
-" ------------------------------------------------------------------------------
-
-nnoremap <C-h> <C-w-h>
-nnoremap <C-j> <C-w-j>
-nnoremap <C-k> <C-w-k>
-nnoremap <C-l> <C-w-l>
-
-" ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
 " search will center on the line it's found in.
 " ------------------------------------------------------------------------------
@@ -179,7 +133,7 @@ map N Nzz
 map n nzz
 
 " ------------------------------------------------------------------------------
-" Handle j and k better for long lines
+" Handle j and k better for long lines that are wrapped
 " ------------------------------------------------------------------------------
 nmap j gj
 nmap k gk
