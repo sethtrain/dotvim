@@ -32,6 +32,7 @@ Plug 'wellle/targets.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
 let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
