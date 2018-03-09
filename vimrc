@@ -16,10 +16,10 @@ Plug 'benmills/vimux'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
-Plug 'posva/vim-vue'
 Plug 'scrooloose/nerdtree'
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-db'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-surround'
@@ -39,7 +39,15 @@ set completeopt-=preview
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
 " ------------------------------------------------------------------------------
+
+" Javascript
+Plug 'posva/vim-vue'
+
+" Go
 Plug 'fatih/vim-go'
+
+" Python
+Plug 'davidhalter/jedi-vim'
 
 call plug#end()
 filetype plugin indent on
