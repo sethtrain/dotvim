@@ -89,7 +89,7 @@ set timeoutlen=500
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml
+set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor
 
 " ------------------------------------------------------------------------------
 " Fzf
