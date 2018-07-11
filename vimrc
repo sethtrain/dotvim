@@ -44,6 +44,9 @@ set completeopt-=preview
 " Go
 Plug 'fatih/vim-go'
 
+" Rails
+Plug 'tpope/vim-rails'
+
 " Python
 Plug 'davidhalter/jedi-vim'
 
