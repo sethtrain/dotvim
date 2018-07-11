@@ -16,8 +16,8 @@ Plug 'benmills/vimux'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'rakr/vim-one'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-db'
 Plug 'tpope/vim-fugitive'
@@ -52,8 +52,7 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
-colorscheme one
-set background=dark
+colorscheme jellybeans
 
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
