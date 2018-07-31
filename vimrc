@@ -97,7 +97,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " Fzf
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "node_modules" -l -U -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" -l -U -g ""'
 
 " ------------------------------------------------------------------------------
 " Go
