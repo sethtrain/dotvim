@@ -44,13 +44,16 @@ set completeopt-=preview
 " Go
 Plug 'fatih/vim-go'
 
+" Python
+Plug 'davidhalter/jedi-vim'
+
 " Rails
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'ngmy/vim-rubocop'
 
-" Python
-Plug 'davidhalter/jedi-vim'
+" Scala
+Plug 'derekwyatt/vim-scala'
 
 call plug#end()
 filetype plugin indent on
