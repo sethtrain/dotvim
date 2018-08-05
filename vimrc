@@ -260,13 +260,18 @@ augroup END
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "go test"
+let g:test_runner = "./manage.py test"
 let g:test_location = ""
 
 function! RunCurrentTest()
     let buffer = bufname("%")
     call VimuxSendKeys("C-l")
     call VimuxRunCommand(g:test_runner . " ". buffer)
+endfunction
+
+function! RunLastTest()
+    call VimuxSendKeys("C-l")
+    call VimuxRunLastCommand()
 endfunction
 
 function! RunAllTests()
@@ -282,7 +287,7 @@ endfunction
 map <silent> <leader>q :VimuxCloseRunner<cr>
 map <silent> <leader>ra :call RunAllTests()<cr>
 map <silent> <leader>rf :call RunCurrentTest()<cr>
-map <silent> <leader>rl :VimuxRunLastCommand<cr>
+map <silent> <leader>rl :call RunLastTest()<cr>
 map <silent> <leader>vq :call VimuxCancel()<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
 
