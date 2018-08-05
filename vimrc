@@ -30,12 +30,25 @@ Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
 
 " ------------------------------------------------------------------------------
-" Completion
+" Completion and snippets
 " ------------------------------------------------------------------------------
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go'
 let g:deoplete#enable_at_startup = 1
 set completeopt-=preview
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsListSnippets="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
