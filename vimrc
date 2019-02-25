@@ -27,47 +27,15 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
 Plug 'wellle/targets.vim'
-
-" ------------------------------------------------------------------------------
-" Completion and snippets
-" ------------------------------------------------------------------------------
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
-let g:deoplete#enable_at_startup = 1
-set completeopt-=preview
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsListSnippets="<c-k>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
 " ------------------------------------------------------------------------------
 
-" Go
-Plug 'fatih/vim-go'
-
 " Python
 Plug 'davidhalter/jedi-vim'
-
-" Rails
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'ngmy/vim-rubocop'
-
-" Scala
-Plug 'derekwyatt/vim-scala'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 filetype plugin indent on
@@ -102,7 +70,7 @@ set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
 
-" Don't wait so long for the next keypress (particularly in ambigious Leader situations.
+" Don't wait so long for the next keypress (particularly in ambigious Leader situations)
 set timeoutlen=500
 
 " ------------------------------------------------------------------------------
@@ -214,49 +182,6 @@ map <leader>so :w \| :so %<cr>
 
 " Disable Ex mode
 nnoremap Q <Nop>
-
-" Go specific Leader commands
-au FileType go nmap <leader>d <Plug>(go-doc)
-
-function! GoRunInVmux()
-    call VimuxSendKeys("C-l")
-    call VimuxRunCommand("go run " . bufname("%"))
-endfunction
-
-augroup go
-    autocmd!
-
-    " :GoTest
-    autocmd FileType go nmap <leader>t  <Plug>(go-test)
-
-    " :GoRun
-    "autocmd FileType go nmap <leader>r  <Plug>(go-run)
-    autocmd FileType go nmap <silent> <leader>r :call GoRunInVmux()<cr>
-
-    " :GoDoc
-    autocmd FileType go nmap <Leader>d <Plug>(go-doc)
-
-    " :GoCoverageToggle
-    autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
-    " :GoInfo
-    autocmd FileType go nmap <Leader>i <Plug>(go-info)
-
-    " :GoMetaLinter
-    autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
-
-    " :GoDef but opens in a vertical split
-    autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-
-    " :GoDef but opens in a horizontal split
-    autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
-
-    " :GoAlternate  commands :A, :AV, :AS and :AT
-    autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-    autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-    autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-    autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-augroup END
 
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
