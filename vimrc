@@ -76,7 +76,7 @@ set timeoutlen=500
 " ------------------------------------------------------------------------------
 " wildignore settings
 " ------------------------------------------------------------------------------
-set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor
+set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor,__pycache__
 
 " ------------------------------------------------------------------------------
 " Fzf
@@ -85,14 +85,9 @@ set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" -l -U -g ""'
 
 " ------------------------------------------------------------------------------
-" Go
-" ------------------------------------------------------------------------------
-let g:go_fmt_command = "goimports"
-
-" ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
-let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules']
+let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
 
 " ------------------------------------------------------------------------------
 " SQL
@@ -186,7 +181,10 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:test_runner = "./manage.py test"
+let g:test_runner = $TEST_RUNNER
+if g:test_runner == ""
+    let g:test_runner = "./manage.py test"
+endif
 let g:test_location = ""
 
 function! RunCurrentTest()
