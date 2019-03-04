@@ -14,6 +14,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
@@ -90,33 +91,10 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
 
 " ------------------------------------------------------------------------------
-" SQL
-" ------------------------------------------------------------------------------
-let g:sql_type_default = 'pgsql'
-
-" ------------------------------------------------------------------------------
 " Vimux
 " ------------------------------------------------------------------------------
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "50"
-
-" ------------------------------------------------------------------------------
-" Highlight Trailing Space
-" ------------------------------------------------------------------------------
-highlight TrailingWhitespace ctermbg=darkgreen guibg=darkgreen
-match TrailingWhitespace /\s\+$/
-au TabEnter * :match TrailingWhitespace /\s\+$/
-
-" ------------------------------------------------------------------------------
-" Trailing space removal on save
-" ------------------------------------------------------------------------------
-function! StripTrailingSpaces()
-    let l = line(".")
-    let c = col(".")
-    silent! execute '%s/\s\+$//e'
-    call cursor(l, c)
-endfunction
-au BufWritePre * :call StripTrailingSpaces()
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
