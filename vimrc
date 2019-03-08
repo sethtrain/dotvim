@@ -160,15 +160,27 @@ nnoremap Q <Nop>
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
 let g:test_runner = $TEST_RUNNER
-if g:test_runner == ""
-    let g:test_runner = "./manage.py test"
+let g:pre_test_runner = $PRE_TEST_RUNNER
+let g:test_location = $TEST_LOCATION
+
+if g:pre_test_runner == ""
+    let g:pre_test_runner = ""
+else
+    let g:pre_test_runner .= ";"
 endif
-let g:test_location = ""
+
+if g:test_runner == ""
+    let g:test_runner = "./manage.py"
+endif
+
+if g:test_location == ""
+    let g:test_location = "tests"
+endif
 
 function! RunCurrentTest()
     let buffer = bufname("%")
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:test_runner . " ". buffer)
+    call VimuxRunCommand(g:pre_test_runner . " " . g:test_runner . " ". buffer)
 endfunction
 
 function! RunLastTest()
@@ -178,7 +190,7 @@ endfunction
 
 function! RunAllTests()
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:test_runner . " " . g:test_location)
+    call VimuxRunCommand(g:pre_test_runner . " " . g:test_runner . " " . g:test_location)
 endfunction
 
 function! VimuxCancel()
