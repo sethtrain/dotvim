@@ -160,28 +160,20 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
+let g:pre_runner = $PRE_RUNNER
 let g:test_runner = $TEST_RUNNER
-let g:pre_test_runner = $PRE_TEST_RUNNER
 let g:test_location = $TEST_LOCATION
+let g:build_runner = $BUILD_RUNNER
+let g:runner = $RUNNER
 
-if g:pre_test_runner == ""
-    let g:pre_test_runner = ""
-else
-    let g:pre_test_runner .= ";"
-endif
-
-if g:test_runner == ""
-    let g:test_runner = "./manage.py"
-endif
-
-if g:test_location == ""
-    let g:test_location = "tests"
+if g:pre_runner != ""
+    let g:pre_runner .= ";"
 endif
 
 function! RunCurrentTest()
     let buffer = bufname("%")
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_test_runner . " " . g:test_runner . " ". buffer)
+    call VimuxRunCommand(g:pre_runner . " " . g:test_runner . " ". buffer)
 endfunction
 
 function! RunLastTest()
@@ -191,7 +183,17 @@ endfunction
 
 function! RunAllTests()
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_test_runner . " " . g:test_runner . " " . g:test_location)
+    call VimuxRunCommand(g:pre_runner . " " . g:test_runner . " " . g:test_location)
+endfunction
+
+function! RunBuild()
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand(g:pre_runner . " " . g:build_runner)
+endfunction
+
+function! RunRunner()
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand(g:pre_runner . " " . g:runner)
 endfunction
 
 function! VimuxCancel()
@@ -201,8 +203,10 @@ endfunction
 
 map <silent> <leader>q :VimuxCloseRunner<cr>
 map <silent> <leader>ra :call RunAllTests()<cr>
+map <silent> <leader>rb :call RunBuild()<cr>
 map <silent> <leader>rf :call RunCurrentTest()<cr>
 map <silent> <leader>rl :call RunLastTest()<cr>
+map <silent> <leader>rr :call RunRunner()<cr>
 map <silent> <leader>vq :call VimuxCancel()<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
 
