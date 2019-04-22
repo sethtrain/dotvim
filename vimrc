@@ -19,6 +19,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -130,6 +131,7 @@ let g:mapleader = ","
 " Thanks Apple touch bar
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+map <C-N> :NERDTreeToggle<cr>
 map <C-P> :Files<cr>
 vmap <C-/> :Commentary<cr>
 map <leader>B :Buffers<cr>
