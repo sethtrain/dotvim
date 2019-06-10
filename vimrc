@@ -19,6 +19,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
+Plug 'jpalardy/vim-slime'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -95,6 +96,13 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
+
+" ------------------------------------------------------------------------------
+" vim-slime
+" ------------------------------------------------------------------------------
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+let g:slime_python_ipython = 1
 
 " ------------------------------------------------------------------------------
 " Vimux
