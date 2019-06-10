@@ -35,9 +35,6 @@ Plug 'wellle/targets.vim'
 " Language Specific Plugins
 " ------------------------------------------------------------------------------
 
-" Kotlin
-Plug 'udalov/kotlin-vim'
-
 " Python
 Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
