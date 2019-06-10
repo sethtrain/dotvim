@@ -74,6 +74,7 @@ set undofile
 set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
+set tags=./tags
 
 " Don't wait so long for the next keypress (particularly in ambigious Leader situations)
 set timeoutlen=500
