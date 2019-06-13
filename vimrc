@@ -30,6 +30,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
@@ -106,13 +107,14 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc
 " LSP
 " ------------------------------------------------------------------------------
 if executable('pyls')
-        " pip install python-language-server
-        au User lsp_setup call lsp#register_server({
-                \ 'name': 'pyls',
-                \ 'cmd': {server_info->['pyls']},
-                \ 'whitelist': ['python'],
-                \ })
-    endif
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+            \ 'name': 'pyls',
+            \ 'cmd': {server_info->['pyls']},
+            \ 'whitelist': ['python'],
+            \ })
+endif
+let g:lsp_diagnostics_enabled = 0
 
 " ------------------------------------------------------------------------------
 " NERDTree
