@@ -16,6 +16,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
@@ -128,7 +129,8 @@ let g:mapleader = ","
 
 " Thanks Apple touch bar
 imap jj <Esc>
-map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+nmap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
+nmap <F3> :TagbarToggle<CR>
 map <C-N> :NERDTreeToggle<cr>
 map <C-P> :Files<cr>
 map <leader>B :Buffers<cr>
