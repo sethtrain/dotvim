@@ -18,6 +18,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -83,6 +84,13 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " airline
 " ------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
+
+" ------------------------------------------------------------------------------
+" Better whitespace
+" ------------------------------------------------------------------------------
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitespace_confirm=0
 
 " ------------------------------------------------------------------------------
 " FZF
