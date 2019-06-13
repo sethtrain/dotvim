@@ -169,6 +169,8 @@ nmap <F3> :TagbarToggle<CR>
 map <C-N> :NERDTreeToggle<cr>
 map <C-P> :Files<cr>
 map <leader>B :Buffers<cr>
+map <leader>N :ALENext<cr>
+map <leader>P :ALEPrevious<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
 map <leader>ev :e ~/.vim/vimrc<cr>
