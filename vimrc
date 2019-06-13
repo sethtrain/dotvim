@@ -10,16 +10,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Plugins
-Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
-Plug 'jpalardy/vim-slime'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -29,7 +25,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'wellle/targets.vim'
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
@@ -59,25 +54,20 @@ set expandtab
 set hidden
 set mouse=a
 set noerrorbells
-set nofoldenable
-set noshowmode
 set nowrap
-set number
 set shiftwidth=4
 set softtabstop=4
 set splitbelow
 set splitright
 set tabstop=4
+set tags=./tags
 set termencoding=utf-8
+set timeoutlen=500
 set undodir=~/.vim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
 set wildmode=list:longest,full
-set tags=./tags
-
-" Don't wait so long for the next keypress (particularly in ambigious Leader situations)
-set timeoutlen=500
 
 " ------------------------------------------------------------------------------
 " wildignore settings
@@ -85,22 +75,14 @@ set timeoutlen=500
 set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor,__pycache__
 
 " ------------------------------------------------------------------------------
-" Fzf
+" airline
 " ------------------------------------------------------------------------------
-set rtp+=/usr/local/opt/fzf
-let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" --ignore "build" --ignore "gradle" --ignore "gradlew.bat" --ignore "gradlew" -l -U -g ""'
+let g:airline_powerline_fonts = 1
 
 " ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
-
-" ------------------------------------------------------------------------------
-" vim-slime
-" ------------------------------------------------------------------------------
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-let g:slime_python_ipython = 1
 
 " ------------------------------------------------------------------------------
 " Vimux
@@ -141,23 +123,12 @@ let g:mapleader = ","
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<cr>
-map <C-P> :Files<cr>
+map <C-P> :CtrlP<cr>
 vmap <C-/> :Commentary<cr>
-map <leader>B :Buffers<cr>
-map <leader>aa :A<cr>
+map <leader>B :CtrlPBuffer<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
-map <leader>cd :cd %%
-map <leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <leader>cs :let @/ = "" \| nohlsearch<cr>
-map <leader>e :edit %%
 map <leader>ev :e ~/.vim/vimrc<cr>
-map <leader>fef gg=G<cr>``zz
-map <leader>gc :Gcommit -m ""<left>
-map <leader>gca :Gcommit -m -a ""<left>
-map <leader>gs :Gstatus<cr>
-map <leader>l :set list!<cr>
-map <leader>t :TagbarToggle<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
 map <leader>< :vertical resize -5<cr>
