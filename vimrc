@@ -91,6 +91,7 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " airline
 " ------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
 
 " ------------------------------------------------------------------------------
 " Better whitespace
