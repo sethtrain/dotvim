@@ -19,6 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
@@ -55,10 +57,12 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
 set cmdheight=1
+set cursorline
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set expandtab
 set hidden
 set mouse=a
+set number
 set noerrorbells
 set nowrap
 set shiftwidth=4
@@ -97,6 +101,18 @@ let g:strip_whitespace_confirm=0
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" --ignore "build" --ignore "gradle" --ignore "gradlew.bat" --ignore "gradlew" -l -U -g ""'
+
+" ------------------------------------------------------------------------------
+" LSP
+" ------------------------------------------------------------------------------
+if executable('pyls')
+        " pip install python-language-server
+        au User lsp_setup call lsp#register_server({
+                \ 'name': 'pyls',
+                \ 'cmd': {server_info->['pyls']},
+                \ 'whitelist': ['python'],
+                \ })
+    endif
 
 " ------------------------------------------------------------------------------
 " NERDTree
