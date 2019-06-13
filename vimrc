@@ -90,6 +90,11 @@ set wildmode=list:longest,full
 set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor,__pycache__
 
 " ------------------------------------------------------------------------------
+" ALE
+" ------------------------------------------------------------------------------
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" ------------------------------------------------------------------------------
 " airline
 " ------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
