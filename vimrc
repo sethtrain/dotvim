@@ -13,8 +13,8 @@ Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
@@ -80,6 +80,12 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 let g:airline_powerline_fonts = 1
 
 " ------------------------------------------------------------------------------
+" FZF
+" ------------------------------------------------------------------------------
+set rtp+=/usr/local/opt/fzf
+let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" --ignore "build" --ignore "gradle" --ignore "gradlew.bat" --ignore "gradlew" -l -U -g ""'
+
+" ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
@@ -123,9 +129,8 @@ let g:mapleader = ","
 imap jj <Esc>
 map <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 map <C-N> :NERDTreeToggle<cr>
-map <C-P> :CtrlP<cr>
-vmap <C-/> :Commentary<cr>
-map <leader>B :CtrlPBuffer<cr>
+map <C-P> :Files<cr>
+map <leader>B :Buffers<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
 map <leader>ev :e ~/.vim/vimrc<cr>

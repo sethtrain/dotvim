@@ -1,6 +1,11 @@
 vim
 ====
 
+Dependencies
+------------
+
+    $ brew install fzf
+
 Setup
 -----
 
