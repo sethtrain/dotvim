@@ -47,6 +47,9 @@ filetype plugin indent on
 " ------------------------------------------------------------------------------
 colorscheme jellybeans
 
+" ------------------------------------------------------------------------------
+" GENERAL SETTINGS
+" ------------------------------------------------------------------------------
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set clipboard=unnamed
