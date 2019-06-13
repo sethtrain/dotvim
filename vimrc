@@ -56,6 +56,7 @@ colorscheme jellybeans
 " ------------------------------------------------------------------------------
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backspace=indent,eol,start
 set clipboard=unnamed
 set cmdheight=1
 set cursorline
@@ -65,6 +66,7 @@ set hidden
 set mouse=a
 set number
 set noerrorbells
+set noshowmode
 set nowrap
 set shiftwidth=4
 set softtabstop=4
