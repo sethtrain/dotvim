@@ -54,6 +54,8 @@ colorscheme jellybeans
 " ------------------------------------------------------------------------------
 " GENERAL SETTINGS
 " ------------------------------------------------------------------------------
+set autowrite
+set autoread
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backspace=indent,eol,start
