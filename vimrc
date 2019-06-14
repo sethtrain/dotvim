@@ -192,30 +192,25 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
-let g:pre_runner_ran = "false"
+let g:pre_runner_ran = 0
 let g:pre_runner = $PRE_RUNNER
 let g:test_runner = $TEST_RUNNER
 let g:test_location = $TEST_LOCATION
 let g:build_runner = $BUILD_RUNNER
 let g:runner = $RUNNER
 
-" if g:pre_runner != ""
-"     let g:pre_runner .= ";"
-" endif
-
 function! OpenRunner()
-    let g:pre_runner_ran = "true"
-    call VimuxSendKeys("C-l")
+    let g:pre_runner_ran = 1
     call VimuxRunCommand(g:pre_runner)
 endfunction
 
 function! RunCurrentTest()
-    if g:pre_runner_ran == "false"
+    if g:pre_runner_ran == 0
         call OpenRunner()
     endif
     let buffer = bufname("%")
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_runner . " " . g:test_runner . " ". buffer)
+    call VimuxRunCommand(g:test_runner . " ". buffer)
 endfunction
 
 function! RunLastTest()
