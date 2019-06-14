@@ -42,9 +42,6 @@ Plug 'w0rp/ale'
 Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
-" Ruby/Rails
-Plug 'tpope/vim-rails'
-
 call plug#end()
 filetype plugin indent on
 
