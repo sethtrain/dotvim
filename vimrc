@@ -246,6 +246,7 @@ function! RunRunner()
 endfunction
 
 function! VimuxCancel()
+    let g:pre_runner_ran = 0
     call VimuxSendKeys("C-l")
     call VimuxSendKeys("C-c")
 endfunction
