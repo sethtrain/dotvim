@@ -192,40 +192,62 @@ nnoremap Q <Nop>
 " ------------------------------------------------------------------------------
 " Vimux functions and mappings
 " ------------------------------------------------------------------------------
+let g:pre_runner_ran = "false"
 let g:pre_runner = $PRE_RUNNER
 let g:test_runner = $TEST_RUNNER
 let g:test_location = $TEST_LOCATION
 let g:build_runner = $BUILD_RUNNER
 let g:runner = $RUNNER
 
-if g:pre_runner != ""
-    let g:pre_runner .= ";"
-endif
+" if g:pre_runner != ""
+"     let g:pre_runner .= ";"
+" endif
+
+function! OpenRunner()
+    let g:pre_runner_ran = "true"
+    call VimuxSendKeys("C-l")
+    call VimuxRunCommand(g:pre_runner)
+endfunction
 
 function! RunCurrentTest()
+    if g:pre_runner_ran == "false"
+        call OpenRunner()
+    endif
     let buffer = bufname("%")
     call VimuxSendKeys("C-l")
     call VimuxRunCommand(g:pre_runner . " " . g:test_runner . " ". buffer)
 endfunction
 
 function! RunLastTest()
+    if g:pre_runner_ran == "false"
+        call OpenRunner()
+    endif
     call VimuxSendKeys("C-l")
     call VimuxRunLastCommand()
 endfunction
 
 function! RunAllTests()
+    if g:pre_runner_ran == "false"
+        call OpenRunner()
+    endif
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_runner . " " . g:test_runner . " " . g:test_location)
+    call VimuxRunCommand(g:test_runner . " " . g:test_location)
 endfunction
 
 function! RunBuild()
+    if g:pre_runner_ran == "false"
+        call OpenRunner()
+    endif
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_runner . " " . g:build_runner)
+    call VimuxRunCommand(g:build_runner)
 endfunction
 
 function! RunRunner()
+    if g:pre_runner_ran == "false"
+        call OpenRunner()
+    endif
     call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:pre_runner . " " . g:runner)
+    call VimuxRunCommand(g:runner)
 endfunction
 
 function! VimuxCancel()
