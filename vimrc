@@ -276,3 +276,16 @@ func! s:ToggleBreakpoint()
     if getline('.')=~#'^\s*import\spdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
 endf
 nnoremap <leader>bp :call <SID>ToggleBreakpoint()<CR>
+
+function! ToggleQuickfix()
+    for buffer in tabpagebuflist()
+        if bufname(buffer) == ''
+            cclose
+            return
+        endif
+    endfor
+
+    copen
+endfunction
+nnoremap <leader><leader> :call ToggleQuickfix()<CR>
+
