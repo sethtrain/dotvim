@@ -183,6 +183,7 @@ map <leader>P :ALEPrevious<cr>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
+map <leader>e :LspHover<cr>
 map <leader>ev :e ~/.vim/vimrc<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
