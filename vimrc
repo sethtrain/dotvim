@@ -262,14 +262,14 @@ map <silent> <leader>vx :VimuxInterruptRunner<cr>
 
 
 func! s:SetBreakpoint()
-    cal append('.', repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import ipdb; ipdb.set_trace()')
+    cal append('.', repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import pdb; pdb.set_trace()')
 endf
 
 func! s:RemoveBreakpoint()
-    exe 'silent! g/^\s*import\sipdb\;\?\n*\s*ipdb.set_trace()/d'
+    exe 'silent! g/^\s*import\spdb\;\?\n*\s*pdb.set_trace()/d'
 endf
 
 func! s:ToggleBreakpoint()
-    if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
+    if getline('.')=~#'^\s*import\spdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
 endf
 nnoremap <leader>bp :call <SID>ToggleBreakpoint()<CR>
