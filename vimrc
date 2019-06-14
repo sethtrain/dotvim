@@ -13,6 +13,7 @@ Plug 'tpope/vim-sensible'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
@@ -289,5 +290,5 @@ function! ToggleQuickfix()
 
     copen
 endfunction
-nnoremap <leader><leader> :call ToggleQuickfix()<CR>
+nnoremap <leader>c :call ToggleQuickfix()<CR>
 
