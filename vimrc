@@ -73,6 +73,7 @@ set noerrorbells
 set noshowmode
 set nowrap
 set shiftwidth=4
+set shortmess+=Ic
 set softtabstop=4
 set splitbelow
 set splitright
