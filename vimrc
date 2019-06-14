@@ -135,8 +135,8 @@ let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
 " ------------------------------------------------------------------------------
 " Vimux
 " ------------------------------------------------------------------------------
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "50"
+" let g:VimuxOrientation = "h"
+" let g:VimuxHeight = "50"
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
