@@ -288,3 +288,7 @@ function! ToggleQuickfix()
 endfunction
 nnoremap <leader>c :call ToggleQuickfix()<CR>
 
+if filereadable("pelicanconf.py")
+    nmap <leader>G :Dispatch pipenv run generate<cr>
+    nmap <leader>R :Dispatch pipenv run preview<cr>
+endif
