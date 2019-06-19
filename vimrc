@@ -253,13 +253,13 @@ function! VimuxCancel()
     call VimuxSendKeys("C-c")
 endfunction
 
-map <silent> <leader>q :VimuxCloseRunner<cr>
 map <silent> <leader>ra :call RunAllTests()<cr>
 map <silent> <leader>rb :call RunBuild()<cr>
 map <silent> <leader>rf :call RunCurrentTest()<cr>
 map <silent> <leader>rl :call RunLastTest()<cr>
 map <silent> <leader>rr :call RunRunner()<cr>
-map <silent> <leader>vq :call VimuxCancel()<cr>
+map <silent> <leader>vc :call VimuxCancel()<cr>
+map <silent> <leader>vq :call VimuxCloseRunner()<cr>
 map <silent> <leader>vx :VimuxInterruptRunner<cr>
 
 
