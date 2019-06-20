@@ -63,6 +63,10 @@ set cmdheight=1
 set cursorline
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set expandtab
+set foldmethod=indent
+set foldnestmax=5
+set foldlevelstart=0
+set foldlevel=2
 set hidden
 set mouse=a
 set number
