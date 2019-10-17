@@ -102,6 +102,10 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ALE
 " ------------------------------------------------------------------------------
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {
+      \   'ruby': ['standardrb', 'rubocop'],
+      \   'python': ['flake8'],
+      \}
 
 " ------------------------------------------------------------------------------
 " airline
