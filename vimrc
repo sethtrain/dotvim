@@ -56,6 +56,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Ruby and Rails
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 
 call plug#end()
