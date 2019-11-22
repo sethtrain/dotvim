@@ -7,7 +7,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Sensible defaults
-Plug 'tpope/vim-sensible'
+Plug 'liuchengxu/vim-better-default'
 
 " Plugins
 Plug 'airblade/vim-gitgutter'
@@ -17,6 +17,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vim-clap'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
@@ -36,21 +37,15 @@ Plug 'w0rp/ale'
 " ------------------------------------------------------------------------------
 " Completion
 " ------------------------------------------------------------------------------
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ncm2/float-preview.nvim'
+
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
 " ------------------------------------------------------------------------------
 
 " Python
-Plug 'davidhalter/jedi-vim'
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
 
@@ -58,8 +53,24 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 
+" Clojure
+Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 call plug#end()
 filetype plugin indent on
+
+" ------------------------------------------------------------------------------
+" Deoplete
+" ------------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
+set completeopt-=preview
+
+let g:float_preview#docked = 0
+let g:float_preview#max_width = 80
+let g:float_preview#max_height = 40
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
@@ -75,34 +86,11 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backspace=indent,eol,start
 set clipboard=unnamed
-set cmdheight=1
-set cursorline
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set expandtab
-" set foldmethod=indent
-" set foldnestmax=5
-" set foldlevelstart=0
-" set foldlevel=2
-set hidden
 set mouse=a
-set number
-set noerrorbells
-set noshowmode
-set nowrap
-set shiftwidth=4
-set shortmess+=Ic
-set softtabstop=4
-set splitbelow
-set splitright
-set tabstop=4
-set tags=./tags
-set termencoding=utf-8
-set timeoutlen=500
 set undodir=~/.vim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
-set wildmode=list:longest,full
 
 " ------------------------------------------------------------------------------
 " wildignore settings
@@ -114,8 +102,9 @@ set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.
 " ------------------------------------------------------------------------------
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'python': ['flake8'],
+      \ 'ruby': ['standardrb', 'rubocop'],
+      \ 'python': ['flake8'],
+      \ 'clojure': ['clj-kondo', 'joker']
       \}
 
 " ------------------------------------------------------------------------------
@@ -131,6 +120,25 @@ let g:airline_section_z = ''
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+
+" ------------------------------------------------------------------------------
+" Claps
+" ------------------------------------------------------------------------------
+let g:clap_provider_grep_delay = 50
+let g:clap_provider_grep_opts = '-H --no-heading --vimgrep --smart-case --hidden -g "!.git/"'
+
+nnoremap <leader>* :Clap grep ++query=<cword><cr>
+nnoremap <leader>fg :Clap grep<cr>
+nnoremap <leader>ff :Clap files --hidden<cr>
+nnoremap <leader>fb :Clap buffers<cr>
+nnoremap <leader>fw :Clap windows<cr>
+nnoremap <leader>fr :Clap history<cr>
+nnoremap <leader>fh :Clap command_history<cr>
+nnoremap <leader>fj :Clap jumps<cr>
+nnoremap <leader>fl :Clap blines<cr>
+nnoremap <leader>fL :Clap lines<cr>
+nnoremap <leader>ft :Clap filetypes<cr>
+nnoremap <leader>fm :Clap marks<cr>
 
 " ------------------------------------------------------------------------------
 " FZF
@@ -194,8 +202,6 @@ cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 let mapleader = ","
 let g:mapleader = ","
 
-" Thanks Apple touch bar
-imap jj <Esc>
 nmap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nmap <F3> :TagbarToggle<CR>
 map <C-N> :NERDTreeToggle<cr>
