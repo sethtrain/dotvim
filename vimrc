@@ -21,8 +21,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -53,6 +51,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Python
 Plug 'davidhalter/jedi-vim'
+Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Ruby and Rails
@@ -140,19 +139,6 @@ set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" --ignore "build" --ignore "gradle" --ignore "gradlew.bat" --ignore "gradlew" -l -U -g ""'
 
 " ------------------------------------------------------------------------------
-" LSP
-" ------------------------------------------------------------------------------
-if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-            \ 'name': 'pyls',
-            \ 'cmd': {server_info->['pyls']},
-            \ 'whitelist': ['python'],
-            \ })
-endif
-let g:lsp_diagnostics_enabled = 0
-
-" ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
@@ -222,6 +208,7 @@ map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
 map <leader>ev :e ~/.vim/vimrc<cr>
+map <leader>gd :LspDefinition<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
 map <leader>< :vertical resize -5<cr>
