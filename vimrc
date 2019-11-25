@@ -37,8 +37,6 @@ Plug 'w0rp/ale'
 " Completion
 " ------------------------------------------------------------------------------
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'ncm2/float-preview.nvim'
-
 
 " ------------------------------------------------------------------------------
 " Language Specific Plugins
@@ -52,25 +50,8 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 
-" Clojure
-Plug 'Olical/conjure', { 'tag': 'v2.1.0', 'do': 'bin/compile' }
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-
 call plug#end()
 filetype plugin indent on
-
-" ------------------------------------------------------------------------------
-" Deoplete
-" ------------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
-set completeopt-=preview
-
-let g:float_preview#docked = 0
-let g:float_preview#max_width = 80
-let g:float_preview#max_height = 40
-
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
@@ -119,6 +100,11 @@ let g:airline_section_z = ''
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+
+" ------------------------------------------------------------------------------
+" Deoplete
+" ------------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
 
 " ------------------------------------------------------------------------------
 " FZF
@@ -181,6 +167,7 @@ cnoremap %% <C-R>=expand('%:p:h').'/'<cr>
 " ------------------------------------------------------------------------------
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = "\\"
 
 nmap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nmap <F3> :TagbarToggle<CR>
