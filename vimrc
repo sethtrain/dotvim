@@ -31,24 +31,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'w0rp/ale'
-
-" ------------------------------------------------------------------------------
-" Completion
-" ------------------------------------------------------------------------------
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" ------------------------------------------------------------------------------
-" Language Specific Plugins
-" ------------------------------------------------------------------------------
-
-" Python
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'Vimjas/vim-python-pep8-indent'
-
-" Ruby and Rails
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
 
 call plug#end()
 filetype plugin indent on
@@ -78,16 +60,6 @@ set undoreload=5000
 set wildignore+=out,.lein-cljsbuild-compiler*,*.pyc,node_modules,repl,uploads,*.log,workspace.xml,vendor,__pycache__
 
 " ------------------------------------------------------------------------------
-" ALE
-" ------------------------------------------------------------------------------
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {
-      \ 'ruby': ['standardrb', 'rubocop'],
-      \ 'python': ['flake8'],
-      \ 'clojure': ['clj-kondo', 'joker']
-      \}
-
-" ------------------------------------------------------------------------------
 " airline
 " ------------------------------------------------------------------------------
 let g:airline_powerline_fonts = 0
@@ -100,11 +72,6 @@ let g:airline_section_z = ''
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
-
-" ------------------------------------------------------------------------------
-" Deoplete
-" ------------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
 
 " ------------------------------------------------------------------------------
 " FZF
@@ -181,7 +148,6 @@ map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
 map <leader>ev :e ~/.vim/vimrc<cr>
-map <leader>gd :LspDefinition<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
 map <leader>< :vertical resize -5<cr>
