@@ -13,6 +13,7 @@ Plug 'liuchengxu/vim-better-default'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -20,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -34,6 +36,15 @@ Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 filetype plugin indent on
+
+" ------------------------------------------------------------------------------
+" Python Language
+" ------------------------------------------------------------------------------
+let g:ale_linters = {
+      \   'python': ['flake8'],
+      \   'javascript': ['eslint'],
+      \}
+
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
 " ------------------------------------------------------------------------------
@@ -78,6 +89,13 @@ let g:strip_whitespace_confirm=0
 " ------------------------------------------------------------------------------
 set rtp+=/usr/local/opt/fzf
 let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc" --ignore "datadir" --ignore "tmp" --ignore "node_modules" --ignore "build" --ignore "gradle" --ignore "gradlew.bat" --ignore "gradlew" -l -U -g ""'
+
+" ------------------------------------------------------------------------------
+" NERDTree
+" ------------------------------------------------------------------------------
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ }
 
 " ------------------------------------------------------------------------------
 " NERDTree
@@ -138,6 +156,13 @@ let maplocalleader = "\\"
 
 nmap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nmap <F3> :TagbarToggle<CR>
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 map <C-N> :NERDTreeToggle<cr>
 map <C-P> :Files<cr>
 map <leader>B :Buffers<cr>
