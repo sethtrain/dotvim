@@ -92,13 +92,6 @@ let $FZF_DEFAULT_COMMAND = 'ag --ignore "venv" --ignore "vendor" --ignore "*.pyc
 " ------------------------------------------------------------------------------
 " NERDTree
 " ------------------------------------------------------------------------------
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ }
-
-" ------------------------------------------------------------------------------
-" NERDTree
-" ------------------------------------------------------------------------------
 let NERDTreeIgnore = ['\.pyc$', 'datadir', 'node_modules', '__pycache__']
 
 " ------------------------------------------------------------------------------
@@ -116,12 +109,6 @@ let g:tmuxline_separators = {
     \ 'right_alt' : '',
     \ 'space' : ' '
     \}
-
-" ------------------------------------------------------------------------------
-" Vimux
-" ------------------------------------------------------------------------------
-" let g:VimuxOrientation = "h"
-let g:VimuxHeight = "30"
 
 " ------------------------------------------------------------------------------
 " These will make it so that going to the next one in a
@@ -186,6 +173,6 @@ endfunction
 nnoremap <leader>c :call ToggleQuickfix()<CR>
 
 if filereadable("pelicanconf.py")
-    nmap <leader>G :Dispatch pipenv run generate<cr>
-    nmap <leader>R :Dispatch pipenv run preview<cr>
+    nmap <leader>G :Dispatch pelican content --output .<cr>
+    nmap <leader>R :Dispatch pelican -l --output .<cr>
 endif
