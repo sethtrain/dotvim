@@ -18,6 +18,7 @@ Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
@@ -56,7 +57,6 @@ set undodir=~/.vim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
-set statusline^=%{coc#status()}
 
 " ------------------------------------------------------------------------------
 " wildignore settings
