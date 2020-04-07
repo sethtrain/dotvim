@@ -11,8 +11,6 @@ Plug 'liuchengxu/vim-better-default'
 
 " Plugins
 Plug 'airblade/vim-gitgutter'
-Plug 'benmills/vimux'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
@@ -174,91 +172,6 @@ map <leader>so :w \| :so %<cr>
 
 " Disable Ex mode
 nnoremap Q <Nop>
-
-" ------------------------------------------------------------------------------
-" Vimux functions and mappings
-" ------------------------------------------------------------------------------
-let g:pre_runner_ran = 0
-let g:pre_runner = $PRE_RUNNER
-let g:test_runner = $TEST_RUNNER
-let g:test_location = $TEST_LOCATION
-let g:build_runner = $BUILD_RUNNER
-let g:runner = $RUNNER
-
-function! OpenRunner()
-    let g:pre_runner_ran = 1
-    call VimuxRunCommand(g:pre_runner)
-endfunction
-
-function! RunCurrentTest()
-    if g:pre_runner_ran == 0
-        call OpenRunner()
-    endif
-    let buffer = bufname("%")
-    call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:test_runner . " ". buffer)
-endfunction
-
-function! RunLastTest()
-    if g:pre_runner_ran == "false"
-        call OpenRunner()
-    endif
-    call VimuxSendKeys("C-l")
-    call VimuxRunLastCommand()
-endfunction
-
-function! RunAllTests()
-    if g:pre_runner_ran == "false"
-        call OpenRunner()
-    endif
-    call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:test_runner . " " . g:test_location)
-endfunction
-
-function! RunBuild()
-    if g:pre_runner_ran == "false"
-        call OpenRunner()
-    endif
-    call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:build_runner)
-endfunction
-
-function! RunRunner()
-    if g:pre_runner_ran == "false"
-        call OpenRunner()
-    endif
-    call VimuxSendKeys("C-l")
-    call VimuxRunCommand(g:runner)
-endfunction
-
-function! VimuxCancel()
-    let g:pre_runner_ran = 0
-    call VimuxSendKeys("C-l")
-    call VimuxSendKeys("C-c")
-endfunction
-
-map <silent> <leader>ra :call RunAllTests()<cr>
-map <silent> <leader>rb :call RunBuild()<cr>
-map <silent> <leader>rf :call RunCurrentTest()<cr>
-map <silent> <leader>rl :call RunLastTest()<cr>
-map <silent> <leader>rr :call RunRunner()<cr>
-map <silent> <leader>vc :call VimuxCancel()<cr>
-map <silent> <leader>vq :call VimuxCloseRunner()<cr>
-map <silent> <leader>vx :VimuxInterruptRunner<cr>
-
-
-func! s:SetBreakpoint()
-    cal append('.', repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import pdb; pdb.set_trace()')
-endf
-
-func! s:RemoveBreakpoint()
-    exe 'silent! g/^\s*import\spdb\;\?\n*\s*pdb.set_trace()/d'
-endf
-
-func! s:ToggleBreakpoint()
-    if getline('.')=~#'^\s*import\spdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
-endf
-nnoremap <leader>bp :call <SID>ToggleBreakpoint()<CR>
 
 function! ToggleQuickfix()
     for buffer in tabpagebuflist()
