@@ -13,7 +13,6 @@ Plug 'liuchengxu/vim-better-default'
 Plug 'airblade/vim-gitgutter'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
@@ -160,8 +159,6 @@ map <C-N> :NERDTreeToggle<cr>
 map <C-P> :Files<cr>
 map <leader>B :Buffers<cr>
 map <leader>D :Dispatch<cr>
-map <leader>N :ALENext<cr>
-map <leader>P :ALEPrevious<cr>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
