@@ -14,8 +14,10 @@ Setup
     $ vim +PluginInstall +qall
     $ CocInstall coc-python
 
-Configuration
--------------
+Configuration (Python)
+----------------------
+
+    :CocInstall coc-python
 
 Once you've installed all the plugins above you will need to configure your Python envrionment.
 Below is a sample `.vim/coc-settings.json`:
@@ -35,4 +37,19 @@ You should also configure your interpreter:
 :CocCommand<cr>
 python.setInterpreter
 ```
+
+Configuration (Ruby)
+----------------------
+
+The use of `solargraph` assumes:
+
+    $ gem install solargraph
+
+Once the gem is installed you can proceed with the vim configuration.
+
+    :CocInstall coc-solargraph
+
+For new projects you should generate a `solargraph` config file:
+
+    :CocCommand solargraph.config
 

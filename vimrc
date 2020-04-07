@@ -35,13 +35,14 @@ Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-call plug#end()
-filetype plugin indent on
-
 " ------------------------------------------------------------------------------
 " Languages
 " ------------------------------------------------------------------------------
 Plug 'tpope/vim-rails'
+
+
+call plug#end()
+filetype plugin indent on
 
 " ------------------------------------------------------------------------------
 " VISUAL SETTINGS
