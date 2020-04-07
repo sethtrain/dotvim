@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
