@@ -1,16 +1,21 @@
-" ------------------------------------------------------------------------------
+
 " vim-plug
 " ------------------------------------------------------------------------------
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Sensible defaults
 Plug 'liuchengxu/vim-better-default'
 
 " Plugins
 Plug 'airblade/vim-gitgutter'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim'
@@ -20,12 +25,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'majutsushi/tagbar'
 Plug 'nanotech/jellybeans.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rhubarb'
@@ -34,12 +39,20 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " ------------------------------------------------------------------------------
+" Deoplete
+" ------------------------------------------------------------------------------
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+let g:deoplete#enable_at_startup = 1
+
+" ------------------------------------------------------------------------------
 " Languages
 " ------------------------------------------------------------------------------
 Plug 'tpope/vim-rails'
-
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
+
 filetype plugin indent on
 
 " ------------------------------------------------------------------------------
@@ -53,11 +66,11 @@ colorscheme jellybeans
 set autowrite
 set autoread
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.config/nvim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backspace=indent,eol,start
 set clipboard=unnamed
 set mouse=a
-set undodir=~/.vim/undo
+set undodir=~/.config/nvim/undo
 set undofile
 set undolevels=500
 set undoreload=5000
@@ -75,6 +88,21 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_x = ''
 let g:airline_section_y = ''
 let g:airline_section_z = ''
+
+" ------------------------------------------------------------------------------
+" ALE
+" ------------------------------------------------------------------------------
+let g:ale_linters = {
+      \   'ruby': ['rubocop'],
+      \}
+
+" ------------------------------------------------------------------------------
+" Language Client
+" ------------------------------------------------------------------------------
+let g:LanguageClient_serverCommands = {
+    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
+    \ 'go': ['gopls'],
+    \ }
 
 " ------------------------------------------------------------------------------
 " Better whitespace
@@ -140,6 +168,9 @@ let mapleader = ","
 let g:mapleader = ","
 let maplocalleader = "\\"
 
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nmap <F4> :set paste<cr>:r !pbpaste<cr>:set nopaste<cr>
 nmap <F3> :TagbarToggle<CR>
 map <C-N> :NERDTreeToggle<cr>
@@ -149,7 +180,7 @@ map <leader>D :Dispatch<cr>
 map <leader>aa :A<cr>
 map <leader>a :Ag<cr>
 map <leader>bd :bd<cr>
-map <leader>ev :e ~/.vim/vimrc<cr>
+map <leader>ev :e ~/.config/nvim/init.vim<cr>
 map <leader>v <C-w>v<C-w>l
 map <leader>> :vertical resize +5<cr>
 map <leader>< :vertical resize -5<cr>
@@ -176,3 +207,8 @@ if filereadable("pelicanconf.py")
     nmap <leader>G :Dispatch pelican content --output .<cr>
     nmap <leader>R :Dispatch pelican -l --output .<cr>
 endif
+
+" Override sensible defaults
+runtime! plugin/default.vim
+set norelativenumber
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
