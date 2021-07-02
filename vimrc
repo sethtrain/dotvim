@@ -48,7 +48,6 @@ let g:deoplete#enable_at_startup = 1
 " ------------------------------------------------------------------------------
 " Languages
 " ------------------------------------------------------------------------------
-Plug 'tpope/vim-rails'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
@@ -93,14 +92,13 @@ let g:airline_section_z = ''
 " ALE
 " ------------------------------------------------------------------------------
 let g:ale_linters = {
-      \   'ruby': ['rubocop'],
+    \ 'go': ['golint'],
       \}
 
 " ------------------------------------------------------------------------------
 " Language Client
 " ------------------------------------------------------------------------------
 let g:LanguageClient_serverCommands = {
-    \ 'ruby': ['~/.rbenv/shims/solargraph', 'stdio'],
     \ 'go': ['gopls'],
     \ }
 
